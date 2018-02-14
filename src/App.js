@@ -8,4 +8,22 @@ class App extends Component {
   }
 }
 
+class Timer extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2
+          className=''
+        >
+          Timer
+        </h2>
+        <TimerButton
+          onStartClick={}
+          onStopClick={}
+        />
+      </div>
+    );
+  }
+}
+
 export default App;
