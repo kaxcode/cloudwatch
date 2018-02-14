@@ -48,28 +48,3 @@ export default class Timer extends Component {
     );
   }
 }
-
-// commenting this out for now, making it as simple as possible to start as per Derek's rec
-// class TimerButton extends React.Component {
-//   render() {
-//     if (this.props.timerIsRunning) {
-//       return (
-//         <div
-//           className=''
-//           onClick={this.props.onStopClick}
-//         >
-//           Stop
-//         </div>
-//       );
-//     } else {
-//       return (
-//         <div
-//           className=''
-//           onClick={this.props.onStartClick}
-//         >
-//           Start
-//         </div>
-//       );
-//     }
-//   }
-// }
