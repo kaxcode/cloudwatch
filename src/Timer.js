@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {Row, Button, Card, Col} from 'react-materialize'
+import Container from "react-materialize/lib/Container";
 
 export default class Timer extends Component {
   constructor(props) {
@@ -36,15 +38,19 @@ export default class Timer extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className="">Timer</h2>
-        <div>{this.state.counter}</div>
-        <div>
-          <button onClick={this.startTimer}>Start</button>
-          <button onClick={this.pauseTimer}>Pause</button>
-          <button onClick={this.clearTimer}>Clear</button>
-        </div>
-      </div>
+        <Row>
+            <Col s={12} m={3} offset="m6 l4">
+            <Card className='white' textClassName='black-text'>
+              <h3>CloudWatch</h3>
+              <h3>{this.state.counter}</h3>
+              <div>
+                <Button waves='light' className='green' onClick={this.startTimer}>Start</Button>
+                <Button waves='light' className='red' onClick={this.pauseTimer}>Pause</Button>
+                <Button waves='light' className='yellow darken-3' onClick={this.clearTimer}>Clear</Button>
+              </div>
+            </Card>
+          </Col>
+        </Row>
     );
   }
 }
