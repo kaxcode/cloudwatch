@@ -18,8 +18,8 @@ class Timer extends React.Component {
           Timer
         </h2>
         <TimerButton
-          onStartClick={}
-          onStopClick={}
+          onStartClick={this.handleStartClick}
+          onStopClick={this.handleStopClick}
         />
       </div>
     );
