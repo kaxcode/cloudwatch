@@ -9,7 +9,6 @@ Checkout the CloudWatch app [here](http://cloudwatch100.s3-website-us-east-1.ama
 ## Components
 - App
 - Timer
-- Timer Button
 
 ## Code files
 - App.js
