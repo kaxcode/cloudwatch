@@ -39,8 +39,8 @@ export default class Timer extends Component {
   render() {
     return (
         <Row>
-            <Col s={12} m={3} offset="m6 l4">
-            <Card className='white' textClassName='black-text'>
+            <Col s={12} m={3} offset="m2 l4" >
+            <Card className='white parent-container' textClassName='black-text'>
               <h3>CloudWatch</h3>
               <h3>{this.state.counter}</h3>
               <div>
