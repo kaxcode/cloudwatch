@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {Row, Button, Card, Col} from 'react-materialize'
-import Container from "react-materialize/lib/Container";
 
 export default class Timer extends Component {
   constructor(props) {
