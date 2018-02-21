@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "cloudreach/react",
+        "prettier/react"
+    ]
+}
