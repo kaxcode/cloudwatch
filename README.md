@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/kaxcode/cloudwatch.svg?branch=master)](https://travis-ci.org/kaxcode/cloudwatch)
+
+
 Checkout the CloudWatch app [here](http://cloudwatch100.s3-website-us-east-1.amazonaws.com/).
 
 ## About CloudWatch
