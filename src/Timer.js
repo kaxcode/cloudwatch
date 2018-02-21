@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {Row, Button, Card, Col} from 'react-materialize';
+import React, { Component } from 'react';
+import { Row, Button, Card, Col } from 'react-materialize';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -37,19 +37,29 @@ export default class Timer extends Component {
 
   render() {
     return (
-        <Row>
-            <Col s={12} m={3} offset="m2 l4" >
-            <Card className='white parent-container' textClassName='black-text'>
-              <h3>CloudWatch</h3>
-              <h3>{this.state.counter}</h3>
-              <div>
-                <Button waves='light' className='green' onClick={this.startTimer}>Start</Button>
-                <Button waves='light' className='red' onClick={this.pauseTimer}>Pause</Button>
-                <Button waves='light' className='yellow darken-3' onClick={this.clearTimer}>Clear</Button>
-              </div>
-            </Card>
-          </Col>
-        </Row>
+      <Row>
+        <Col s={12} m={3} offset="m2 l4">
+          <Card className="white parent-container" textClassName="black-text">
+            <h3>CloudWatch</h3>
+            <h3>{this.state.counter}</h3>
+            <div>
+              <Button waves="light" className="green" onClick={this.startTimer}>
+                Start
+              </Button>
+              <Button waves="light" className="red" onClick={this.pauseTimer}>
+                Pause
+              </Button>
+              <Button
+                waves="light"
+                className="yellow darken-3"
+                onClick={this.clearTimer}
+              >
+                Clear
+              </Button>
+            </div>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }
