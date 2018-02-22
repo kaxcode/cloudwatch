@@ -15,8 +15,6 @@ export default class Timer extends Component {
     const timer = setInterval(this.tick, 1000);
     this.setState({ timer });
     this.setState({ clicked: true });
-  } else {
-      null;
     }
   }
 
