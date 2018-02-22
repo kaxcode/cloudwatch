@@ -5,22 +5,30 @@ export default class Timer extends Component {
 
   state = {
     timer: null,
-    counter: 0
+    counter: 0,
+    clicked: false
   };
 
   startTimer = () => {
+    if (this.state.clicked === false) {
     clearInterval(this.state.timer);
     const timer = setInterval(this.tick, 1000);
     this.setState({ timer });
+    this.setState({ clicked: true });
+  } else {
+      null;
+    }
   }
 
   pauseTimer = () => {
     clearInterval(this.state.timer);
+    this.setState({ clicked: false });
   }
 
   clearTimer = () => {
     clearInterval(this.state.timer);
     this.setState({ counter: 0 });
+    this.setState({ clicked: false });
   }
 
   tick = () => {
