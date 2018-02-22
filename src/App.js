@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timer from './Timer.js'
+import Timer from './Timer.js';
 
 class App extends Component {
   render() {
