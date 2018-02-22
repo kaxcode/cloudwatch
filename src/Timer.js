@@ -2,34 +2,27 @@ import React, { Component } from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
 
 export default class Timer extends Component {
-  constructor(props) {
-    super(props);
-    this.tick = this.tick.bind(this);
-    this.startTimer = this.startTimer.bind(this);
-    this.pauseTimer = this.pauseTimer.bind(this);
-    this.clearTimer = this.clearTimer.bind(this);
-  }
 
   state = {
     timer: null,
     counter: 0
   };
 
-  startTimer() {
+  startTimer = () => {
     let timer = setInterval(this.tick, 1000);
     this.setState({ timer });
   }
 
-  pauseTimer() {
+  pauseTimer = () => {
     clearInterval(this.state.timer);
   }
 
-  clearTimer() {
+  clearTimer = () => {
     clearInterval(this.state.timer);
     this.setState({ counter: 0 });
   }
 
-  tick() {
+  tick = () => {
     this.setState({
       counter: this.state.counter + 1
     });
