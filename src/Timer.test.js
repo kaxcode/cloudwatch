@@ -1,11 +1,9 @@
-// import React from 'react';
-// import Timer from './Timer';
-// import TestRenderer from 'react-test-renderer';
-//
-// jest.useFakeTimers();
-// Date.now = jest.fn(() => 1482363367071);
-//
-// it('renders correctly', () => {
-//   const tree = renderer.create(<Timer />).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<App />, div);
+  ReactDOM.unmountComponentAtNode(div);
+});
