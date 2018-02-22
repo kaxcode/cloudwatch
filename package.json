@@ -13,7 +13,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:lint:js": "eslint --ext=js --ext=jsx .",
-    "test:lint:css": "stylelint \"**/*.css\"",
     "test:unit": "react-scripts test --env=jsdom",
     "test": "run-s test:**",
     "eject": "react-scripts eject"
