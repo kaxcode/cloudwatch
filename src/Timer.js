@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
+import { millisecondsToHuman } from './utils/humanizeTimer';
 
 export default class Timer extends Component {
 
@@ -41,7 +42,7 @@ export default class Timer extends Component {
         <Col s={12} m={3} offset="m2 l4">
           <Card className="white parent-container" textClassName="black-text">
             <h3>CloudWatch</h3>
-            <h3>{this.state.counter}</h3>
+            <h3>{millisecondsToHuman(this.state.counter)}</h3>
             <div>
               <Button waves="light" className="green" onClick={this.startTimer}>
                 Start
