@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/kaxcode/cloudwatch.svg?branch=master)](https://travis-ci.org/kaxcode/cloudwatch)
 
 
-Checkout the CloudWatch app [here](http://cloudwatch100.s3-website-us-east-1.amazonaws.com/).
+Check out the CloudWatch app [here](http://cloudwatch100.s3-website-us-east-1.amazonaws.com/).
 
 ## About CloudWatch
 
@@ -17,3 +17,12 @@ Checkout the CloudWatch app [here](http://cloudwatch100.s3-website-us-east-1.ama
 - App.js
 - Timer.js
 - index.css
+
+## Deployment
+This app was deployed using Amazon S3. To deploy yourself, start by navigating to the S3 section of the AWS console. Next, create a new bucket closest to you or your users. While configuring it, make sure to enable static website hosting and set up the correct permissions (public if you would like it to be viewable by others). Navigate to the terminal and `npm run build `.
+
+When complete, navigate to your build folder and upload the contents of that folder into your S3 bucket. To confirm that your app has been successfully deployed, navigate to the `index.html` file and locate the URL in the following format: `<bucket-name>.s3-website.<bucket-region>.amazonaws.com`.
+
+For more detailed instructions, please refer to this [link](https://www.fullstackreact.com/articles/deploying-a-react-app-to-s3/).
+
+Thanks for dropping by!
