@@ -13,7 +13,7 @@ export default class Timer extends Component {
     this.setState({
       counter: 0
     });
-    let timer = setInterval(this.tick, 1000);
+    const timer = setInterval(this.tick, 1000);
     this.setState({ timer });
   }
 
