@@ -4,27 +4,27 @@ import { Row, Button, Card, Col } from 'react-materialize';
 export default class Timer extends Component {
 
   state = {
-    timer: null,
     counter: 0,
     clicked: false
   };
 
+  timer = null;
+
   startTimer = () => {
     if (this.state.clicked === false) {
-    clearInterval(this.state.timer);
-    const timer = setInterval(this.tick, 1000);
-    this.setState({ timer });
+    clearInterval(this.timer);
+    this.timer = setInterval(this.tick, 1000);
     this.setState({ clicked: true });
     }
   }
 
   pauseTimer = () => {
-    clearInterval(this.state.timer);
+    clearInterval(this.timer);
     this.setState({ clicked: false });
   }
 
   clearTimer = () => {
-    clearInterval(this.state.timer);
+    clearInterval(this.timer);
     this.setState({ counter: 0 });
     this.setState({ clicked: false });
   }
