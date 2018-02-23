@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col s12 m3 offset-m2 offset-l4"
+  >
+    <div
+      className="white parent-container card"
+    >
+      <div
+        className="card-content black-text"
+      >
+        <div>
+          <h3>
+            CloudWatch
+          </h3>
+          <h3>
+            00:00:00
+          </h3>
+          <div>
+            <button
+              className="btn waves-effect waves-light green"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Start
+            </button>
+            <button
+              className="btn waves-effect waves-light red"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Pause
+            </button>
+            <button
+              className="btn waves-effect waves-light yellow darken-3"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-reveal"
+      >
+        <span
+          className="card-title grey-text text-darken-4"
+        >
+          <i
+            className="material-icons right"
+          >
+            close
+          </i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
