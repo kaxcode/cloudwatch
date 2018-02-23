@@ -1,7 +1,15 @@
 {
   "name": "cloudwatch",
   "version": "1.0.0",
-  "author": "Kenia Valladarez, Max Eingorn",
+  "author": "Cloudreach",
+  "contributors": [
+    {
+      "name": "Kenia Valladarez"
+    },
+    {
+      "name": "Max Eingorn"
+    }
+  ],
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
