@@ -39,6 +39,7 @@ export default class Timer extends Component {
   render() {
     return (
       <Row>
+      {console.log(this)}
         <Col s={12} m={3} offset="m2 l4">
           <Card className="white parent-container" textClassName="black-text">
             <h3>CloudWatch</h3>

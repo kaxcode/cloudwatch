@@ -1,9 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import Timer from './Timer';
+import renderer from 'react-test-renderer';
+import {shallow} from 'enzyme';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+Enzyme.configure({ adapter: new Adapter() });
+
+it('renders correctly', () => {
+  const tree = renderer.create(<Timer />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+jest.useFakeTimers();
+
+test('Timer runs after click', () => {
+  const timer = shallow(<Timer />);
+  timer.instance().startTimer();
+
+  expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
 });
