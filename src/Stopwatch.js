@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from './utils/humanizeTimer';
 
-export default class Timer extends Component {
+export default class Stopwatch extends Component {
 
   state = {
     counter: 0,
@@ -11,7 +11,7 @@ export default class Timer extends Component {
 
   timer = null;
 
-  startTimer = () => {
+  startStopwatch = () => {
     if (this.state.clicked === false) {
     clearInterval(this.timer);
     this.timer = setInterval(this.tick, 1000);
@@ -19,12 +19,12 @@ export default class Timer extends Component {
     }
   }
 
-  pauseTimer = () => {
+  pauseStopwatch = () => {
     clearInterval(this.timer);
     this.setState({ clicked: false });
   }
 
-  clearTimer = () => {
+  clearStopwatch = () => {
     clearInterval(this.timer);
     this.setState({ counter: 0 });
     this.setState({ clicked: false });
@@ -45,16 +45,16 @@ export default class Timer extends Component {
             <h3>CloudWatch</h3>
             <h3>{millisecondsToHuman(this.state.counter)}</h3>
             <div>
-              <Button waves="light" className="green" onClick={this.startTimer}>
+              <Button waves="light" className="green" onClick={this.startStopwatch}>
                 Start
               </Button>
-              <Button waves="light" className="red" onClick={this.pauseTimer}>
+              <Button waves="light" className="red" onClick={this.pauseStopwatch}>
                 Pause
               </Button>
               <Button
                 waves="light"
                 className="yellow darken-3"
-                onClick={this.clearTimer}
+                onClick={this.clearStopwatch}
               >
                 Clear
               </Button>
