@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Timer from './Timer.js';
+import Stopwatch from './Stopwatch.js';
 
 class App extends Component {
   render() {
-    return <Timer />;
+    return <Stopwatch />;
   }
 }
 
