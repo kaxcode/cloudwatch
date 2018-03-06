@@ -13,7 +13,7 @@ export default class Stopwatch extends Component {
   startStopwatch = () => {
     if (this.state.clicked === false) {
       clearInterval(this.timer);
-      this.timer = setInterval(this.tick, 1000);
+      this.timer = setInterval(this.tick, 10);
       this.setState({ clicked: true });
     }
   };
