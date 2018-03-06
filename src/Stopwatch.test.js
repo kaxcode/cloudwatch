@@ -18,5 +18,5 @@ test('Stopwatch runs after click', () => {
   const stopwatch = shallow(<Stopwatch />);
   stopwatch.instance().startStopwatch();
 
-  expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+  expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
 });
