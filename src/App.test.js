@@ -1,5 +1,5 @@
 import React from 'react';
-import Timer from './Timer';
+import Stopwatch from './Stopwatch';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import Enzyme from 'enzyme';
@@ -8,15 +8,15 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders correctly', () => {
-  const tree = renderer.create(<Timer />).toJSON();
+  const tree = renderer.create(<Stopwatch />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 jest.useFakeTimers();
 
-test('Timer runs after click', () => {
-  const timer = shallow(<Timer />);
-  timer.instance().startTimer();
+test('Stopwatch runs after click', () => {
+  const stopwatch = shallow(<Stopwatch />);
+  stopwatch.instance().startStopwatch();
 
   expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
 });
