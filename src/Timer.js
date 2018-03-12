@@ -2,6 +2,36 @@ import React from 'react';
 import { Row, Button, Card, Col, Table } from 'react-materialize';
 
 class Timer extends React.Component {
+  state = {
+    hoursRemaining: 0,
+    minutesRemaining: 0,
+    secondsRemaining: 0
+  };
+
+  incrementHours = () => {
+    if (this.state.hoursRemaining < 23) {
+      this.setState({ hoursRemaining: this.state.hoursRemaining + 1 });
+    }
+  };
+
+  decreaseHours = () => {
+    if (this.state.hoursRemaining > 0) {
+      this.setState({ hoursRemaining: this.state.hoursRemaining - 1 });
+    }
+  };
+
+  startTimer = () => {
+
+  };
+
+  pauseTimer = () => {
+
+  };
+
+  clearTimer = () => {
+
+  };
+
   render() {
     return (
       <Row>
@@ -22,42 +52,42 @@ class Timer extends React.Component {
                 <tr>
                   <td>
                     <div className="hours-set">
-                      <Button className="plus-btn blue">+</Button>
-                      <Button className="minus-btn blue">-</Button>
+                      <Button className="hours plus-btn blue" onClick={this.incrementHours}>+</Button>
+                      <Button className="hours minus-btn blue" onClick={this.decreaseHours}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="minutes-set">
-                      <Button className="plus-btn blue">+</Button>
-                      <Button className="minus-btn blue">-</Button>
+                      <Button className="plus-btn blue" onClick={this.IncrementItem}>+</Button>
+                      <Button className="minus-btn blue" onClick={this.DecreaseItem}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="seconds-set">
-                      <Button waves="light" className="plus-btn blue">+</Button>
-                      <Button className="minus-btn blue">-</Button>
+                      <Button waves="light" className="plus-btn blue" onClick={this.IncrementItem}>+</Button>
+                      <Button className="minus-btn blue" onClick={this.DecreaseItem}>-</Button>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h1 className="timer-count">00</h1>
+                    <h1 className="timer-count">{this.state.hoursRemaining}</h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">00</h1>
+                    <h1 className="timer-count">{this.state.minutesRemaining}</h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">00</h1>
+                    <h1 className="timer-count">{this.state.secondsRemaining}</h1>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <Button waves="light" className="green start-btn">
+                    <Button waves="light" className="green start-btn" onClick={this.startTimer}>
                       Start
                     </Button>
                   </td>
                   <td>
-                    <Button waves="light" className="red pause-btn">
+                    <Button waves="light" className="red pause-btn" onClick={this.pauseTimer}>
                       Pause
                     </Button>
                   </td>

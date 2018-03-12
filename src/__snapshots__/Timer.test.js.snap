@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer renders correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col s12 m3 offset-m2 offset-l4"
+  >
+    <div
+      className="white parent-container card"
+    >
+      <div
+        className="card-content black-text"
+      >
+        <div>
+          <h3>
+            Timer
+          </h3>
+          <table
+            className="setters"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="timer-heading"
+                >
+                  Hours
+                </th>
+                <th
+                  className="timer-heading"
+                >
+                  Minutes
+                </th>
+                <th
+                  className="timer-heading"
+                >
+                  Seconds
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div
+                    className="hours-set"
+                  >
+                    <button
+                      className="btn hours plus-btn blue"
+                      disabled={false}
+                      onClick={[Function]}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="btn hours minus-btn blue"
+                      disabled={false}
+                      onClick={[Function]}
+                    >
+                      -
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div
+                    className="minutes-set"
+                  >
+                    <button
+                      className="btn plus-btn blue"
+                      disabled={false}
+                      onClick={undefined}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="btn minus-btn blue"
+                      disabled={false}
+                      onClick={undefined}
+                    >
+                      -
+                    </button>
+                  </div>
+                </td>
+                <td>
+                  <div
+                    className="seconds-set"
+                  >
+                    <button
+                      className="btn waves-effect waves-light plus-btn blue"
+                      disabled={false}
+                      onClick={undefined}
+                    >
+                      +
+                    </button>
+                    <button
+                      className="btn minus-btn blue"
+                      disabled={false}
+                      onClick={undefined}
+                    >
+                      -
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    className="timer-count"
+                  >
+                    0
+                  </h1>
+                </td>
+                <td>
+                  <h1
+                    className="timer-count"
+                  >
+                    0
+                  </h1>
+                </td>
+                <td>
+                  <h1
+                    className="timer-count"
+                  >
+                    0
+                  </h1>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    className="btn waves-effect waves-light green start-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    Start
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="btn waves-effect waves-light red pause-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    Pause
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="btn waves-effect waves-light yellow darken-3 clear-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                  >
+                    Clear
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        className="card-reveal"
+      >
+        <span
+          className="card-title grey-text text-darken-4"
+        >
+          <i
+            className="material-icons right"
+          >
+            close
+          </i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
