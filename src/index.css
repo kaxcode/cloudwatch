@@ -4,11 +4,33 @@ body {
   font-family: sans-serif;
 }
 
-button {
-  margin: 10px;
-}
-
 .parent-container {
   min-width: 450px;
+}
+
+.plus-btn, 
+.minus-btn {
+  width: 35px;
+  padding: 0;
+}
+
+.start-btn,
+.pause-btn,
+.clear-btn {
+  margin-left: 8px;
+}
+
+.plus-btn {
+  margin-left: 17px;
+  margin-right: 15px;
+}
+
+.parent-container,
+.timer-count,
+.timer-heading {
   text-align: center;
+}
+
+.timer-count {
+  margin: 0;
 }
