@@ -2,6 +2,10 @@ import React from 'react';
 import { Row, Button, Card, Col, Table } from 'react-materialize';
 import { secondsToHour, secondsToMinutes, seconds } from './utils/humanizeTimer';
 
+const HOURS = 3600;
+const MINUTES = 60;
+const SECONDS = 1;
+
 class Timer extends React.Component {
   state = {
     timeRemaining: 0,
@@ -10,43 +14,39 @@ class Timer extends React.Component {
 
   timer = null;
 
-  HOURS = 3600;
-  MINUTES = 60;
-  SECONDS = 1;
-
   increaseHours = () => {
     if (this.state.timeRemaining < 82800 ) {
-        this.setState({ timeRemaining: (this.state.timeRemaining + this.HOURS) });
+        this.setState({ timeRemaining: (this.state.timeRemaining + HOURS) });
     }
   };
 
   decreaseHours = () => {
     if (this.state.timeRemaining > 0) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - this.HOURS ) });
+      this.setState({ timeRemaining: (this.state.timeRemaining - HOURS ) });
     }
   };
 
   increaseMinutes = () => {
     if ((this.state.timeRemaining / 60 ) < 59) {
-      this.setState({ timeRemaining: (this.state.timeRemaining + this.MINUTES) });
+      this.setState({ timeRemaining: (this.state.timeRemaining + MINUTES) });
     }
   };
 
   decreaseMinutes = () => {
     if (this.state.timeRemaining > 0) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - this.MINUTES ) });
+      this.setState({ timeRemaining: (this.state.timeRemaining - MINUTES ) });
     }
   };
 
   increaseSeconds = () => {
     if (this.state.timeRemaining % 60 < 59) {
-      this.setState({ timeRemaining: (this.state.timeRemaining + this.SECONDS) });
+      this.setState({ timeRemaining: (this.state.timeRemaining + SECONDS) });
     }
   };
 
   decreaseSeconds = () => {
     if (this.state.timeRemaining > 0) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - this.SECONDS ) });
+      this.setState({ timeRemaining: (this.state.timeRemaining - SECONDS ) });
     }
   };
 
