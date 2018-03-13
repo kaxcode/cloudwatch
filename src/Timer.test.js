@@ -198,14 +198,51 @@ describe('Timer', () => {
     });
   });
 
+  jest.useFakeTimers();
+
+  describe('when the `Start` button is clicked', () => {
+    it.skip('should start the timer', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 62 });
+      const startButton= wrapper.find('.start-btn').first();
+
+      // Act
+      startButton.simulate('click');
+
+      // Assert
+      expect(setInterval).toHaveBeenCalledTimes(1);
+      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+      expect(wrapper.state().timeRemaining).toEqual(61);
+      expect(wrapper.state().timeRemaining).not.toBe(0);
+    });
+  });
+
+  describe('when the `Pause` button is clicked', () => {
+    it.skip('should pause the ', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 23 });
+      const startButton= wrapper.find('.start-btn').first();
+      startButton.simulate('click');
+
+      const pauseButton= wrapper.find('.pause-btn').first();
+
+      // Act
+      pauseButton.simulate('click');
+
+      // Assert
+      expect(wrapper.state().timeRemaining).toEqual(21);
+      expect(wrapper.state().timeRemaining).not.toBe(23);
+    });
+  });
+
   describe('when the `Clear` button is clicked', () => {
     it('should clear the the Hours, Minutes, Seconds state', () => {
       // Arrange
-      const button = wrapper.find('.clear-btn').first();
+      const clearButton = wrapper.find('.clear-btn').first();
       wrapper.setState({ timeRemaining: 19*hours });
 
       // Act
-      button.simulate('click');
+      clearButton.simulate('click');
 
       // Assert
       expect(wrapper.state().timeRemaining).toEqual(0);

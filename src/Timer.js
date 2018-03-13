@@ -4,8 +4,11 @@ import { secondsToHour, secondsToMinutes, seconds } from './utils/humanizeTimer'
 
 class Timer extends React.Component {
   state = {
-    timeRemaining: 0
+    timeRemaining: 0,
+    clicked: false
   };
+
+  timer = null;
 
   HOURS = 3600;
   MINUTES = 60;
@@ -47,16 +50,28 @@ class Timer extends React.Component {
     }
   };
 
-  startTimer = () => {
-
+  startTimer = ()=> {
+    if (this.state.clicked === false && this.state.timeRemaining >= 1) {
+      console.log(this.state.timeRemaining);
+      this.setState({ clicked: true });
+      clearInterval(this.timer);
+      this.timer = setInterval(this.tick, 1000);
+    }
   };
 
   pauseTimer = () => {
-
+    clearInterval(this.timer);
+    this.setState({ clicked: false });
   };
 
   clearTimer = () => {
     this.setState({ timeRemaining: 0 });
+  };
+
+  tick = () => {
+    this.setState({
+      timeRemaining: this.state.timeRemaining - 1
+    });
   };
 
   render() {
