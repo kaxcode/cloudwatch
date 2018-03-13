@@ -50,11 +50,12 @@ class Timer extends React.Component {
     }
   };
 
+  time = Object.assign({}, this.state.timeRemaining);
+
   startTimer = ()=> {
-    if (this.state.clicked === false && this.state.timeRemaining >= 1) {
-      console.log(this.state.timeRemaining);
-      this.setState({ clicked: true });
+    if (this.state.clicked === false) {
       clearInterval(this.timer);
+      this.setState({ clicked: true });
       this.timer = setInterval(this.tick, 1000);
     }
   };
@@ -69,6 +70,10 @@ class Timer extends React.Component {
   };
 
   tick = () => {
+    if (this.state.timeRemaining <= 0) {
+      return this.clearTimer();
+    }
+
     this.setState({
       timeRemaining: this.state.timeRemaining - 1
     });
