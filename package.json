@@ -19,12 +19,11 @@
     "react-test-renderer": "^16.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test:lint:js": "eslint --ext=js --ext=jsx .",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:js": "eslint --ext=js --ext=jsx .",
+    "pretest": "npm run lint",
     "test:unit": "react-scripts test --env=jsdom",
-    "test": "react-scripts test --coverage --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "npm-run-all --parallel test:*"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
