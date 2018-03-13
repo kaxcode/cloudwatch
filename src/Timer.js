@@ -56,7 +56,7 @@ class Timer extends React.Component {
   };
 
   clearTimer = () => {
-
+    this.setState({ timeRemaining: 0 });
   };
 
   render() {

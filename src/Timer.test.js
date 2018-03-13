@@ -76,7 +76,7 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(0*hours);
+        expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1*hours);
       });
     });
@@ -134,7 +134,7 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(0*minutes);
+        expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1*minutes);
       });
     });
@@ -195,6 +195,21 @@ describe('Timer', () => {
         expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1);
       });
+    });
+  });
+
+  describe('when the `Clear` button is clicked', () => {
+    it('should clear the the Hours, Minutes, Seconds state', () => {
+      // Arrange
+      const button = wrapper.find('.clear-btn').first();
+      wrapper.setState({ timeRemaining: 19*hours });
+
+      // Act
+      button.simulate('click');
+
+      // Assert
+      expect(wrapper.state().timeRemaining).toEqual(0);
+      expect(wrapper.state().timeRemaining).not.toBe(23*hours);
     });
   });
 });
