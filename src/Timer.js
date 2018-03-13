@@ -5,6 +5,10 @@ import { secondsToHour, secondsToMinutes, seconds } from './utils/humanizeTimer'
 const HOURS = 3600;
 const MINUTES = 60;
 const SECONDS = 1;
+const MAX_HOURS = 23 * 60 * 60;
+const MAX_MINUTES = 59;
+const MAX_SECONDS = 59;
+const MIN_TIME = 0;
 
 class Timer extends React.Component {
   state = {
@@ -15,37 +19,43 @@ class Timer extends React.Component {
   timer = null;
 
   increaseHours = () => {
-    if (this.state.timeRemaining < 82800 ) {
-        this.setState({ timeRemaining: (this.state.timeRemaining + HOURS) });
+    if (this.state.timeRemaining >= MAX_HOURS) {
+        return;
     }
+
+    this.setState({ timeRemaining: (this.state.timeRemaining + HOURS) });
   };
 
   decreaseHours = () => {
-    if (this.state.timeRemaining > 0) {
+    if (this.state.timeRemaining > MIN_TIME) {
       this.setState({ timeRemaining: (this.state.timeRemaining - HOURS ) });
     }
   };
 
   increaseMinutes = () => {
-    if ((this.state.timeRemaining / 60 ) < 59) {
-      this.setState({ timeRemaining: (this.state.timeRemaining + MINUTES) });
+    if ((this.state.timeRemaining / 60 ) >= MAX_MINUTES) {
+      return;
     }
+
+    this.setState({ timeRemaining: (this.state.timeRemaining + MINUTES) });
   };
 
   decreaseMinutes = () => {
-    if (this.state.timeRemaining > 0) {
+    if (this.state.timeRemaining > MIN_TIME) {
       this.setState({ timeRemaining: (this.state.timeRemaining - MINUTES ) });
     }
   };
 
   increaseSeconds = () => {
-    if (this.state.timeRemaining % 60 < 59) {
-      this.setState({ timeRemaining: (this.state.timeRemaining + SECONDS) });
+    if (this.state.timeRemaining % 60 >= MAX_SECONDS) {
+      return;
     }
+
+    this.setState({ timeRemaining: (this.state.timeRemaining + SECONDS) });
   };
 
   decreaseSeconds = () => {
-    if (this.state.timeRemaining > 0) {
+    if (this.state.timeRemaining > MIN_TIME) {
       this.setState({ timeRemaining: (this.state.timeRemaining - SECONDS ) });
     }
   };
