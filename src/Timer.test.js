@@ -216,7 +216,7 @@ describe('Timer', () => {
   });
 
   describe('when the `Pause` button is clicked', () => {
-    it('should pause the ', () => {
+    it('should pause the tick function from chaning the timeRemaining state ', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 23 });
       const startButton= wrapper.find('.start-btn').first();
@@ -248,8 +248,8 @@ describe('Timer', () => {
     });
   });
 
-  describe('when the `tick` is called', () => {
-    it('should change timeRemaining state to go down by 1 second', () => {
+  describe('#tick', () => {
+    it('should decreases the time remaining by 1 second', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 20 });
 
