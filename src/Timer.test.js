@@ -9,6 +9,8 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('Timer', () => {
   let wrapper;
+  const hours = 3600;
+  const minutes = 60;
 
   beforeEach(() => {
     wrapper = shallow(<Timer />);
@@ -21,7 +23,7 @@ describe('Timer', () => {
 
   describe('when the `+/-` buttons are clicked', () => {
     describe('the `+` hours button is clicked', () => {
-      it('should update the state hoursRemaining to increase by 1', () => {
+      it('should update the state timeRemaining to increase by 1', () => {
         // Arrange
         const button = wrapper.find('.hours .plus-btn').first();
 
@@ -31,56 +33,56 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().hoursRemaining).toEqual(3);
-        expect(wrapper.state().hoursRemaining).not.toBe(1);
+        expect(wrapper.state().timeRemaining).toEqual(3*hours);
+        expect(wrapper.state().timeRemaining).not.toBe(1*hours);
       });
 
       it('should not let hours increase above 23', () => {
         // Arrange
         const button = wrapper.find('.hours .plus-btn').first();
-        wrapper.setState({ hoursRemaining: 23 });
+        wrapper.setState({ timeRemaining: (23*hours)});
 
         // Act
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().hoursRemaining).toEqual(23);
-        expect(wrapper.state().hoursRemaining).not.toBe(24);
+        expect(wrapper.state().timeRemaining).toEqual(23*hours);
+        expect(wrapper.state().timeRemaining).not.toBe(24*hours);
       });
     });
 
     describe('the `-` hours button is clicked', () => {
-      it('should update the state hoursRemaining to decrease by 1', () => {
+      it('should update the state timeRemaining to decrease by 1', () => {
         // Arrange
         const button = wrapper.find('.hours .minus-btn').first();
-        wrapper.setState({ hoursRemaining: 22 });
+        wrapper.setState({ timeRemaining: 22*hours });
 
         // Act
         button.simulate('click');
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().hoursRemaining).toEqual(20);
-        expect(wrapper.state().hoursRemaining).not.toBe(21);
+        expect(wrapper.state().timeRemaining).toEqual(20*hours);
+        expect(wrapper.state().timeRemaining).not.toBe(21*hours);
       });
 
-      it('should not let hours increase above 23', () => {
+      it('should not let hours decrease below 0', () => {
         // Arrange
         const button = wrapper.find('.hours .minus-btn').first();
-        wrapper.setState({ hoursRemaining: 1 });
+        wrapper.setState({ timeRemaining: 1*hours });
 
         // Act
         button.simulate('click');
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().hoursRemaining).toEqual(0);
-        expect(wrapper.state().hoursRemaining).not.toBe(-1);
+        expect(wrapper.state().timeRemaining).toEqual(0*hours);
+        expect(wrapper.state().timeRemaining).not.toBe(-1*hours);
       });
     });
 
     describe('the `+` minutes button is clicked', () => {
-      it('should update the state minutesRemaining to increase by 1', () => {
+      it('should update the state timeRemaining to increase by 1', () => {
         // Arrange
         const button = wrapper.find('.minutes .plus-btn').first();
 
@@ -90,55 +92,55 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().minutesRemaining).toEqual(3);
-        expect(wrapper.state().minutesRemainingg).not.toBe(1);
+        expect(wrapper.state().timeRemaining).toEqual(3*minutes);
+        expect(wrapper.state().timeRemainingg).not.toBe(1*minutes);
       });
 
       it('should not let minutes increase above 59', () => {
         // Arrange
         const button = wrapper.find('.minutes .plus-btn').first();
-        wrapper.setState({ minutesRemaining: 59 });
+        wrapper.setState({ timeRemaining: 59*minutes });
 
         // Act
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().minutesRemaining).toEqual(59);
-        expect(wrapper.state().minutesRemaining).not.toBe(60);
+        expect(wrapper.state().timeRemaining).toEqual(59*minutes);
+        expect(wrapper.state().timeRemaining).not.toBe(60*minutes);
       });
     });
 
     describe('the `-` minutes button is clicked', () => {
-      it('should update the state minutesRemaining to decrease by 1', () => {
+      it('should update the state timeRemaining to decrease by 1', () => {
         // Arrange
         const button = wrapper.find('.minutes .minus-btn').first();
-        wrapper.setState({ minutesRemaining: 22 });
+        wrapper.setState({ timeRemaining: 22*minutes });
 
         // Act
         button.simulate('click');
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().minutesRemaining).toEqual(20);
-        expect(wrapper.state().minutesRemaining).not.toBe(21);
+        expect(wrapper.state().timeRemaining).toEqual(20*minutes);
+        expect(wrapper.state().timeRemaining).not.toBe(21*minutes);
       });
 
       it('should not let minutes decrease below 0', () => {
         // Arrange
         const button = wrapper.find('.minutes .minus-btn').first();
-        wrapper.setState({ minutesRemaining: 1 });
+        wrapper.setState({ timeRemaining: 1*minutes });
 
         // Act
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().minutesRemaining).toEqual(0);
-        expect(wrapper.state().minutesRemaining).not.toBe(-1);
+        expect(wrapper.state().timeRemaining).toEqual(0*minutes);
+        expect(wrapper.state().timeRemaining).not.toBe(-1*minutes);
       });
     });
 
     describe('the `+` seconds button is clicked', () => {
-      it('should update the state secondsRemaining to increase by 1', () => {
+      it('should update the state timeRemaining to increase by 1', () => {
         // Arrange
         const button = wrapper.find('.seconds .plus-btn').first();
 
@@ -148,50 +150,50 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().secondsRemaining).toEqual(3);
-        expect(wrapper.state().secondsRemainingg).not.toBe(1);
+        expect(wrapper.state().timeRemaining).toEqual(3);
+        expect(wrapper.state().timeRemainingg).not.toBe(1);
       });
 
       it('should not let seconds increase above 59', () => {
         // Arrange
         const button = wrapper.find('.seconds .plus-btn').first();
-        wrapper.setState({ secondsRemaining: 59 });
+        wrapper.setState({ timeRemaining: 59 });
 
         // Act
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().secondsRemaining).toEqual(59);
-        expect(wrapper.state().secondsRemaining).not.toBe(60);
+        expect(wrapper.state().timeRemaining).toEqual(59);
+        expect(wrapper.state().timeRemaining).not.toBe(60);
       });
     });
 
     describe('the `-` seconds button is clicked', () => {
-      it('should update the state secondsRemaining to decrease by 1', () => {
+      it('should update the state timeRemaining to decrease by 1', () => {
         // Arrange
         const button = wrapper.find('.seconds .minus-btn').first();
-        wrapper.setState({ secondsRemaining: 32 });
+        wrapper.setState({ timeRemaining: 32 });
 
         // Act
         button.simulate('click');
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().secondsRemaining).toEqual(30);
-        expect(wrapper.state().secondsRemaining).not.toBe(31);
+        expect(wrapper.state().timeRemaining).toEqual(30);
+        expect(wrapper.state().timeRemaining).not.toBe(31);
       });
 
       it('should not let seconds decrease below 0', () => {
         // Arrange
         const button = wrapper.find('.seconds .minus-btn').first();
-        wrapper.setState({ secondsRemaining: 1 });
+        wrapper.setState({ timeRemaining: 1 });
 
         // Act
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().secondsRemaining).toEqual(0);
-        expect(wrapper.state().secondsRemaining).not.toBe(-1);
+        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).not.toBe(-1);
       });
     });
   });

@@ -11,21 +11,39 @@ class Timer extends React.Component {
   MINUTES = 60;
   SECONDS = 1;
 
-  increaseTime = (seconds) => {
-    if (this.state.timeRemaining < 86399 ) {
-      return (newTime) => {
-        this.setState({ timeRemaining: (this.state.timeRemaining + seconds ) });
-      };
+  increaseHours = () => {
+    if (this.state.timeRemaining < 82800 ) {
+        this.setState({ timeRemaining: (this.state.timeRemaining + this.HOURS) });
     }
-
-    return this.state.timeRemaining;
   };
 
-  decreaseTime = (seconds) => {
+  decreaseHours = () => {
     if (this.state.timeRemaining > 0) {
-      return (newTime) => {
-        this.setState({ timeRemaining: (this.state.timeRemaining - seconds ) });
-      };
+      this.setState({ timeRemaining: (this.state.timeRemaining - this.HOURS ) });
+    }
+  };
+
+  increaseMinutes = () => {
+    if (this.state.timeRemaining / 60 < 59) {
+      this.setState({ timeRemaining: (this.state.timeRemaining + this.MINUTES) });
+    }
+  };
+
+  decreaseMinutes = () => {
+    if (this.state.timeRemaining > 0) {
+      this.setState({ timeRemaining: (this.state.timeRemaining - this.MINUTES ) });
+    }
+  };
+
+  increaseSeconds = () => {
+    if (this.state.timeRemaining < 59) {
+      this.setState({ timeRemaining: (this.state.timeRemaining + this.SECONDS) });
+    }
+  };
+
+  decreaseSeconds = () => {
+    if (this.state.timeRemaining > 0) {
+      this.setState({ timeRemaining: (this.state.timeRemaining - this.SECONDS ) });
     }
   };
 
@@ -60,20 +78,20 @@ class Timer extends React.Component {
                 <tr>
                   <td>
                     <div className="hours-set">
-                      <Button className="hours plus-btn blue" onClick={this.increaseTime(this.HOURS)}>+</Button>
-                      <Button className="hours minus-btn blue" onClick={this.decreaseTime(this.HOURS)}>-</Button>
+                      <Button className="hours plus-btn blue" onClick={this.increaseHours}>+</Button>
+                      <Button className="hours minus-btn blue" onClick={this.decreaseHours}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="minutes-set">
-                      <Button className="minutes plus-btn blue" onClick={this.increaseTime(this.MINUTES)}>+</Button>
-                      <Button className="minutes minus-btn blue" onClick={this.decreaseTime(this.MINUTES)}>-</Button>
+                      <Button className="minutes plus-btn blue" onClick={this.increaseMinutes}>+</Button>
+                      <Button className="minutes minus-btn blue" onClick={this.decreaseMinutes}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="seconds-set">
-                      <Button waves="light" className="seconds plus-btn blue" onClick={this.increaseTime(this.SECONDS)}>+</Button>
-                      <Button className="seconds minus-btn blue" onClick={this.decreaseTime(this.SECONDS)}>-</Button>
+                      <Button waves="light" className="seconds plus-btn blue" onClick={this.increaseSeconds}>+</Button>
+                      <Button className="seconds minus-btn blue" onClick={this.decreaseSeconds}>-</Button>
                     </div>
                   </td>
                 </tr>
