@@ -247,4 +247,32 @@ describe('Timer', () => {
       expect(wrapper.state().timeRemaining).not.toBe(23*hours);
     });
   });
+
+  describe('when the `tick` is called', () => {
+    it('should change timeRemaining state to go down by 1 second', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 20 });
+
+      // Act
+      wrapper.instance().tick();
+
+      // Assert
+      expect(wrapper.state().timeRemaining).toEqual(19);
+      expect(wrapper.state().timeRemaining).not.toBe(20);
+      expect(wrapper.state().timeRemaining).not.toBe(21);
+    });
+
+    it('should stop ticking if timeRemaining is 0', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 0 });
+
+      // Act
+      wrapper.instance().tick();
+
+      // Assert
+      expect(wrapper.state().timeRemaining).toEqual(0);
+      expect(wrapper.state().timeRemaining).not.toBe(-1);
+      expect(wrapper.state().timeRemaining).not.toBe(1);
+    });
+  });
 });
