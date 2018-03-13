@@ -1,46 +1,31 @@
 import React from 'react';
 import { Row, Button, Card, Col, Table } from 'react-materialize';
+import { secondsToHour, secondsToMinutes, seconds } from './utils/humanizeTimer';
 
 class Timer extends React.Component {
   state = {
-    hoursRemaining: 0,
-    minutesRemaining: 0,
-    secondsRemaining: 0
+    timeRemaining: 0
   };
 
-  increaseHours = () => {
-    if (this.state.hoursRemaining < 23) {
-      this.setState({ hoursRemaining: this.state.hoursRemaining + 1 });
+  HOURS = 3600;
+  MINUTES = 60;
+  SECONDS = 1;
+
+  increaseTime = (seconds) => {
+    if (this.state.timeRemaining < 86399 ) {
+      return (newTime) => {
+        this.setState({ timeRemaining: (this.state.timeRemaining + seconds ) });
+      };
     }
+
+    return this.state.timeRemaining;
   };
 
-  decreaseHours = () => {
-    if (this.state.hoursRemaining > 0) {
-      this.setState({ hoursRemaining: this.state.hoursRemaining - 1 });
-    }
-  };
-
-  increaseMinutes = () => {
-    if (this.state.minutesRemaining < 59) {
-      this.setState({ minutesRemaining: this.state.minutesRemaining + 1 });
-    }
-  };
-
-  decreaseMinutes = () => {
-    if (this.state.minutesRemaining > 0) {
-      this.setState({ minutesRemaining: this.state.minutesRemaining - 1 });
-    }
-  };
-
-  increaseSeconds = () => {
-    if (this.state.secondsRemaining < 59) {
-      this.setState({ secondsRemaining: this.state.secondsRemaining+ 1 });
-    }
-  };
-
-  decreaseSeconds = () => {
-    if (this.state.secondsRemaining > 0) {
-      this.setState({ secondsRemaining: this.state.secondsRemaining - 1 });
+  decreaseTime = (seconds) => {
+    if (this.state.timeRemaining > 0) {
+      return (newTime) => {
+        this.setState({ timeRemaining: (this.state.timeRemaining - seconds ) });
+      };
     }
   };
 
@@ -59,7 +44,6 @@ class Timer extends React.Component {
   render() {
     return (
       <Row>
-      {console.log(this)}
         <Col s={12} m={3} offset="m2 l4">
           <Card className="white parent-container" textClassName="black-text">
             <h3>Timer</h3>
@@ -76,32 +60,32 @@ class Timer extends React.Component {
                 <tr>
                   <td>
                     <div className="hours-set">
-                      <Button className="hours plus-btn blue" onClick={this.increaseHours}>+</Button>
-                      <Button className="hours minus-btn blue" onClick={this.decreaseHours}>-</Button>
+                      <Button className="hours plus-btn blue" onClick={this.increaseTime(this.HOURS)}>+</Button>
+                      <Button className="hours minus-btn blue" onClick={this.decreaseTime(this.HOURS)}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="minutes-set">
-                      <Button className="minutes plus-btn blue" onClick={this.increaseMinutes}>+</Button>
-                      <Button className="minutes minus-btn blue" onClick={this.decreaseMinutes}>-</Button>
+                      <Button className="minutes plus-btn blue" onClick={this.increaseTime(this.MINUTES)}>+</Button>
+                      <Button className="minutes minus-btn blue" onClick={this.decreaseTime(this.MINUTES)}>-</Button>
                     </div>
                   </td>
                   <td>
                     <div className="seconds-set">
-                      <Button waves="light" className="seconds plus-btn blue" onClick={this.increaseSeconds}>+</Button>
-                      <Button className="seconds minus-btn blue" onClick={this.decreaseSeconds}>-</Button>
+                      <Button waves="light" className="seconds plus-btn blue" onClick={this.increaseTime(this.SECONDS)}>+</Button>
+                      <Button className="seconds minus-btn blue" onClick={this.decreaseTime(this.SECONDS)}>-</Button>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h1 className="timer-count">{this.state.hoursRemaining}</h1>
+                    <h1 className="timer-count">{secondsToHour(this.state.timeRemaining)}</h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">{this.state.minutesRemaining}</h1>
+                    <h1 className="timer-count">{secondsToMinutes(this.state.timeRemaining)}</h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">{this.state.secondsRemaining}</h1>
+                    <h1 className="timer-count">{seconds(this.state.timeRemaining)}</h1>
                   </td>
                 </tr>
                 <tr>
