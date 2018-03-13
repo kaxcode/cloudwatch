@@ -11,3 +11,15 @@ export function millisecondsToHuman(time) {
     centisecond.toString().padStart(2, '0')
   ].join(':');
 }
+
+export function secondsToHour(time) {
+  return Math.floor(time / 60 / 60);
+}
+
+export function secondsToMinutes(time) {
+  return Math.floor(time / 60 % 60);
+}
+
+export function seconds(time) {
+  return Math.floor(time % 60);
+}
