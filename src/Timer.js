@@ -24,7 +24,7 @@ class Timer extends React.Component {
   };
 
   increaseMinutes = () => {
-    if (this.state.timeRemaining / 60 < 59) {
+    if ((this.state.timeRemaining / 60 ) < 59) {
       this.setState({ timeRemaining: (this.state.timeRemaining + this.MINUTES) });
     }
   };
@@ -36,7 +36,7 @@ class Timer extends React.Component {
   };
 
   increaseSeconds = () => {
-    if (this.state.timeRemaining < 59) {
+    if (this.state.timeRemaining % 60 < 59) {
       this.setState({ timeRemaining: (this.state.timeRemaining + this.SECONDS) });
     }
   };
