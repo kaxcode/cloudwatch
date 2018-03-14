@@ -114,13 +114,15 @@ class Timer extends React.Component {
                   <td>
                     <div className="hours-set">
                       <Button
-                        className="hours plus-btn blue"
+                        id="hours-increase"
+                        className="plus-btn blue"
                         onClick={this.increaseHours}
                       >
                         +
                       </Button>
                       <Button
-                        className="hours minus-btn blue"
+                        id="hours-decrease"
+                        className="minus-btn blue"
                         onClick={this.decreaseHours}
                       >
                         -
@@ -130,13 +132,15 @@ class Timer extends React.Component {
                   <td>
                     <div className="minutes-set">
                       <Button
-                        className="minutes plus-btn blue"
+                        id="minutes-increase"
+                        className="plus-btn blue"
                         onClick={this.increaseMinutes}
                       >
                         +
                       </Button>
                       <Button
-                        className="minutes minus-btn blue"
+                        id="minutes-decrease"
+                        className="minus-btn blue"
                         onClick={this.decreaseMinutes}
                       >
                         -
@@ -147,13 +151,15 @@ class Timer extends React.Component {
                     <div className="seconds-set">
                       <Button
                         waves="light"
-                        className="seconds plus-btn blue"
+                        id="seconds-increase"
+                        className="plus-btn blue"
                         onClick={this.increaseSeconds}
                       >
                         +
                       </Button>
                       <Button
-                        className="seconds minus-btn blue"
+                        id="seconds-decrease"
+                        className="minus-btn blue"
                         onClick={this.decreaseSeconds}
                       >
                         -

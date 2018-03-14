@@ -25,8 +25,7 @@ describe('Timer', () => {
     describe('clicking the + hours button', () => {
       it('increases the hours in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.hours.plus-btn').first();
-        console.log(button);
+        const button = wrapper.find('#hours-increase').first();
 
         // Act
         button.simulate('click');
@@ -40,7 +39,7 @@ describe('Timer', () => {
 
       it('cannot let hours increase above 23', () => {
         // Arrange
-        const button = wrapper.find('.hours .plus-btn').first();
+        const button = wrapper.find('#hours-increase').first();
         wrapper.setState({ timeRemaining: 23 * hours });
 
         // Act
@@ -55,7 +54,7 @@ describe('Timer', () => {
     describe('clicking the - hours button', () => {
       it('decreases the hours in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.hours .minus-btn').first();
+        const button = wrapper.find('#hours-decrease').first();
         wrapper.setState({ timeRemaining: 22 * hours });
 
         // Act
@@ -69,7 +68,7 @@ describe('Timer', () => {
 
       it('cannot let hours decrease below 0', () => {
         // Arrange
-        const button = wrapper.find('.hours .minus-btn').first();
+        const button = wrapper.find('#hours-decrease').first();
         wrapper.setState({ timeRemaining: 1 * hours });
 
         // Act
@@ -85,7 +84,7 @@ describe('Timer', () => {
     describe('clicking the + minutes button', () => {
       it('increases the minutes in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.minutes .plus-btn').first();
+        const button = wrapper.find('#minutes-increase').first();
 
         // Act
         button.simulate('click');
@@ -99,7 +98,7 @@ describe('Timer', () => {
 
       it('cannot let minutes increase above 59', () => {
         // Arrange
-        const button = wrapper.find('.minutes .plus-btn').first();
+        const button = wrapper.find('#minutes-increase').first();
         wrapper.setState({ timeRemaining: 59 * minutes });
 
         // Act
@@ -114,7 +113,7 @@ describe('Timer', () => {
     describe('clicking the - minutes button', () => {
       it('decreases the minutes in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.minutes .minus-btn').first();
+        const button = wrapper.find('#minutes-decrease').first();
         wrapper.setState({ timeRemaining: 22 * minutes });
 
         // Act
@@ -128,7 +127,7 @@ describe('Timer', () => {
 
       it('cannot let minutes decrease below 0', () => {
         // Arrange
-        const button = wrapper.find('.minutes .minus-btn').first();
+        const button = wrapper.find('#minutes-decrease').first();
         wrapper.setState({ timeRemaining: 1 * minutes });
 
         // Act
@@ -143,7 +142,7 @@ describe('Timer', () => {
     describe('clicking the + seconds button', () => {
       it('increases the seconds in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.seconds .plus-btn').first();
+        const button = wrapper.find('#seconds-increase').first();
 
         // Act
         button.simulate('click');
@@ -157,7 +156,7 @@ describe('Timer', () => {
 
       it('cannot let seconds increase above 59', () => {
         // Arrange
-        const button = wrapper.find('.seconds .plus-btn').first();
+        const button = wrapper.find('#seconds-increase').first();
         wrapper.setState({ timeRemaining: 59 });
 
         // Act
@@ -172,7 +171,7 @@ describe('Timer', () => {
     describe('clicking the - seconds button', () => {
       it('decreases the seconds in the time remaining', () => {
         // Arrange
-        const button = wrapper.find('.seconds .minus-btn').first();
+        const button = wrapper.find('#seconds-decrease').first();
         wrapper.setState({ timeRemaining: 32 });
 
         // Act
@@ -186,7 +185,7 @@ describe('Timer', () => {
 
       it('cannot let seconds decrease below 0', () => {
         // Arrange
-        const button = wrapper.find('.seconds .minus-btn').first();
+        const button = wrapper.find('#seconds-decrease').first();
         wrapper.setState({ timeRemaining: 1 });
 
         // Act

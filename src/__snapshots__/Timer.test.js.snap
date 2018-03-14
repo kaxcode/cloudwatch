@@ -46,15 +46,17 @@ exports[`Timer renders correctly 1`] = `
                     className="hours-set"
                   >
                     <button
-                      className="btn hours plus-btn blue"
+                      className="btn plus-btn blue"
                       disabled={false}
+                      id="hours-increase"
                       onClick={[Function]}
                     >
                       +
                     </button>
                     <button
-                      className="btn hours minus-btn blue"
+                      className="btn minus-btn blue"
                       disabled={false}
+                      id="hours-decrease"
                       onClick={[Function]}
                     >
                       -
@@ -66,15 +68,17 @@ exports[`Timer renders correctly 1`] = `
                     className="minutes-set"
                   >
                     <button
-                      className="btn minutes plus-btn blue"
+                      className="btn plus-btn blue"
                       disabled={false}
+                      id="minutes-increase"
                       onClick={[Function]}
                     >
                       +
                     </button>
                     <button
-                      className="btn minutes minus-btn blue"
+                      className="btn minus-btn blue"
                       disabled={false}
+                      id="minutes-decrease"
                       onClick={[Function]}
                     >
                       -
@@ -86,15 +90,17 @@ exports[`Timer renders correctly 1`] = `
                     className="seconds-set"
                   >
                     <button
-                      className="btn waves-effect waves-light seconds plus-btn blue"
+                      className="btn waves-effect waves-light plus-btn blue"
                       disabled={false}
+                      id="seconds-increase"
                       onClick={[Function]}
                     >
                       +
                     </button>
                     <button
-                      className="btn seconds minus-btn blue"
+                      className="btn minus-btn blue"
                       disabled={false}
+                      id="seconds-decrease"
                       onClick={[Function]}
                     >
                       -
