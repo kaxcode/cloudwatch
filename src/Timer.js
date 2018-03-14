@@ -1,6 +1,10 @@
 import React from 'react';
 import { Row, Button, Card, Col, Table } from 'react-materialize';
-import { secondsToHour, secondsToMinutes, seconds } from './utils/humanizeTimer';
+import {
+  secondsToHour,
+  secondsToMinutes,
+  seconds
+} from './utils/humanizeTimer';
 
 const HOURS = 3600;
 const MINUTES = 60;
@@ -20,29 +24,29 @@ class Timer extends React.Component {
 
   increaseHours = () => {
     if (this.state.timeRemaining >= MAX_HOURS) {
-        return;
+      return;
     }
 
-    this.setState({ timeRemaining: (this.state.timeRemaining + HOURS) });
+    this.setState({ timeRemaining: this.state.timeRemaining + HOURS });
   };
 
   decreaseHours = () => {
     if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - HOURS ) });
+      this.setState({ timeRemaining: this.state.timeRemaining - HOURS });
     }
   };
 
   increaseMinutes = () => {
-    if ((this.state.timeRemaining / 60 ) >= MAX_MINUTES) {
+    if (this.state.timeRemaining / 60 >= MAX_MINUTES) {
       return;
     }
 
-    this.setState({ timeRemaining: (this.state.timeRemaining + MINUTES) });
+    this.setState({ timeRemaining: this.state.timeRemaining + MINUTES });
   };
 
   decreaseMinutes = () => {
     if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - MINUTES ) });
+      this.setState({ timeRemaining: this.state.timeRemaining - MINUTES });
     }
   };
 
@@ -51,23 +55,24 @@ class Timer extends React.Component {
       return;
     }
 
-    this.setState({ timeRemaining: (this.state.timeRemaining + SECONDS) });
+    this.setState({ timeRemaining: this.state.timeRemaining + SECONDS });
   };
 
   decreaseSeconds = () => {
     if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: (this.state.timeRemaining - SECONDS ) });
+      this.setState({ timeRemaining: this.state.timeRemaining - SECONDS });
     }
   };
 
   time = Object.assign({}, this.state.timeRemaining);
 
-  startTimer = ()=> {
-    if (this.state.clicked === false) {
-      clearInterval(this.timer);
-      this.setState({ clicked: true });
-      this.timer = setInterval(this.tick, 1000);
+  startTimer = () => {
+    if (this.state.clicked) {
+      return;
     }
+    clearInterval(this.timer);
+    this.setState({ clicked: true });
+    this.timer = setInterval(this.tick, 1000);
   };
 
   pauseTimer = () => {
@@ -108,42 +113,87 @@ class Timer extends React.Component {
                 <tr>
                   <td>
                     <div className="hours-set">
-                      <Button className="hours plus-btn blue" onClick={this.increaseHours}>+</Button>
-                      <Button className="hours minus-btn blue" onClick={this.decreaseHours}>-</Button>
+                      <Button
+                        className="hours plus-btn blue"
+                        onClick={this.increaseHours}
+                      >
+                        +
+                      </Button>
+                      <Button
+                        className="hours minus-btn blue"
+                        onClick={this.decreaseHours}
+                      >
+                        -
+                      </Button>
                     </div>
                   </td>
                   <td>
                     <div className="minutes-set">
-                      <Button className="minutes plus-btn blue" onClick={this.increaseMinutes}>+</Button>
-                      <Button className="minutes minus-btn blue" onClick={this.decreaseMinutes}>-</Button>
+                      <Button
+                        className="minutes plus-btn blue"
+                        onClick={this.increaseMinutes}
+                      >
+                        +
+                      </Button>
+                      <Button
+                        className="minutes minus-btn blue"
+                        onClick={this.decreaseMinutes}
+                      >
+                        -
+                      </Button>
                     </div>
                   </td>
                   <td>
                     <div className="seconds-set">
-                      <Button waves="light" className="seconds plus-btn blue" onClick={this.increaseSeconds}>+</Button>
-                      <Button className="seconds minus-btn blue" onClick={this.decreaseSeconds}>-</Button>
+                      <Button
+                        waves="light"
+                        className="seconds plus-btn blue"
+                        onClick={this.increaseSeconds}
+                      >
+                        +
+                      </Button>
+                      <Button
+                        className="seconds minus-btn blue"
+                        onClick={this.decreaseSeconds}
+                      >
+                        -
+                      </Button>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <h1 className="timer-count">{secondsToHour(this.state.timeRemaining)}</h1>
+                    <h1 className="timer-count">
+                      {secondsToHour(this.state.timeRemaining)}
+                    </h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">{secondsToMinutes(this.state.timeRemaining)}</h1>
+                    <h1 className="timer-count">
+                      {secondsToMinutes(this.state.timeRemaining)}
+                    </h1>
                   </td>
                   <td>
-                    <h1 className="timer-count">{seconds(this.state.timeRemaining)}</h1>
+                    <h1 className="timer-count">
+                      {seconds(this.state.timeRemaining)}
+                    </h1>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <Button waves="light" className="green start-btn" onClick={this.startTimer}>
+                    <Button
+                      waves="light"
+                      className="green start-btn"
+                      onClick={this.startTimer}
+                    >
                       Start
                     </Button>
                   </td>
                   <td>
-                    <Button waves="light" className="red pause-btn" onClick={this.pauseTimer}>
+                    <Button
+                      waves="light"
+                      className="red pause-btn"
+                      onClick={this.pauseTimer}
+                    >
                       Pause
                     </Button>
                   </td>
