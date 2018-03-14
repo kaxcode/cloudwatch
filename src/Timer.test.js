@@ -6,6 +6,7 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
+jest.useFakeTimers();
 
 describe('Timer', () => {
   let wrapper;
@@ -198,9 +199,7 @@ describe('Timer', () => {
     });
   });
 
-  jest.useFakeTimers();
-
-  describe('when the `Start` button is clicked', () => {
+  describe('when the Start button is clicked', () => {
     it('starts the timer', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 62 });
@@ -215,7 +214,7 @@ describe('Timer', () => {
     });
   });
 
-  describe('when the `Pause` button is clicked', () => {
+  describe('when the Pause button is clicked', () => {
     it('pauses the tick function from chaning the timeRemaining state ', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 23 });
@@ -233,7 +232,7 @@ describe('Timer', () => {
     });
   });
 
-  describe('when the `Clear` button is clicked', () => {
+  describe('when the Clear button is clicked', () => {
     it('clears the the Hours, Minutes, Seconds state', () => {
       // Arrange
       const clearButton = wrapper.find('.clear-btn').first();
