@@ -1,64 +1,529 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className="row"
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Stopwatch />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <Col
+        m={3}
+        offset="m2 l4"
+        s={12}
 >
-  <div
-    className="col s12 m3 offset-m2 offset-l4"
-  >
-    <div
-      className="white parent-container card"
-    >
-      <div
-        className="card-content black-text"
-      >
-        <div>
+        <Card
+                className="white parent-container"
+                textClassName="black-text"
+        >
+                <h3>
+                        CloudWatch
+                </h3>
+                <h3>
+                        00:00:00:00
+                </h3>
+                <div>
+                        <Button
+                                className="green"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                        >
+                                Start
+                        </Button>
+                        <Button
+                                className="red"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                        >
+                                Pause
+                        </Button>
+                        <Button
+                                className="yellow darken-3"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                        >
+                                Clear
+                        </Button>
+                </div>
+        </Card>
+</Col>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <Card
+          className="white parent-container"
+          textClassName="black-text"
+>
           <h3>
-            CloudWatch
+                    CloudWatch
           </h3>
           <h3>
-            00:00:00:00
+                    00:00:00:00
           </h3>
           <div>
-            <button
-              className="btn waves-effect waves-light green"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Start
-            </button>
-            <button
-              className="btn waves-effect waves-light red"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Pause
-            </button>
-            <button
-              className="btn waves-effect waves-light yellow darken-3"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Clear
-            </button>
+                    <Button
+                              className="green"
+                              node="button"
+                              onClick={[Function]}
+                              waves="light"
+                    >
+                              Start
+                    </Button>
+                    <Button
+                              className="red"
+                              node="button"
+                              onClick={[Function]}
+                              waves="light"
+                    >
+                              Pause
+                    </Button>
+                    <Button
+                              className="yellow darken-3"
+                              node="button"
+                              onClick={[Function]}
+                              waves="light"
+                    >
+                              Clear
+                    </Button>
           </div>
-        </div>
-      </div>
-      <div
-        className="card-reveal"
-      >
-        <span
-          className="card-title grey-text text-darken-4"
-        >
-          <i
-            className="material-icons right"
+</Card>,
+        "m": 3,
+        "offset": "m2 l4",
+        "s": 12,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <h3>
+              CloudWatch
+</h3>,
+            <h3>
+              00:00:00:00
+</h3>,
+            <div>
+              <Button
+                            className="green"
+                            node="button"
+                            onClick={[Function]}
+                            waves="light"
+              >
+                            Start
+              </Button>
+              <Button
+                            className="red"
+                            node="button"
+                            onClick={[Function]}
+                            waves="light"
+              >
+                            Pause
+              </Button>
+              <Button
+                            className="yellow darken-3"
+                            node="button"
+                            onClick={[Function]}
+                            waves="light"
+              >
+                            Clear
+              </Button>
+</div>,
+          ],
+          "className": "white parent-container",
+          "textClassName": "black-text",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "CloudWatch",
+            },
+            "ref": null,
+            "rendered": "CloudWatch",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "00:00:00:00",
+            },
+            "ref": null,
+            "rendered": "00:00:00:00",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Button
+                  className="green"
+                  node="button"
+                  onClick={[Function]}
+                  waves="light"
+>
+                  Start
+</Button>,
+                <Button
+                  className="red"
+                  node="button"
+                  onClick={[Function]}
+                  waves="light"
+>
+                  Pause
+</Button>,
+                <Button
+                  className="yellow darken-3"
+                  node="button"
+                  onClick={[Function]}
+                  waves="light"
+>
+                  Clear
+</Button>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Start",
+                  "className": "green",
+                  "node": "button",
+                  "onClick": [Function],
+                  "waves": "light",
+                },
+                "ref": null,
+                "rendered": "Start",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Pause",
+                  "className": "red",
+                  "node": "button",
+                  "onClick": [Function],
+                  "waves": "light",
+                },
+                "ref": null,
+                "rendered": "Pause",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Clear",
+                  "className": "yellow darken-3",
+                  "node": "button",
+                  "onClick": [Function],
+                  "waves": "light",
+                },
+                "ref": null,
+                "rendered": "Clear",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <Col
+          m={3}
+          offset="m2 l4"
+          s={12}
+>
+          <Card
+                    className="white parent-container"
+                    textClassName="black-text"
           >
-            close
-          </i>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+                    <h3>
+                              CloudWatch
+                    </h3>
+                    <h3>
+                              00:00:00:00
+                    </h3>
+                    <div>
+                              <Button
+                                        className="green"
+                                        node="button"
+                                        onClick={[Function]}
+                                        waves="light"
+                              >
+                                        Start
+                              </Button>
+                              <Button
+                                        className="red"
+                                        node="button"
+                                        onClick={[Function]}
+                                        waves="light"
+                              >
+                                        Pause
+                              </Button>
+                              <Button
+                                        className="yellow darken-3"
+                                        node="button"
+                                        onClick={[Function]}
+                                        waves="light"
+                              >
+                                        Clear
+                              </Button>
+                    </div>
+          </Card>
+</Col>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <Card
+            className="white parent-container"
+            textClassName="black-text"
+>
+            <h3>
+                        CloudWatch
+            </h3>
+            <h3>
+                        00:00:00:00
+            </h3>
+            <div>
+                        <Button
+                                    className="green"
+                                    node="button"
+                                    onClick={[Function]}
+                                    waves="light"
+                        >
+                                    Start
+                        </Button>
+                        <Button
+                                    className="red"
+                                    node="button"
+                                    onClick={[Function]}
+                                    waves="light"
+                        >
+                                    Pause
+                        </Button>
+                        <Button
+                                    className="yellow darken-3"
+                                    node="button"
+                                    onClick={[Function]}
+                                    waves="light"
+                        >
+                                    Clear
+                        </Button>
+            </div>
+</Card>,
+          "m": 3,
+          "offset": "m2 l4",
+          "s": 12,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <h3>
+                CloudWatch
+</h3>,
+              <h3>
+                00:00:00:00
+</h3>,
+              <div>
+                <Button
+                                className="green"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                >
+                                Start
+                </Button>
+                <Button
+                                className="red"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                >
+                                Pause
+                </Button>
+                <Button
+                                className="yellow darken-3"
+                                node="button"
+                                onClick={[Function]}
+                                waves="light"
+                >
+                                Clear
+                </Button>
+</div>,
+            ],
+            "className": "white parent-container",
+            "textClassName": "black-text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "CloudWatch",
+              },
+              "ref": null,
+              "rendered": "CloudWatch",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "00:00:00:00",
+              },
+              "ref": null,
+              "rendered": "00:00:00:00",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Button
+                    className="green"
+                    node="button"
+                    onClick={[Function]}
+                    waves="light"
+>
+                    Start
+</Button>,
+                  <Button
+                    className="red"
+                    node="button"
+                    onClick={[Function]}
+                    waves="light"
+>
+                    Pause
+</Button>,
+                  <Button
+                    className="yellow darken-3"
+                    node="button"
+                    onClick={[Function]}
+                    waves="light"
+>
+                    Clear
+</Button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Start",
+                    "className": "green",
+                    "node": "button",
+                    "onClick": [Function],
+                    "waves": "light",
+                  },
+                  "ref": null,
+                  "rendered": "Start",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Pause",
+                    "className": "red",
+                    "node": "button",
+                    "onClick": [Function],
+                    "waves": "light",
+                  },
+                  "ref": null,
+                  "rendered": "Pause",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Clear",
+                    "className": "yellow darken-3",
+                    "node": "button",
+                    "onClick": [Function],
+                    "waves": "light",
+                  },
+                  "ref": null,
+                  "rendered": "Clear",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;

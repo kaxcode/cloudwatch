@@ -7,15 +7,15 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const stopwatch = shallow(<Stopwatch />);
+
 it('renders correctly', () => {
-  const tree = renderer.create(<Stopwatch />).toJSON();
-  expect(tree).toMatchSnapshot();
+  expect(stopwatch).toMatchSnapshot();
 });
 
 jest.useFakeTimers();
 
 test('Stopwatch runs after click', () => {
-  const stopwatch = shallow(<Stopwatch />);
   stopwatch.instance().startStopwatch();
 
   expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
