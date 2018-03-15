@@ -17,7 +17,8 @@ const MIN_TIME = 0;
 class Timer extends React.Component {
   state = {
     timeRemaining: 0,
-    clicked: false
+    clicked: false,
+    alertSeen: false
   };
 
   timer = null;
@@ -26,7 +27,6 @@ class Timer extends React.Component {
     if (this.state.timeRemaining >= MAX_HOURS) {
       return;
     }
-
     this.setState({ timeRemaining: this.state.timeRemaining + HOURS });
   };
 
@@ -81,6 +81,9 @@ class Timer extends React.Component {
   };
 
   clearTimer = () => {
+    this.setState({
+      clicked: false
+    });
     this.setState({ timeRemaining: 0 });
   };
 
@@ -94,9 +97,18 @@ class Timer extends React.Component {
     });
   };
 
+  triggerAlert = () => {
+    alert("Time's Up!");
+    this.setState({
+      clicked: false
+    });
+    clearInterval(this.timer);
+    }
+
   render() {
     return (
       <Row>
+      {this.state.clicked && this.state.timeRemaining === 0 ? this.triggerAlert() : null }
         <Col s={12} m={3} offset="m2 l4">
           <Card className="white parent-container" textClassName="black-text">
             <h3>Timer</h3>
@@ -108,7 +120,6 @@ class Timer extends React.Component {
                   <th className="timer-heading">Seconds</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td>
