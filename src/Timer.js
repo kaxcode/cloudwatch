@@ -31,9 +31,11 @@ class Timer extends React.Component {
   };
 
   decreaseHours = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - HOURS });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
+
+    this.setState({ timeRemaining: this.state.timeRemaining - HOURS });
   };
 
   increaseMinutes = () => {
@@ -45,9 +47,11 @@ class Timer extends React.Component {
   };
 
   decreaseMinutes = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - MINUTES });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
+
+    this.setState({ timeRemaining: this.state.timeRemaining - MINUTES });
   };
 
   increaseSeconds = () => {
@@ -59,12 +63,12 @@ class Timer extends React.Component {
   };
 
   decreaseSeconds = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - SECONDS });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
-  };
 
-  time = Object.assign({}, this.state.timeRemaining);
+    this.setState({ timeRemaining: this.state.timeRemaining - SECONDS });
+  };
 
   startTimer = () => {
     if (this.state.clicked) {
