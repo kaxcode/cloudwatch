@@ -5,6 +5,7 @@ import {
   secondsToMinutes,
   seconds
 } from './utils/humanizeTimer';
+import Alert from './Alert';
 
 const HOURS = 3600;
 const MINUTES = 60;
@@ -17,7 +18,7 @@ const MIN_TIME = 0;
 class Timer extends React.Component {
   state = {
     timeRemaining: 0,
-    clicked: false
+    startClicked: false
   };
 
   timer = null;
@@ -26,14 +27,15 @@ class Timer extends React.Component {
     if (this.state.timeRemaining >= MAX_HOURS) {
       return;
     }
-
     this.setState({ timeRemaining: this.state.timeRemaining + HOURS });
   };
 
   decreaseHours = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - HOURS });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
+
+    this.setState({ timeRemaining: this.state.timeRemaining - HOURS });
   };
 
   increaseMinutes = () => {
@@ -45,9 +47,11 @@ class Timer extends React.Component {
   };
 
   decreaseMinutes = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - MINUTES });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
+
+    this.setState({ timeRemaining: this.state.timeRemaining - MINUTES });
   };
 
   increaseSeconds = () => {
@@ -59,29 +63,32 @@ class Timer extends React.Component {
   };
 
   decreaseSeconds = () => {
-    if (this.state.timeRemaining > MIN_TIME) {
-      this.setState({ timeRemaining: this.state.timeRemaining - SECONDS });
+    if (this.state.timeRemaining <= MIN_TIME) {
+      return;
     }
+
+    this.setState({ timeRemaining: this.state.timeRemaining - SECONDS });
   };
 
-  time = Object.assign({}, this.state.timeRemaining);
-
   startTimer = () => {
-    if (this.state.clicked) {
+    if (this.state.startClicked) {
       return;
     }
     clearInterval(this.timer);
-    this.setState({ clicked: true });
+    this.setState({ startClicked: true });
     this.timer = setInterval(this.tick, 1000);
   };
 
   pauseTimer = () => {
     clearInterval(this.timer);
-    this.setState({ clicked: false });
+    this.setState({ startClicked: false });
   };
 
   clearTimer = () => {
-    this.setState({ timeRemaining: 0 });
+    this.setState({
+      startClicked: false,
+      timeRemaining: 0
+    });
   };
 
   tick = () => {
@@ -94,9 +101,21 @@ class Timer extends React.Component {
     });
   };
 
+  handleDismiss = () => {
+    this.setState({
+      startClicked: false
+    });
+    clearInterval(this.timer);
+  };
+
   render() {
     return (
       <Row>
+        <Alert
+          msg="Time is up!"
+          onDismiss={this.handleDismiss}
+          show={this.state.startClicked && this.state.timeRemaining <= 0}
+        />
         <Col s={12} m={3} offset="m2 l4">
           <Card className="white parent-container" textClassName="black-text">
             <h3>Timer</h3>
@@ -108,7 +127,6 @@ class Timer extends React.Component {
                   <th className="timer-heading">Seconds</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td>
