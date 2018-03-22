@@ -77,7 +77,7 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).toEqual(3600);
         expect(wrapper.state().timeRemaining).not.toBe(-1 * hours);
       });
     });
@@ -106,8 +106,8 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(59 * minutes);
-        expect(wrapper.state().timeRemaining).not.toBe(60 * minutes);
+        expect(wrapper.state().timeRemaining).toEqual(60 * minutes);
+        expect(wrapper.state().timeRemaining).not.toBe(61 * minutes);
       });
     });
 
@@ -135,7 +135,7 @@ describe('Timer', () => {
         button.simulate('click');
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).toEqual(60);
         expect(wrapper.state().timeRemaining).not.toBe(-1 * minutes);
       });
     });
