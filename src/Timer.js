@@ -10,10 +10,12 @@ import Alert from './Alert';
 const HOURS = 3600;
 const MINUTES = 60;
 const SECONDS = 1;
-const MAX_HOURS = 23 * 60 * 60;
+const MAX_HOURS = 82799;
 const MAX_MINUTES = 59;
 const MAX_SECONDS = 59;
-const MIN_TIME = 0;
+const MIN_HOURS = 3599;
+const MIN_MINUTES = 59;
+const MIN_SECONDS = 0;
 
 class Timer extends React.Component {
   state = {
@@ -31,7 +33,7 @@ class Timer extends React.Component {
   };
 
   decreaseHours = () => {
-    if (this.state.timeRemaining <= MIN_TIME) {
+    if (this.state.timeRemaining <= MIN_HOURS) {
       return;
     }
 
@@ -47,7 +49,7 @@ class Timer extends React.Component {
   };
 
   decreaseMinutes = () => {
-    if (this.state.timeRemaining <= MIN_TIME) {
+    if (this.state.timeRemaining <= MIN_MINUTES) {
       return;
     }
 
@@ -63,7 +65,7 @@ class Timer extends React.Component {
   };
 
   decreaseSeconds = () => {
-    if (this.state.timeRemaining <= MIN_TIME) {
+    if (this.state.timeRemaining <= MIN_SECONDS) {
       return;
     }
 
