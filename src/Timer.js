@@ -10,8 +10,8 @@ import Alert from './Alert';
 const HOURS = 3600;
 const MINUTES = 60;
 const SECONDS = 1;
-const MAX_HOURS = 23 * 60 * 60;
-const MAX_MINUTES = 24 * 60;
+const MAX_HOURS = (23 * 60 * 60) - 1;
+const MAX_MINUTES = (24 * 60) - 1;
 const MAX_SECONDS = 59;
 const MIN_TIME = 0;
 
