@@ -42,24 +42,24 @@ export default class Stopwatch extends Component {
           <Card className="white parent-container" textClassName="black-text">
             <h3>CloudWatch</h3>
             <h3>{millisecondsToHuman(this.state.counter)}</h3>
-            <div>
+            <div className="parent-container">
               <Button
                 waves="light"
-                className="green"
+                className="green timer-btn"
                 onClick={this.startStopwatch}
               >
                 Start
               </Button>
               <Button
                 waves="light"
-                className="red"
+                className="red timer-btn"
                 onClick={this.pauseStopwatch}
               >
                 Pause
               </Button>
               <Button
                 waves="light"
-                className="yellow darken-3"
+                className="yellow darken-3 timer-btn timer-clear"
                 onClick={this.clearStopwatch}
               >
                 Clear
