@@ -1,64 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stopwatch renders correctly 1`] = `
-<div
-  className="row"
->
-  <div
-    className="col s12 m3 offset-m2 offset-l4"
+<Row>
+  <Col
+    m={3}
+    offset="m2 l4"
+    s={12}
   >
-    <div
-      className="white parent-container card"
+    <Card
+      className="white parent-container"
+      textClassName="black-text"
     >
-      <div
-        className="card-content black-text"
-      >
-        <div>
-          <h3>
-            CloudWatch
-          </h3>
-          <h3>
-            00:00:00:00
-          </h3>
-          <div>
-            <button
-              className="btn waves-effect waves-light green"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Start
-            </button>
-            <button
-              className="btn waves-effect waves-light red"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Pause
-            </button>
-            <button
-              className="btn waves-effect waves-light yellow darken-3"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        className="card-reveal"
-      >
-        <span
-          className="card-title grey-text text-darken-4"
+      <h3>
+        CloudWatch
+      </h3>
+      <h3>
+        00:00:00:00
+      </h3>
+      <div>
+        <Button
+          className="green"
+          node="button"
+          onClick={[Function]}
+          waves="light"
         >
-          <i
-            className="material-icons right"
-          >
-            close
-          </i>
-        </span>
+          Start
+        </Button>
+        <Button
+          className="red"
+          node="button"
+          onClick={[Function]}
+          waves="light"
+        >
+          Pause
+        </Button>
+        <Button
+          className="yellow darken-3"
+          node="button"
+          onClick={[Function]}
+          waves="light"
+        >
+          Clear
+        </Button>
       </div>
-    </div>
-  </div>
-</div>
+    </Card>
+  </Col>
+</Row>
 `;

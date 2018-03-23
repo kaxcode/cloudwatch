@@ -1,22 +1,21 @@
 import React from 'react';
-import Stopwatch from './Stopwatch';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Stopwatch from './Stopwatch';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Stopwatch', () => {
-  it('renders correctly', () => {
-    const tree = renderer.create(<Stopwatch />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   let stopwatch;
 
   beforeEach(() => {
     stopwatch = shallow(<Stopwatch />);
+  });
+
+  it('renders correctly', () => {
+    expect(toJson(stopwatch)).toMatchSnapshot();
   });
 
   jest.useFakeTimers();

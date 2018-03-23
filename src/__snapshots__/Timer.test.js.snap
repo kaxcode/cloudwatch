@@ -1,183 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Timer renders correctly 1`] = `
-<div
-  className="row"
->
-  <div
-    className="col s12 m3 offset-m2 offset-l4"
+<Row>
+  <Alert
+    msg="Time is up!"
+    onDismiss={[Function]}
+    show={false}
+  />
+  <Col
+    m={3}
+    offset="m2 l4"
+    s={12}
   >
-    <div
-      className="white parent-container card"
+    <Card
+      className="white parent-container"
+      textClassName="black-text"
     >
-      <div
-        className="card-content black-text"
+      <h3>
+        Timer
+      </h3>
+      <Table
+        className="setters"
       >
-        <div>
-          <h3>
-            Timer
-          </h3>
-          <table
-            className="setters"
-          >
-            <thead>
-              <tr>
-                <th
-                  className="timer-heading"
+        <thead>
+          <tr>
+            <th
+              className="timer-heading"
+            >
+              Hours
+            </th>
+            <th
+              className="timer-heading"
+            >
+              Minutes
+            </th>
+            <th
+              className="timer-heading"
+            >
+              Seconds
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div
+                className="hours-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="hours-increase"
+                  node="button"
+                  onClick={[Function]}
                 >
-                  Hours
-                </th>
-                <th
-                  className="timer-heading"
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="hours-decrease"
+                  node="button"
+                  onClick={[Function]}
                 >
-                  Minutes
-                </th>
-                <th
-                  className="timer-heading"
+                  -
+                </Button>
+              </div>
+            </td>
+            <td>
+              <div
+                className="minutes-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="minutes-increase"
+                  node="button"
+                  onClick={[Function]}
                 >
-                  Seconds
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div
-                    className="hours-set"
-                  >
-                    <button
-                      className="btn plus-btn blue"
-                      disabled={false}
-                      id="hours-increase"
-                      onClick={[Function]}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn minus-btn blue"
-                      disabled={false}
-                      id="hours-decrease"
-                      onClick={[Function]}
-                    >
-                      -
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <div
-                    className="minutes-set"
-                  >
-                    <button
-                      className="btn plus-btn blue"
-                      disabled={false}
-                      id="minutes-increase"
-                      onClick={[Function]}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn minus-btn blue"
-                      disabled={false}
-                      id="minutes-decrease"
-                      onClick={[Function]}
-                    >
-                      -
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <div
-                    className="seconds-set"
-                  >
-                    <button
-                      className="btn waves-effect waves-light plus-btn blue"
-                      disabled={false}
-                      id="seconds-increase"
-                      onClick={[Function]}
-                    >
-                      +
-                    </button>
-                    <button
-                      className="btn minus-btn blue"
-                      disabled={false}
-                      id="seconds-decrease"
-                      onClick={[Function]}
-                    >
-                      -
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h1
-                    className="timer-count"
-                  >
-                    0
-                  </h1>
-                </td>
-                <td>
-                  <h1
-                    className="timer-count"
-                  >
-                    0
-                  </h1>
-                </td>
-                <td>
-                  <h1
-                    className="timer-count"
-                  >
-                    0
-                  </h1>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button
-                    className="btn waves-effect waves-light green start-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Start
-                  </button>
-                </td>
-                <td>
-                  <button
-                    className="btn waves-effect waves-light red pause-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Pause
-                  </button>
-                </td>
-                <td>
-                  <button
-                    className="btn waves-effect waves-light yellow darken-3 clear-btn"
-                    disabled={false}
-                    onClick={[Function]}
-                  >
-                    Clear
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div
-        className="card-reveal"
-      >
-        <span
-          className="card-title grey-text text-darken-4"
-        >
-          <i
-            className="material-icons right"
-          >
-            close
-          </i>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="minutes-decrease"
+                  node="button"
+                  onClick={[Function]}
+                >
+                  -
+                </Button>
+              </div>
+            </td>
+            <td>
+              <div
+                className="seconds-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="seconds-increase"
+                  node="button"
+                  onClick={[Function]}
+                  waves="light"
+                >
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="seconds-decrease"
+                  node="button"
+                  onClick={[Function]}
+                >
+                  -
+                </Button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                0
+              </h1>
+            </td>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                0
+              </h1>
+            </td>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                0
+              </h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button
+                className="green start-btn"
+                node="button"
+                onClick={[Function]}
+                waves="light"
+              >
+                Start
+              </Button>
+            </td>
+            <td>
+              <Button
+                className="red pause-btn"
+                node="button"
+                onClick={[Function]}
+                waves="light"
+              >
+                Pause
+              </Button>
+            </td>
+            <td>
+              <Button
+                className="yellow darken-3 clear-btn"
+                node="button"
+                onClick={[Function]}
+                waves="light"
+              >
+                Clear
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </Card>
+  </Col>
+</Row>
 `;
