@@ -4,8 +4,8 @@ import {
   secondsToHour,
   secondsToMinutes,
   seconds
-} from './utils/humanizeTimer';
-import Alert from './Alert';
+} from '../../utils/humanizeTimer';
+import Alert from '../Alert/Alert';
 
 const HOURS = 3600;
 const MINUTES = 60;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Stopwatch from './Stopwatch.js';
-import Timer from './Timer.js';
+import Stopwatch from './components/Stopwatch/Stopwatch.js';
+import Timer from './components/Timer/Timer.js';
 import { Row } from 'react-materialize';
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
-import { millisecondsToHuman } from './utils/humanizeTimer';
+import { millisecondsToHuman } from '../../utils/humanizeTimer';
 
 export default class Stopwatch extends Component {
   state = {
