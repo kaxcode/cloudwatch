@@ -1,8 +1,8 @@
 import React from 'react';
-import Timer from './Timer';
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
+import Timer from './Timer';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -13,13 +13,12 @@ describe('Timer', () => {
   const hours = 3600;
   const minutes = 60;
 
-  it('renders correctly', () => {
-    const tree = renderer.create(<Timer />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   beforeEach(() => {
     wrapper = shallow(<Timer />);
+  });
+
+  it('renders correctly', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   describe('Increment Buttons', () => {
