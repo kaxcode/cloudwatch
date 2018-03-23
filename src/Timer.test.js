@@ -13,13 +13,13 @@ describe('Timer', () => {
   const hours = 3600;
   const minutes = 60;
 
-  beforeEach(() => {
-    wrapper = shallow(<Timer />);
+  it('renders correctly', () => {
+    const tree = renderer.create(<Timer />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  it('renders correctly', () => {
-    const tree = renderer.create(wrapper).toJSON();
-    expect(tree).toMatchSnapshot();
+  beforeEach(() => {
+    wrapper = shallow(<Timer />);
   });
 
   describe('Increment Buttons', () => {
