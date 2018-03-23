@@ -20,23 +20,25 @@ exports[`Stopwatch renders correctly 1`] = `
           <h3>
             00:00:00:00
           </h3>
-          <div>
+          <div
+            className="parent-container"
+          >
             <button
-              className="btn waves-effect waves-light green"
+              className="btn waves-effect waves-light green timer-btn"
               disabled={false}
               onClick={[Function]}
             >
               Start
             </button>
             <button
-              className="btn waves-effect waves-light red"
+              className="btn waves-effect waves-light red timer-btn"
               disabled={false}
               onClick={[Function]}
             >
               Pause
             </button>
             <button
-              className="btn waves-effect waves-light yellow darken-3"
+              className="btn waves-effect waves-light yellow darken-3 timer-btn timer-clear"
               disabled={false}
               onClick={[Function]}
             >
