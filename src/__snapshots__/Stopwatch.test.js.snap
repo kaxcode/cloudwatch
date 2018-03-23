@@ -11,34 +11,49 @@ exports[`Stopwatch renders correctly 1`] = `
       className="white parent-container"
       textClassName="black-text"
     >
-      <h3>
-        CloudWatch
-      </h3>
-      <h3>
-        00:00:00:00
-      </h3>
-      <div>
-        <Button
-          className="green"
-          node="button"
-          onClick={[Function]}
-          waves="light"
-        >
-          Start
-        </Button>
-        <Button
-          className="red"
-          node="button"
-          onClick={[Function]}
-          waves="light"
-        >
-          Pause
-        </Button>
-        <Button
-          className="yellow darken-3"
-          node="button"
-          onClick={[Function]}
-          waves="light"
+
+      <div
+        className="card-content black-text"
+      >
+        <div>
+          <h3>
+            CloudWatch
+          </h3>
+          <h3>
+            00:00:00:00
+          </h3>
+          <div
+            className="parent-container"
+          >
+            <button
+              className="btn waves-effect waves-light green timer-btn"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Start
+            </button>
+            <button
+              className="btn waves-effect waves-light red timer-btn"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Pause
+            </button>
+            <button
+              className="btn waves-effect waves-light yellow darken-3 timer-btn timer-clear"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="card-reveal"
+      >
+        <span
+          className="card-title grey-text text-darken-4"
         >
           Clear
         </Button>
