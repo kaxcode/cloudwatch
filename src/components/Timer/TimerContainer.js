@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'react-materialize';
 import Timer from './Timer.js';
 
 const HOURS = 3600;
@@ -105,24 +104,22 @@ class TimerContainer extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Timer
-          handleDismiss={ this.handleDismiss}
-          increaseHours={this.increaseHours}
-          decreaseHours={this.decreaseHours}
-          increaseMinutes={this.increaseMinutes}
-          decreaseMinutes={this.decreaseMinutes}
-          increaseSeconds={this.increaseSeconds}
-          decreaseSeconds={this.decreaseSeconds}
-          onStart={this.handleStart}
-          onPause={this.handlePause}
-          onClear={this.handleClear}
-          startClicked={this.state.startClicked}
-          timeRemaining={this.state.timeRemaining}
-        />
-      </Row>
-    );
-  }
+      <Timer
+        handleDismiss={ this.handleDismiss}
+        increaseHours={this.increaseHours}
+        decreaseHours={this.decreaseHours}
+        increaseMinutes={this.increaseMinutes}
+        decreaseMinutes={this.decreaseMinutes}
+        increaseSeconds={this.increaseSeconds}
+        decreaseSeconds={this.decreaseSeconds}
+        onStart={this.handleStart}
+        onPause={this.handlePause}
+        onClear={this.handleClear}
+        startClicked={this.state.startClicked}
+        timeRemaining={this.state.timeRemaining}
+      />
+      );
+    }
 }
 
 export default TimerContainer;

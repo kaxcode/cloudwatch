@@ -37,14 +37,12 @@ export default class StopwatchContainer extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Stopwatch
-          onStart={this.handleStart}
-          onPause={this.handlePause}
-          onClear={this.handleClear}
-          counter={this.state.counter}
-        />
-      </Row>
+      <Stopwatch
+        onStart={this.handleStart}
+        onPause={this.handlePause}
+        onClear={this.handleClear}
+        counter={this.state.counter}
+      />
     );
   }
 }
