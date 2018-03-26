@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Stopwatch from './components/Stopwatch/Stopwatch.js';
-import Timer from './components/Timer/Timer.js';
+import StopwatchContainer from './components/Stopwatch/StopwatchContainer.js';
+import TimerContainer from './components/Timer/TimerContainer.js';
 import { Row } from 'react-materialize';
 
 class App extends Component {
   render() {
     return (
       <Row>
-        <Stopwatch />
-        <Timer />
+        <StopwatchContainer />
+        <TimerContainer />
       </Row>
     );
   }
