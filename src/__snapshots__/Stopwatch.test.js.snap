@@ -17,9 +17,11 @@ exports[`Stopwatch renders correctly 1`] = `
       <h3>
         00:00:00:00
       </h3>
-      <div>
+      <div
+        className="parent-container"
+      >
         <Button
-          className="green"
+          className="green timer-btn"
           node="button"
           onClick={[Function]}
           waves="light"
@@ -27,7 +29,7 @@ exports[`Stopwatch renders correctly 1`] = `
           Start
         </Button>
         <Button
-          className="red"
+          className="red timer-btn"
           node="button"
           onClick={[Function]}
           waves="light"
@@ -35,7 +37,7 @@ exports[`Stopwatch renders correctly 1`] = `
           Pause
         </Button>
         <Button
-          className="yellow darken-3"
+          className="yellow darken-3 timer-btn timer-clear"
           node="button"
           onClick={[Function]}
           waves="light"

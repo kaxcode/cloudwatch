@@ -8,7 +8,7 @@ body {
   min-width: 450px;
 }
 
-.plus-btn, 
+.plus-btn,
 .minus-btn {
   width: 35px;
   padding: 0;
@@ -33,4 +33,12 @@ body {
 
 .timer-count {
   margin: 0;
+}
+
+.timer-btn {
+  margin-right: 20px;
+}
+
+.timer-clear {
+  margin-right: 43px;
 }
