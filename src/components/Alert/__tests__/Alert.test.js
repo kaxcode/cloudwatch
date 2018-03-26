@@ -1,6 +1,6 @@
 import React from 'react';
 import Enzyme from 'enzyme';
-import Alert from './Alert';
+import Alert from '../Alert';
 import { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

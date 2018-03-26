@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { func, string, bool } from 'prop-types';
 
 export default class Alert extends Component {
   componentDidMount = () => {
@@ -27,7 +27,7 @@ export default class Alert extends Component {
 }
 
 Alert.propTypes = {
-  onDismiss: PropTypes.func.isRequired,
-  msg: PropTypes.string,
-  show: PropTypes.bool
+  onDismiss: func.isRequired,
+  msg: string,
+  show: bool
 };
