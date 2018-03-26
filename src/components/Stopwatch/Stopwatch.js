@@ -39,11 +39,11 @@ export default class Stopwatch extends React.Component {
     return (
       <Row>
         <StopwatchLayout
-        start={() => this.startStopwatch()}
-        pause={() => this.pauseStopwatch()}
-        clear={() => this.clearStopwatch()}
-        counter={this.state.counter}
-         />
+          startStopwatch={() => this.startStopwatch()}
+          pauseStopwatch={() => this.pauseStopwatch()}
+          clearStopwatch={() => this.clearStopwatch()}
+          counter={this.state.counter}
+        />
       </Row>
     );
   }

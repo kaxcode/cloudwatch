@@ -3,8 +3,7 @@ import { Row, Button, Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import PropTypes from 'prop-types';
 
-const StopwatchLayout = (props) => {
-
+const StopwatchLayout = props => {
   return (
     <Row>
       <Col s={12} m={3} offset="m2 l4">
@@ -15,21 +14,21 @@ const StopwatchLayout = (props) => {
             <Button
               waves="light"
               className="green timer-btn"
-              onClick={props.start}
+              onClick={props.startStopwatch}
             >
               Start
             </Button>
             <Button
               waves="light"
               className="red timer-btn"
-              onClick={props.pause}
+              onClick={props.pauseStopwatch}
             >
               Pause
             </Button>
             <Button
               waves="light"
               className="yellow darken-3 timer-btn timer-clear"
-              onClick={props.clear}
+              onClick={props.clearStopwatch}
             >
               Clear
             </Button>
@@ -41,11 +40,10 @@ const StopwatchLayout = (props) => {
 };
 
 StopwatchLayout.propTypes = {
-  start: PropTypes.func.isRequired,
-  pause: PropTypes.func.isRequired,
-  clear: PropTypes.func.isRequired,
+  startStopwatch: PropTypes.func.isRequired,
+  pauseStopwatch: PropTypes.func.isRequired,
+  clearStopwatch: PropTypes.func.isRequired,
   counter: PropTypes.number
 };
-
 
 export default StopwatchLayout;
