@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 export default class Alert extends Component {
   componentDidMount = () => {
-    if (this.props.show) {
-      this.handleAlert();
+    if (!this.props.show) {
+      return;
     }
+
+    this.handleAlert();
   };
 
   componentDidUpdate = prevProps => {

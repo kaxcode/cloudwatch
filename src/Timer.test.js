@@ -17,6 +17,10 @@ describe('Timer', () => {
     wrapper = shallow(<Timer />);
   });
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
@@ -108,6 +112,18 @@ describe('Timer', () => {
         expect(wrapper.state().timeRemaining).toEqual(60 * minutes);
         expect(wrapper.state().timeRemaining).not.toBe(61 * minutes);
       });
+
+      it('does nothing when remaining time is at maximum', () => {
+        // Arrange
+        const button = wrapper.find('#minutes-increase').first();
+        wrapper.setState({ timeRemaining: 86399 });
+
+        // Act
+        button.simulate('click');
+
+        // Assert
+        expect(wrapper.state().timeRemaining).toEqual(86399);
+      });
     });
 
     describe('clicking the - minutes button', () => {
@@ -195,46 +211,79 @@ describe('Timer', () => {
         expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1);
       });
+
+      it('returns when decreasing below min time', () => {
+        // Arrange
+        const button = wrapper.find('#seconds-decrease').first();
+        wrapper.setState({ timeRemaining: 0 });
+
+        // Act
+        button.simulate('click');
+
+        // Assert
+        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).not.toBe(-1);
+      });
     });
   });
 
   describe('when the Start button is clicked', () => {
+    let startButton;
+
+    beforeEach(() => {
+      startButton = wrapper.find('#timer-start').first();
+    });
+
     it('starts the timer', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 62 });
-      const startButton = wrapper.find('.start-btn').first();
 
       // Act
       startButton.simulate('click');
 
       // Assert
       expect(setInterval).toHaveBeenCalledTimes(1);
+      expect(clearInterval).toHaveBeenCalledTimes(1);
+      expect(wrapper.state().startClicked).toBe(true);
       expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+    });
+
+    it('it cannot be click again', () => {
+      // Arrange
+      wrapper.setState({ startClicked: true });
+
+      // Act
+      startButton.simulate('click');
+
+      // Assert
+      expect(setInterval).toHaveBeenCalledTimes(0);
+      expect(clearInterval).toHaveBeenCalledTimes(0);
+      expect(wrapper.state().startClicked).toBe(true);
     });
   });
 
   describe('when the Pause button is clicked', () => {
-    it('pauses the tick function from chaning the timeRemaining state ', () => {
+    it('pauses the tick function from changing the timeRemaining state ', () => {
       // Arrange
-      wrapper.setState({ timeRemaining: 23 });
-      const startButton = wrapper.find('.start-btn').first();
-      startButton.simulate('click');
-
-      const pauseButton = wrapper.find('.pause-btn').first();
+      wrapper.setState({ startClicked: true });
+      wrapper.setState({ timeRemaining: 56 });
 
       // Act
+      const pauseButton = wrapper.find('#timer-pause').first();
       pauseButton.simulate('click');
 
       // Assert
-      expect(setInterval).toHaveBeenCalledTimes(2);
-      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+      expect(clearInterval).toHaveBeenCalledTimes(1);
+      expect(setInterval).toHaveBeenCalledTimes(0);
+      expect(wrapper.state().timeRemaining).toBe(56);
+      expect(wrapper.state().startClicked).toBe(false);
     });
   });
 
   describe('when the Clear button is clicked', () => {
     it('clears the the Hours, Minutes, Seconds state', () => {
       // Arrange
-      const clearButton = wrapper.find('.clear-btn').first();
+      const clearButton = wrapper.find('#timer-clear').first();
       wrapper.setState({ timeRemaining: 19 * hours });
 
       // Act
@@ -271,6 +320,19 @@ describe('Timer', () => {
       expect(wrapper.state().timeRemaining).toEqual(0);
       expect(wrapper.state().timeRemaining).not.toBe(-1);
       expect(wrapper.state().timeRemaining).not.toBe(1);
+    });
+  });
+
+  describe('#handleDismiss', () => {
+    it('sets the startClicked state to false', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 0 });
+
+      // Act
+      wrapper.instance().handleDismiss();
+
+      // Assert
+      expect(wrapper.state().startClicked).toBe(false);
     });
   });
 });

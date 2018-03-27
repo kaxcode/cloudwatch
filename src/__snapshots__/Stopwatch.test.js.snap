@@ -22,6 +22,7 @@ exports[`Stopwatch renders correctly 1`] = `
       >
         <Button
           className="green timer-btn"
+          id="stopwatch-start"
           node="button"
           onClick={[Function]}
           waves="light"
@@ -30,6 +31,7 @@ exports[`Stopwatch renders correctly 1`] = `
         </Button>
         <Button
           className="red timer-btn"
+          id="stopwatch-pause"
           node="button"
           onClick={[Function]}
           waves="light"
@@ -38,6 +40,7 @@ exports[`Stopwatch renders correctly 1`] = `
         </Button>
         <Button
           className="yellow darken-3 timer-btn timer-clear"
+          id="stopwatch-clear"
           node="button"
           onClick={[Function]}
           waves="light"
