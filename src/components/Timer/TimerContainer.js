@@ -105,7 +105,7 @@ class TimerContainer extends React.Component {
   render() {
     return (
       <Timer
-        handleDismiss={ this.handleDismiss}
+        handleDismiss={this.handleDismiss}
         increaseHours={this.increaseHours}
         decreaseHours={this.decreaseHours}
         increaseMinutes={this.increaseMinutes}
@@ -118,8 +118,8 @@ class TimerContainer extends React.Component {
         startClicked={this.state.startClicked}
         timeRemaining={this.state.timeRemaining}
       />
-      );
-    }
+    );
+  }
 }
 
 export default TimerContainer;
