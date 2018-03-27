@@ -27,6 +27,16 @@
     "test": "react-scripts test --coverage --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 33.33,
+        "functions": 47.62,
+        "lines": 57.3,
+        "statements": -63
+      }
+    }
+  },
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
