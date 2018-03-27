@@ -138,6 +138,7 @@ exports[`Timer renders correctly 1`] = `
             <td>
               <Button
                 className="green start-btn"
+                id="timer-start"
                 node="button"
                 onClick={[Function]}
                 waves="light"
@@ -148,6 +149,7 @@ exports[`Timer renders correctly 1`] = `
             <td>
               <Button
                 className="red pause-btn"
+                id="timer-pause"
                 node="button"
                 onClick={[Function]}
                 waves="light"
@@ -158,6 +160,7 @@ exports[`Timer renders correctly 1`] = `
             <td>
               <Button
                 className="yellow darken-3 clear-btn"
+                id="timer-clear"
                 node="button"
                 onClick={[Function]}
                 waves="light"

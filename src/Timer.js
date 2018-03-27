@@ -10,8 +10,8 @@ import Alert from './Alert';
 const HOURS = 3600;
 const MINUTES = 60;
 const SECONDS = 1;
-const MAX_HOURS = (23 * 60 * 60) - 1;
-const MAX_MINUTES = (24 * 60) - 1;
+const MAX_HOURS = 23 * 60 * 60 - 1;
+const MAX_MINUTES = 24 * 60 - 1;
 const MAX_SECONDS = 59;
 const MIN_TIME = 0;
 
@@ -206,6 +206,7 @@ class Timer extends React.Component {
                   <td>
                     <Button
                       waves="light"
+                      id="timer-start"
                       className="green start-btn"
                       onClick={this.startTimer}
                     >
@@ -215,6 +216,7 @@ class Timer extends React.Component {
                   <td>
                     <Button
                       waves="light"
+                      id="timer-pause"
                       className="red pause-btn"
                       onClick={this.pauseTimer}
                     >
@@ -224,6 +226,7 @@ class Timer extends React.Component {
                   <td>
                     <Button
                       waves="light"
+                      id="timer-clear"
                       className="yellow darken-3 clear-btn"
                       onClick={this.clearTimer}
                     >

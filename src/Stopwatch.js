@@ -11,11 +11,12 @@ export default class Stopwatch extends Component {
   timer = null;
 
   startStopwatch = () => {
-    if (this.state.clicked === false) {
-      clearInterval(this.timer);
-      this.timer = setInterval(this.tick, 10);
-      this.setState({ clicked: true });
+    if (this.state.clicked) {
+      return;
     }
+    clearInterval(this.timer);
+    this.timer = setInterval(this.tick, 10);
+    this.setState({ clicked: true });
   };
 
   pauseStopwatch = () => {
@@ -44,6 +45,7 @@ export default class Stopwatch extends Component {
             <h3>{millisecondsToHuman(this.state.counter)}</h3>
             <div className="parent-container">
               <Button
+                id="stopwatch-start"
                 waves="light"
                 className="green timer-btn"
                 onClick={this.startStopwatch}
@@ -51,6 +53,7 @@ export default class Stopwatch extends Component {
                 Start
               </Button>
               <Button
+                id="stopwatch-pause"
                 waves="light"
                 className="red timer-btn"
                 onClick={this.pauseStopwatch}
@@ -58,6 +61,7 @@ export default class Stopwatch extends Component {
                 Pause
               </Button>
               <Button
+                id="stopwatch-clear"
                 waves="light"
                 className="yellow darken-3 timer-btn timer-clear"
                 onClick={this.clearStopwatch}
