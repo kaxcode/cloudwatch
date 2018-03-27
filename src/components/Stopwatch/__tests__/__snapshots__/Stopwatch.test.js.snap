@@ -1,12 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stopwatch renders correctly 1`] = `
-<Row>
-  <StopwatchLayout
-    clearStopwatch={[Function]}
-    counter={0}
-    pauseStopwatch={[Function]}
-    startStopwatch={[Function]}
-  />
-</Row>
+exports[`StopwatchContainer renders correctly 1`] = `
+<Stopwatch
+  counter={0}
+  onClear={[Function]}
+  onPause={[Function]}
+  onStart={[Function]}
+/>
 `;

@@ -2,16 +2,17 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Stopwatch from '../Stopwatch';
+import StopwatchContainer from '../StopwatchContainer';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Stopwatch', () => {
+describe('StopwatchContainer', () => {
   let stopwatch;
+  function handleStartMock() {}
 
   beforeEach(() => {
-    stopwatch = shallow(<Stopwatch />);
+    stopwatch = shallow(<StopwatchContainer handleStart={handleStartMock} />);
   });
 
   it('renders correctly', () => {
@@ -21,8 +22,14 @@ describe('Stopwatch', () => {
   jest.useFakeTimers();
 
   test('runs after click', () => {
-    stopwatch.instance().startStopwatch();
+    //Arrange
+    const spy = jest.spyOn(stopwatch.instance(), 'handleStart');
 
+    //Act
+    stopwatch.instance().handleStart();
+
+    //Assert
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
+    expect(spy).toHaveBeenCalled();
   });
 });

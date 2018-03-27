@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'react-materialize';
 import Stopwatch from './Stopwatch';
 
 export default class StopwatchContainer extends React.Component {
