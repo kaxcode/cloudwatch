@@ -40,69 +40,7 @@ exports[`Timer renders correctly 1`] = `
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div
-                className="hours-set"
-              >
-                <Button
-                  className="plus-btn blue"
-                  id="hours-increase"
-                  node="button"
-                >
-                  +
-                </Button>
-                <Button
-                  className="minus-btn blue"
-                  id="hours-decrease"
-                  node="button"
-                >
-                  -
-                </Button>
-              </div>
-            </td>
-            <td>
-              <div
-                className="minutes-set"
-              >
-                <Button
-                  className="plus-btn blue"
-                  id="minutes-increase"
-                  node="button"
-                >
-                  +
-                </Button>
-                <Button
-                  className="minus-btn blue"
-                  id="minutes-decrease"
-                  node="button"
-                >
-                  -
-                </Button>
-              </div>
-            </td>
-            <td>
-              <div
-                className="seconds-set"
-              >
-                <Button
-                  className="plus-btn blue"
-                  id="seconds-increase"
-                  node="button"
-                  waves="light"
-                >
-                  +
-                </Button>
-                <Button
-                  className="minus-btn blue"
-                  id="seconds-decrease"
-                  node="button"
-                >
-                  -
-                </Button>
-              </div>
-            </td>
-          </tr>
+          <Timer />
           <tr>
             <td>
               <h1

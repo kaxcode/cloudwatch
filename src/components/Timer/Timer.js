@@ -7,6 +7,7 @@ import {
 } from '../../utils/humanizeTimer';
 import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
+import TimerIncDecBtns from './TimerIncDecBtns';
 
 const Timer = props => {
   return (
@@ -28,63 +29,14 @@ const Timer = props => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <div className="hours-set">
-                    <Button
-                      id="hours-increase"
-                      className="plus-btn blue"
-                      onClick={props.increaseHours}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      id="hours-decrease"
-                      className="minus-btn blue"
-                      onClick={props.decreaseHours}
-                    >
-                      -
-                    </Button>
-                  </div>
-                </td>
-                <td>
-                  <div className="minutes-set">
-                    <Button
-                      id="minutes-increase"
-                      className="plus-btn blue"
-                      onClick={props.increaseMinutes}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      id="minutes-decrease"
-                      className="minus-btn blue"
-                      onClick={props.decreaseMinutes}
-                    >
-                      -
-                    </Button>
-                  </div>
-                </td>
-                <td>
-                  <div className="seconds-set">
-                    <Button
-                      waves="light"
-                      id="seconds-increase"
-                      className="plus-btn blue"
-                      onClick={props.increaseSeconds}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      id="seconds-decrease"
-                      className="minus-btn blue"
-                      onClick={props.decreaseSeconds}
-                    >
-                      -
-                    </Button>
-                  </div>
-                </td>
-              </tr>
+              <TimerIncDecBtns
+                increaseHours={props.increaseHours}
+                decreaseHours={props.decreaseHours}
+                increaseMinutes={props.increaseMinutes}
+                decreaseMinutes={props.decreaseMinutes}
+                increaseSeconds={props.increaseSeconds}
+                decreaseSeconds={props.decreaseSeconds}
+              />
               <tr>
                 <td>
                   <h1 className="timer-count">
