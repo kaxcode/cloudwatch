@@ -54,4 +54,32 @@ describe('StopwatchContainer', () => {
     expect(wrapper.state().counter).not.toBe(1);
     expect(spy).toHaveBeenCalled();
   });
+
+  describe('#tick', () => {
+    it('decreases the time remaining by 1 second', () => {
+      // Arrange
+      wrapper.setState({ counter: 0 });
+
+      // Act
+      wrapper.instance().tick();
+
+      // Assert
+      expect(wrapper.state().counter).toEqual(1);
+      expect(wrapper.state().counter).not.toBe(0);
+      expect(wrapper.state().counter).not.toBe(-1);
+    });
+
+    it('stops ticking if counter is 0', () => {
+      // Arrange
+      wrapper.setState({ counter: 0 });
+
+      // Act
+      wrapper.instance().tick();
+
+      // Assert
+      expect(wrapper.state().counter).toEqual(1);
+      expect(wrapper.state().counter).not.toBe(-1);
+      expect(wrapper.state().counter).not.toBe(0);
+    });
+  });
 });
