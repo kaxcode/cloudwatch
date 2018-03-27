@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
-import PropTypes from 'prop-types';
+import { func, number } from 'prop-types';
 
 const Stopwatch = props => {
   return (
@@ -40,10 +40,10 @@ const Stopwatch = props => {
 };
 
 Stopwatch.propTypes = {
-  onStart: PropTypes.func.isRequired,
-  onPause: PropTypes.func.isRequired,
-  onClear: PropTypes.func.isRequired,
-  counter: PropTypes.number
+  onStart: func.isRequired,
+  onPause: func.isRequired,
+  onClear: func.isRequired,
+  counter: number
 };
 
 export default Stopwatch;

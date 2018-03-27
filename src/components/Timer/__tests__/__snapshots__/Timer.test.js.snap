@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer renders correctly 1`] = `
+<Row>
+  <Alert
+    msg="Time is up!"
+  />
+  <Col
+    m={3}
+    offset="m2 l4"
+    s={12}
+  >
+    <Card
+      className="white parent-container"
+      textClassName="black-text"
+    >
+      <h3>
+        Timer
+      </h3>
+      <Table
+        className="setters"
+      >
+        <thead>
+          <tr>
+            <th
+              className="timer-heading"
+            >
+              Hours
+            </th>
+            <th
+              className="timer-heading"
+            >
+              Minutes
+            </th>
+            <th
+              className="timer-heading"
+            >
+              Seconds
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div
+                className="hours-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="hours-increase"
+                  node="button"
+                >
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="hours-decrease"
+                  node="button"
+                >
+                  -
+                </Button>
+              </div>
+            </td>
+            <td>
+              <div
+                className="minutes-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="minutes-increase"
+                  node="button"
+                >
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="minutes-decrease"
+                  node="button"
+                >
+                  -
+                </Button>
+              </div>
+            </td>
+            <td>
+              <div
+                className="seconds-set"
+              >
+                <Button
+                  className="plus-btn blue"
+                  id="seconds-increase"
+                  node="button"
+                  waves="light"
+                >
+                  +
+                </Button>
+                <Button
+                  className="minus-btn blue"
+                  id="seconds-decrease"
+                  node="button"
+                >
+                  -
+                </Button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                NaN
+              </h1>
+            </td>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                NaN
+              </h1>
+            </td>
+            <td>
+              <h1
+                className="timer-count"
+              >
+                NaN
+              </h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button
+                className="green start-btn"
+                node="button"
+                waves="light"
+              >
+                Start
+              </Button>
+            </td>
+            <td>
+              <Button
+                className="red pause-btn"
+                node="button"
+                waves="light"
+              >
+                Pause
+              </Button>
+            </td>
+            <td>
+              <Button
+                className="yellow darken-3 clear-btn"
+                node="button"
+                waves="light"
+              >
+                Clear
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </Card>
+  </Col>
+</Row>
+`;

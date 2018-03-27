@@ -6,7 +6,7 @@ import {
   seconds
 } from '../../utils/humanizeTimer';
 import Alert from '../Alert/Alert';
-import PropTypes from 'prop-types';
+import { func, number, bool } from 'prop-types';
 
 const Timer = props => {
   return (
@@ -140,18 +140,18 @@ const Timer = props => {
 };
 
 Timer.propTypes = {
-  onStart: PropTypes.func.isRequired,
-  onPause: PropTypes.func.isRequired,
-  onClear: PropTypes.func.isRequired,
-  handleDismiss: PropTypes.func.isRequired,
-  increaseHours: PropTypes.func.isRequired,
-  decreaseHours: PropTypes.func.isRequired,
-  increaseMinutes: PropTypes.func.isRequired,
-  decreaseMinutes: PropTypes.func.isRequired,
-  increaseSeconds: PropTypes.func.isRequired,
-  decreaseSeconds: PropTypes.func.isRequired,
-  timeRemaining: PropTypes.number,
-  startClicked: PropTypes.bool
+  onStart: func.isRequired,
+  onPause: func.isRequired,
+  onClear: func.isRequired,
+  handleDismiss: func.isRequired,
+  increaseHours: func.isRequired,
+  decreaseHours: func.isRequired,
+  increaseMinutes: func.isRequired,
+  decreaseMinutes: func.isRequired,
+  increaseSeconds: func.isRequired,
+  decreaseSeconds: func.isRequired,
+  timeRemaining: number,
+  startClicked: bool
 };
 
 export default Timer;
