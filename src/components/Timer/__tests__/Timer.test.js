@@ -11,11 +11,23 @@ jest.useFakeTimers();
 describe('Timer', () => {
   let wrapper;
 
+  function onStartMock() {}
+
   beforeEach(() => {
-    wrapper = shallow(<Timer />);
+    wrapper = shallow(
+      <Timer startClicked timeRemaining={0} onStart={onStartMock} />
+    );
   });
 
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('shows alert when start is clicked and time is zero', () => {
+    //Arrange
+
+    //Assert
+
+    expect(wrapper.find('Alert').props().show).toBe(true);
   });
 });
