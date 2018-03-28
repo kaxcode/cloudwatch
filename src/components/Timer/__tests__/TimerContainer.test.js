@@ -336,7 +336,6 @@ describe('Timer', () => {
     it('clears the the Hours, Minutes, Seconds state', () => {
       // Arrange
       const spy = jest.spyOn(wrapper.instance(), 'handleClear');
-      const clearButton = wrapper.find('#timer-clear').first();
       wrapper.setState({ timeRemaining: 19 * hours });
 
       // Act
