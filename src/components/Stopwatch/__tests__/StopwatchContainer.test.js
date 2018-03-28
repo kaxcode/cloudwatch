@@ -9,8 +9,10 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('StopwatchContainer', () => {
   let wrapper;
 
+  function handleStartMock() {}
+
   beforeEach(() => {
-    wrapper = shallow(<StopwatchContainer />);
+    wrapper = shallow(<StopwatchContainer handleStart={handleStartMock} />);
   });
 
   jest.useFakeTimers();
@@ -24,6 +26,20 @@ describe('StopwatchContainer', () => {
 
     //Assert
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('does not run if start has been clicked', () => {
+    //Arrange
+    const spy = jest.spyOn(wrapper.instance(), 'handleStart');
+
+    //Act
+    wrapper.setState({ clicked: true });
+    wrapper.instance().handleStart();
+
+    //Assert
+    expect(wrapper.state().clicked).toBe(true);
+    expect(wrapper.state().counter).not.toBe(1);
     expect(spy).toHaveBeenCalled();
   });
 
