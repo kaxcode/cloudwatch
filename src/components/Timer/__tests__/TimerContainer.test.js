@@ -3,6 +3,7 @@ import Enzyme from 'enzyme';
 import TimerContainer from '../TimerContainer';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import toJson from 'enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
 jest.useFakeTimers();
@@ -36,6 +37,14 @@ describe('Timer', () => {
         handleClear={handleClearMock}
       />
     );
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('renders correctly', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   describe('Increment Buttons', () => {
@@ -132,6 +141,19 @@ describe('Timer', () => {
         expect(wrapper.state().timeRemaining).not.toBe(61 * minutes);
         expect(spy).toHaveBeenCalled();
       });
+
+      it('does nothing when remaining time is at maximum', () => {
+        // Arrange
+        const spy = jest.spyOn(wrapper.instance(), 'increaseMinutes');
+        wrapper.setState({ timeRemaining: 86399 });
+
+        // Act
+        wrapper.instance().increaseMinutes();
+
+        // Assert
+        expect(wrapper.state().timeRemaining).toEqual(86399);
+        expect(spy).toHaveBeenCalled();
+      });
     });
 
     describe('clicking the - minutes button', () => {
@@ -225,10 +247,31 @@ describe('Timer', () => {
         expect(wrapper.state().timeRemaining).not.toBe(-1);
         expect(spy).toHaveBeenCalled();
       });
+
+      it('returns when decreasing below min time', () => {
+        // Arrange
+        const spy = jest.spyOn(wrapper.instance(), 'decreaseSeconds');
+
+        wrapper.setState({ timeRemaining: 0 });
+
+        // Act
+        wrapper.instance().decreaseSeconds();
+
+        // Assert
+        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).not.toBe(-1);
+        expect(spy).toHaveBeenCalled();
+      });
     });
   });
 
   describe('when the Start button is clicked', () => {
+    let startButton;
+
+    beforeEach(() => {
+      startButton = wrapper.find('#timer-start').first();
+    });
+
     it('starts the timer', () => {
       // Arrange
       const spy = jest.spyOn(wrapper.instance(), 'handleStart');
@@ -239,13 +282,13 @@ describe('Timer', () => {
 
       // Assert
       expect(setInterval).toHaveBeenCalledTimes(1);
+      expect(clearInterval).toHaveBeenCalledTimes(1);
+      expect(wrapper.state().startClicked).toBe(true);
       expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
       expect(spy).toHaveBeenCalled();
     });
-  });
 
-  describe('when the Pause button is clicked', () => {
-    it('pauses the tick function from chaning the timeRemaining state ', () => {
+    it('it cannot be clicked again', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 23 });
       const spy = jest.spyOn(wrapper.instance(), 'handlePause');
@@ -255,8 +298,36 @@ describe('Timer', () => {
       wrapper.instance().handlePause();
 
       // Assert
-      expect(setInterval).toHaveBeenCalledTimes(2);
+      expect(setInterval).toHaveBeenCalledTimes(1);
       expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+      expect(spy).toHaveBeenCalled();
+      wrapper.setState({ startClicked: true });
+
+      // Act
+      wrapper.instance().handleStart();
+      // Assert
+      expect(setInterval).toHaveBeenCalledTimes(1);
+      expect(clearInterval).toHaveBeenCalledTimes(2);
+      expect(wrapper.state().startClicked).toBe(true);
+      expect(spy).toHaveBeenCalled();
+    });
+  });
+
+  describe('when the Pause button is clicked', () => {
+    it('pauses the tick function from changing the timeRemaining state ', () => {
+      // Arrange
+      wrapper.setState({ startClicked: true });
+      wrapper.setState({ timeRemaining: 56 });
+      const spy = jest.spyOn(wrapper.instance(), 'handlePause');
+
+      // Act
+      wrapper.instance().handlePause();
+
+      // Assert
+      expect(clearInterval).toHaveBeenCalledTimes(1);
+      expect(setInterval).toHaveBeenCalledTimes(0);
+      expect(wrapper.state().timeRemaining).toBe(56);
+      expect(wrapper.state().startClicked).toBe(false);
       expect(spy).toHaveBeenCalled();
     });
   });
@@ -265,6 +336,7 @@ describe('Timer', () => {
     it('clears the the Hours, Minutes, Seconds state', () => {
       // Arrange
       const spy = jest.spyOn(wrapper.instance(), 'handleClear');
+      const clearButton = wrapper.find('#timer-clear').first();
       wrapper.setState({ timeRemaining: 19 * hours });
 
       // Act
@@ -302,6 +374,19 @@ describe('Timer', () => {
       expect(wrapper.state().timeRemaining).toEqual(0);
       expect(wrapper.state().timeRemaining).not.toBe(-1);
       expect(wrapper.state().timeRemaining).not.toBe(1);
+    });
+  });
+
+  describe('#handleDismiss', () => {
+    it('sets the startClicked state to false', () => {
+      // Arrange
+      wrapper.setState({ timeRemaining: 0 });
+
+      // Act
+      wrapper.instance().handleDismiss();
+
+      // Assert
+      expect(wrapper.state().startClicked).toBe(false);
     });
   });
 });

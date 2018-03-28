@@ -1,7 +1,7 @@
 export function millisecondsToHuman(time) {
   const centisecond = Math.floor(time % 100);
-  const seconds = Math.floor((time / 100) % 60);
-  const minutes = Math.floor((time / 100 / 60) % 60);
+  const seconds = Math.floor(time / 100 % 60);
+  const minutes = Math.floor(time / 100 / 60 % 60);
   const hours = Math.floor(time / 100 / 60 / 60 / 60);
 
   return [
@@ -17,7 +17,7 @@ export function secondsToHour(time) {
 }
 
 export function secondsToMinutes(time) {
-  return Math.floor(time / 60 % 60);
+  return Math.floor((time / 60) % 60);
 }
 
 export function seconds(time) {
