@@ -35,6 +35,16 @@ describe('Timer', () => {
     expect(wrapper.find('Alert').props().show).toBe(true);
   });
 
+  it('does not show alert when start is not clicked and time is zero', () => {
+    wrapper = shallow(<Timer startClicked={false} timeRemaining={0} />);
+    expect(wrapper.find('Alert').props().show).toBe(false);
+  });
+
+  it('does not show alert when start is clicked and time is not zero', () => {
+    wrapper = shallow(<Timer startClicked timeRemaining={10} />);
+    expect(wrapper.find('Alert').props().show).toBe(false);
+  });
+
   describe('the start button', () => {
     it('calls the :onStart prop when clicked', () => {
       //Arrange
