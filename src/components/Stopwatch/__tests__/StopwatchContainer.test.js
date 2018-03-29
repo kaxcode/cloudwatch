@@ -9,10 +9,8 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('StopwatchContainer', () => {
   let wrapper;
 
-  function handleStartMock() {}
-
   beforeEach(() => {
-    wrapper = shallow(<StopwatchContainer handleStart={handleStartMock} />);
+    wrapper = shallow(<StopwatchContainer />);
   });
 
   jest.useFakeTimers();

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-materialize';
 import { func, number, bool } from 'prop-types';
 
-const Timer = props => {
+const AdjustTimerButtonGroup = props => {
   return (
     <tr>
       <td>
@@ -64,7 +64,7 @@ const Timer = props => {
   );
 };
 
-Timer.propTypes = {
+AdjustTimerButtonGroup.propTypes = {
   onStart: func.isRequired,
   onPause: func.isRequired,
   onClear: func.isRequired,
@@ -79,4 +79,4 @@ Timer.propTypes = {
   startClicked: bool
 };
 
-export default Timer;
+export default AdjustTimerButtonGroup;

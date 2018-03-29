@@ -7,7 +7,7 @@ import {
 } from '../../utils/humanizeTimer';
 import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
-import TimerIncDecBtns from './TimerIncDecBtns';
+import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 
 const Timer = props => {
   return (
@@ -29,7 +29,7 @@ const Timer = props => {
               </tr>
             </thead>
             <tbody>
-              <TimerIncDecBtns
+              <AdjustTimerButtonGroup
                 increaseHours={props.increaseHours}
                 decreaseHours={props.decreaseHours}
                 increaseMinutes={props.increaseMinutes}
@@ -59,6 +59,7 @@ const Timer = props => {
                   <Button
                     waves="light"
                     className="green start-btn"
+                    id="timer-start"
                     onClick={props.onStart}
                   >
                     Start
@@ -68,6 +69,7 @@ const Timer = props => {
                   <Button
                     waves="light"
                     className="red pause-btn"
+                    id="timer-pause"
                     onClick={props.onPause}
                   >
                     Pause
@@ -77,6 +79,7 @@ const Timer = props => {
                   <Button
                     waves="light"
                     className="yellow darken-3 clear-btn"
+                    id="timer-clear"
                     onClick={props.onClear}
                   >
                     Clear

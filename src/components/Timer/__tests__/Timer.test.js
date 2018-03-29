@@ -11,11 +11,19 @@ jest.useFakeTimers();
 describe('Timer', () => {
   let wrapper;
 
-  function onStartMock() {}
+  const onStartMock = jest.fn();
+  const onPauseMock = jest.fn();
+  const onClearMock = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
-      <Timer startClicked timeRemaining={0} onStart={onStartMock} />
+      <Timer
+        startClicked
+        timeRemaining={0}
+        onStart={onStartMock}
+        onPause={onPauseMock}
+        onClear={onClearMock}
+      />
     );
   });
 
@@ -24,10 +32,39 @@ describe('Timer', () => {
   });
 
   it('shows alert when start is clicked and time is zero', () => {
-    //Arrange
-
-    //Assert
-
     expect(wrapper.find('Alert').props().show).toBe(true);
+  });
+
+  describe('the start button', () => {
+    it('calls the :onStart prop when clicked', () => {
+      //Arrange
+      const startButton = wrapper.find('#timer-start').first();
+      //Act
+      startButton.simulate('click');
+      //Assert
+      expect(onStartMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('the pause button', () => {
+    it('calls the :onPause prop when clicked', () => {
+      //Arrange
+      const pauseButton = wrapper.find('#timer-pause').first();
+      //Act
+      pauseButton.simulate('click');
+      //Assert
+      expect(onPauseMock).toHaveBeenCalled();
+    });
+  });
+
+  describe('the clear button', () => {
+    it('calls the :onClear prop when clicked', () => {
+      //Arrange
+      const clearButton = wrapper.find('#timer-clear').first();
+      //Act
+      clearButton.simulate('click');
+      //Assert
+      expect(onClearMock).toHaveBeenCalled();
+    });
   });
 });

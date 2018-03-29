@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Timer renders correctly 1`] = `
+exports[`Stopwatch renders correctly 1`] = `
 <Row>
   <Col
     m={3}
@@ -15,28 +15,34 @@ exports[`Timer renders correctly 1`] = `
         CloudWatch
       </h3>
       <h3>
-        NaN:NaN:NaN:NaN
+        00:00:00:00
       </h3>
       <div
         className="parent-container"
       >
         <Button
           className="green timer-btn"
+          id="stopwatch-start"
           node="button"
+          onClick={[Function]}
           waves="light"
         >
           Start
         </Button>
         <Button
           className="red timer-btn"
+          id="stopwatch-pause"
           node="button"
+          onClick={[Function]}
           waves="light"
         >
           Pause
         </Button>
         <Button
           className="yellow darken-3 timer-btn timer-clear"
+          id="stopwatch-clear"
           node="button"
+          onClick={[Function]}
           waves="light"
         >
           Clear

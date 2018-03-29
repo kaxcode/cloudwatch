@@ -288,7 +288,7 @@ describe('Timer', () => {
       expect(spy).toHaveBeenCalled();
     });
 
-    it('it cannot be clicked again', () => {
+    it('cannot be clicked again', () => {
       // Arrange
       wrapper.setState({ timeRemaining: 23 });
       const spy = jest.spyOn(wrapper.instance(), 'handlePause');

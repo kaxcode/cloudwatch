@@ -9,11 +9,12 @@ const Stopwatch = props => {
       <Col s={12} m={3} offset="m2 l4">
         <Card className="white parent-container" textClassName="black-text">
           <h3>CloudWatch</h3>
-          <h3>{millisecondsToHuman(props.counter)}</h3>
+          <h3>{millisecondsToHuman(props.counter || 0)}</h3>
           <div className="parent-container">
             <Button
               waves="light"
               className="green timer-btn"
+              id="stopwatch-start"
               onClick={props.onStart}
             >
               Start
@@ -21,6 +22,7 @@ const Stopwatch = props => {
             <Button
               waves="light"
               className="red timer-btn"
+              id="stopwatch-pause"
               onClick={props.onPause}
             >
               Pause
@@ -28,6 +30,7 @@ const Stopwatch = props => {
             <Button
               waves="light"
               className="yellow darken-3 timer-btn timer-clear"
+              id="stopwatch-clear"
               onClick={props.onClear}
             >
               Clear
