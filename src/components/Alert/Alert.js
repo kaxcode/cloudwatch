@@ -1,7 +1,7 @@
-import { Component } from 'react';
+import React from 'react';
 import { func, string, bool } from 'prop-types';
 
-export default class Alert extends Component {
+export default class Alert extends React.Component {
   componentDidMount = () => {
     if (!this.props.show) {
       return;
