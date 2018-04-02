@@ -9,7 +9,7 @@ const Stopwatch = props => {
       <Col s={12} m={3} offset="m2 l4">
         <Card className="white parent-container" textClassName="black-text">
           <h3>CloudWatch</h3>
-          <h3>{millisecondsToHuman(props.counter || 0)}</h3>
+          <h3>{millisecondsToHuman(props.counter)}</h3>
           <div className="parent-container">
             <Button
               waves="light"
@@ -49,4 +49,7 @@ Stopwatch.propTypes = {
   counter: number
 };
 
+Stopwatch.defaultProps = {
+  counter: 0
+};
 export default Stopwatch;
