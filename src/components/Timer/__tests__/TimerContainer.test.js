@@ -106,7 +106,7 @@ describe('Timer', () => {
         wrapper.instance().decreaseHours();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(3600);
+        expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1 * hours);
         expect(spy).toHaveBeenCalled();
       });
@@ -181,8 +181,23 @@ describe('Timer', () => {
         wrapper.instance().decreaseMinutes();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(60);
+        expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1 * minutes);
+        expect(spy).toHaveBeenCalled();
+      });
+
+      it('returns when decreasing below min time', () => {
+        // Arrange
+        const spy = jest.spyOn(wrapper.instance(), 'decreaseMinutes');
+
+        wrapper.setState({ timeRemaining: 0 });
+
+        // Act
+        wrapper.instance().decreaseMinutes();
+
+        // Assert
+        expect(wrapper.state().timeRemaining).toEqual(0);
+        expect(wrapper.state().timeRemaining).not.toBe(-1);
         expect(spy).toHaveBeenCalled();
       });
     });
@@ -266,12 +281,6 @@ describe('Timer', () => {
   });
 
   describe('when the Start button is clicked', () => {
-    let startButton;
-
-    beforeEach(() => {
-      startButton = wrapper.find('#timer-start').first();
-    });
-
     it('starts the timer', () => {
       // Arrange
       const spy = jest.spyOn(wrapper.instance(), 'handleStart');

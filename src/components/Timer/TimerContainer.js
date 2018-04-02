@@ -24,7 +24,7 @@ class TimerContainer extends React.Component {
   };
 
   decreaseHours = () => {
-    if (this.state.timeRemaining <= HOURS) {
+    if (this.state.timeRemaining < HOURS) {
       return;
     }
 
@@ -40,7 +40,7 @@ class TimerContainer extends React.Component {
   };
 
   decreaseMinutes = () => {
-    if (this.state.timeRemaining <= MINUTES) {
+    if (this.state.timeRemaining < MINUTES) {
       return;
     }
 
