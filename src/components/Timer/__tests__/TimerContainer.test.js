@@ -281,12 +281,6 @@ describe('Timer', () => {
   });
 
   describe('when the Start button is clicked', () => {
-    let startButton;
-
-    beforeEach(() => {
-      startButton = wrapper.find('#timer-start').first();
-    });
-
     it('starts the timer', () => {
       // Arrange
       const spy = jest.spyOn(wrapper.instance(), 'handleStart');
