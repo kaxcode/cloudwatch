@@ -64,17 +64,17 @@ describe('Timer', () => {
         expect(spy).toHaveBeenCalled();
       });
 
-      it('cannot let hours increase above 23', () => {
+      it('cannot let hours increase above 24', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'increaseHours');
-        wrapper.setState({ timeRemaining: 23 * hours });
+        wrapper.setState({ timeRemaining: 24 * hours });
 
         // Act
         wrapper.instance().increaseHours();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(23 * hours);
-        expect(wrapper.state().timeRemaining).not.toBe(24 * hours);
+        expect(wrapper.state().timeRemaining).toEqual(24 * hours);
+        expect(wrapper.state().timeRemaining).not.toBe(24 * hours + 1);
         expect(spy).toHaveBeenCalled();
       });
     });
@@ -145,13 +145,13 @@ describe('Timer', () => {
       it('does nothing when remaining time is at maximum', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'increaseMinutes');
-        wrapper.setState({ timeRemaining: 86399 });
+        wrapper.setState({ timeRemaining: 86400 });
 
         // Act
         wrapper.instance().increaseMinutes();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(86399);
+        expect(wrapper.state().timeRemaining).toEqual(86400);
         expect(spy).toHaveBeenCalled();
       });
     });
@@ -203,17 +203,17 @@ describe('Timer', () => {
         expect(spy).toHaveBeenCalled();
       });
 
-      it('cannot let seconds increase above 59', () => {
+      it('cannot let seconds increase above 60', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'increaseSeconds');
-        wrapper.setState({ timeRemaining: 59 });
+        wrapper.setState({ timeRemaining: 24 * hours });
 
         // Act
         wrapper.instance().increaseSeconds();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(59);
-        expect(wrapper.state().timeRemaining).not.toBe(60);
+        expect(wrapper.state().timeRemaining).toEqual(24 * hours);
+        expect(wrapper.state().timeRemaining).not.toBe(24 * hours + 1);
         expect(spy).toHaveBeenCalled();
       });
     });

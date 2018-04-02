@@ -4,9 +4,7 @@ import Timer from './Timer.js';
 const HOURS = 3600;
 const MINUTES = 60;
 const SECONDS = 1;
-const MAX_HOURS = 23 * 60 * 60 - 1;
-const MAX_MINUTES = 24 * 60 - 1;
-const MAX_SECONDS = 59;
+const MAX_TIME = 24 * 60 * 60;
 const MIN_TIME = 0;
 
 class TimerContainer extends React.Component {
@@ -18,9 +16,10 @@ class TimerContainer extends React.Component {
   timer = null;
 
   increaseHours = () => {
-    if (this.state.timeRemaining >= MAX_HOURS) {
+    if (this.state.timeRemaining >= MAX_TIME) {
       return;
     }
+
     this.setState({ timeRemaining: this.state.timeRemaining + HOURS });
   };
 
@@ -33,7 +32,7 @@ class TimerContainer extends React.Component {
   };
 
   increaseMinutes = () => {
-    if (this.state.timeRemaining / 60 >= MAX_MINUTES) {
+    if (this.state.timeRemaining >= MAX_TIME) {
       return;
     }
 
@@ -49,7 +48,7 @@ class TimerContainer extends React.Component {
   };
 
   increaseSeconds = () => {
-    if (this.state.timeRemaining % 60 >= MAX_SECONDS) {
+    if (this.state.timeRemaining >= MAX_TIME) {
       return;
     }
 
