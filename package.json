@@ -22,9 +22,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test:lint:js": "eslint --ext=js --ext=jsx .",
-    "test:unit": "react-scripts test --env=jsdom",
-    "test": "react-scripts test --coverage --env=jsdom",
+    "test:lint:js": "eslint --fix --ignore-path .gitignore --ext=js --ext=jsx .",
+    "test:unit": "react-scripts test  --coverage --env=jsdom",
+    "test": "run-s test:**",
     "eject": "react-scripts eject"
   },
   "jest": {
