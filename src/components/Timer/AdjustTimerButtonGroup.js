@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-materialize';
-import { func, number, bool } from 'prop-types';
+import { func } from 'prop-types';
 
 const AdjustTimerButtonGroup = props => {
   return (
@@ -65,18 +65,12 @@ const AdjustTimerButtonGroup = props => {
 };
 
 AdjustTimerButtonGroup.propTypes = {
-  onStart: func.isRequired,
-  onPause: func.isRequired,
-  onClear: func.isRequired,
-  handleDismiss: func.isRequired,
   increaseHours: func.isRequired,
   decreaseHours: func.isRequired,
   increaseMinutes: func.isRequired,
   decreaseMinutes: func.isRequired,
   increaseSeconds: func.isRequired,
-  decreaseSeconds: func.isRequired,
-  timeRemaining: number,
-  startClicked: bool
+  decreaseSeconds: func.isRequired
 };
 
 export default AdjustTimerButtonGroup;
