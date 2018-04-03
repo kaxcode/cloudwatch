@@ -22,7 +22,7 @@ const Home = () => (
     <Link to="/timer">
       <img src={CloudyTimerButton} />
     </Link>
-    <Link to="stopwatch">
+    <Link to="/stopwatch">
       <img src={CloudyStopwatchButton} />
     </Link>
   </Row>
