@@ -20,10 +20,10 @@ const App = () => (
 const Home = () => (
   <Row>
     <Link to="/timer">
-      <img src={CloudyTimerButton} />
+      <img src={CloudyTimerButton} alt="cloud-shaped button to timer"/>
     </Link>
     <Link to="/stopwatch">
-      <img src={CloudyStopwatchButton} />
+      <img src={CloudyStopwatchButton} alt="cloud-shaped button to timer"/>
     </Link>
   </Row>
 );
