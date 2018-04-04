@@ -1,32 +1,7 @@
 import React from 'react';
 import { func, string, bool } from 'prop-types';
+import CloudyAlert from '../../assets/alert_cloud.svg';
 
-<<<<<<< HEAD
-export default class Alert extends React.Component {
-  componentDidMount = () => {
-    if (!this.props.show) {
-      return;
-    }
-
-    this.handleAlert();
-  };
-
-  componentDidUpdate = prevProps => {
-    if (this.props.show && this.props.show !== prevProps.show) {
-      this.handleAlert();
-    }
-  };
-
-  handleAlert = () => {
-    alert(this.props.msg);
-    this.props.onDismiss();
-  };
-
-  render() {
-    return null;
-  }
-}
-=======
 const Alert = props => {
   return (
     props.show && (
@@ -47,7 +22,6 @@ const Alert = props => {
     )
   );
 };
->>>>>>> dcb2535... Update Alert component in Timer
 
 Alert.propTypes = {
   onDismiss: func.isRequired,
