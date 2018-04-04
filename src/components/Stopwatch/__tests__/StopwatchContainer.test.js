@@ -3,6 +3,7 @@ import Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
 import StopwatchContainer from '../StopwatchContainer';
 import Adapter from 'enzyme-adapter-react-16';
+import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -41,7 +42,7 @@ describe('StopwatchContainer', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('pauses the tick function from chaning the timeRemaining state ', () => {
+  it('pauses the tick function from chaning the counter state ', () => {
     // Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handlePause');
     wrapper.instance().handleStart();
@@ -94,6 +95,57 @@ describe('StopwatchContainer', () => {
       expect(wrapper.state().counter).toEqual(1);
       expect(wrapper.state().counter).not.toBe(-1);
       expect(wrapper.state().counter).not.toBe(0);
+    });
+  });
+
+  describe('#componentDidMount', () => {
+    it('sets an initial counter value from localstorage when available', () => {
+      // Arrange
+      const initialCounter = Math.round(Math.random() * 10000);
+      localStorage.setItem('counter', initialCounter);
+
+      // Act
+      const subject = shallow(<StopwatchContainer />);
+
+      // Assert
+      expect(subject.state().counter).toEqual(initialCounter);
+    });
+    it('sets a sane default counter value', () => {
+      // Arrange
+      localStorage.setItem('counter', null);
+
+      // Act
+      const subject = shallow(<StopwatchContainer />);
+
+      // Assert
+      expect(subject.state().counter).toEqual(0);
+    });
+  });
+
+  describe('#componentDidUpdate', () => {
+    it('sets state to localStorage value ', () => {
+      // Arrange
+      localStorage.setItem('counter', 999);
+      wrapper.setState({ counter: 1214 });
+
+      // Act
+      wrapper.update();
+
+      // Assert
+      expect(localStorage.getItem('counter')).toEqual('1214');
+    });
+  });
+
+  describe('#componentWillUnmount', () => {
+    it('resets the stored state in localstorage', () => {
+      // Arrange
+      localStorage.setItem('counter', 999);
+
+      // Act
+      wrapper.instance().componentWillUnmount();
+
+      // Assert
+      expect(localStorage.getItem('counter')).toEqual('0');
     });
   });
 });

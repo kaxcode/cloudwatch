@@ -15,6 +15,22 @@ class TimerContainer extends React.Component {
 
   timer = null;
 
+  componentDidMount = () => {
+    // Uses localStorage / 0 to set state
+    const localStorageRef = localStorage.getItem('timeRemaining');
+    this.setState({ timeRemaining: parseInt(localStorageRef, 0) || 0 });
+  };
+
+  componentDidUpdate() {
+    // Sets the locastorage
+    localStorage.setItem('timeRemaining', this.state.timeRemaining);
+  }
+
+  componentWillUnmount() {
+    // Sets counter to 0 if component is unmounted
+    localStorage.setItem('timeRemaining', 0);
+  }
+
   increaseHours = () => {
     if (this.state.timeRemaining >= MAX_TIME) {
       return;

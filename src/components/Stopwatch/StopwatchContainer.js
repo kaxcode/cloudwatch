@@ -9,6 +9,22 @@ export default class StopwatchContainer extends React.Component {
 
   timer = null;
 
+  componentDidMount = () => {
+    // Uses localStorage / 0 to set state
+    const localStorageRef = localStorage.getItem('counter');
+    this.setState({ counter: parseInt(localStorageRef, 0) || 0 });
+  };
+
+  componentDidUpdate() {
+    // Sets the locastorage
+    localStorage.setItem('counter', this.state.counter);
+  }
+
+  componentWillUnmount() {
+    // Sets counter to 0 if component is unmounted
+    localStorage.setItem('counter', 0);
+  }
+
   handleStart = () => {
     if (this.state.clicked === false) {
       clearInterval(this.timer);
