@@ -28,10 +28,24 @@ export default class Alert extends React.Component {
 }
 =======
 const Alert = props => {
-  return props.show &&
-    <div onClick={props.onDismiss} style={{ textAlign: 'center', marginTop: '20px', backgroundColor: 'white', width: '100%', height: '100%', zIndex: 10000000, position: 'absolute'}}>
-      <img src={CloudyAlert} alt="cloud-shaped button to timer"/>
-    </div>;
+  return (
+    props.show && (
+      <div
+        onClick={props.onDismiss}
+        style={{
+          textAlign: 'center',
+          marginTop: '20px',
+          backgroundColor: 'white',
+          width: '100%',
+          height: '100%',
+          zIndex: 10000000,
+          position: 'absolute'
+        }}
+      >
+        <img src={CloudyAlert} alt="cloud-shaped button to timer" />
+      </div>
+    )
+  );
 };
 >>>>>>> dcb2535... Update Alert component in Timer
 
