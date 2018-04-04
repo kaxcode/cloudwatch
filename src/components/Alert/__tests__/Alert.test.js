@@ -2,78 +2,27 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Alert from '../Alert';
 import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Alert', () => {
-  describe('#componentDidMount', () => {
-    it('calls #handleAlert when shown', () => {
-      // Arrange
-      const wrapper = mount(<Alert onDismiss={jest.fn()} show />);
-      const spy = jest.spyOn(wrapper.instance(), 'handleAlert');
+  it('renders when show is true', () => {
+    // Arrange
+    let wrapper = mount(<Alert onDismiss={jest.fn()} show />);
 
-      // Act
-      wrapper.instance().componentDidMount();
-
-      // Assert
-      expect(spy).toHaveBeenCalled();
+    it('renders correctly', () => {
+      expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('does not call #handleAlert when not shown', () => {
-      // Arrange
-      const wrapper = mount(<Alert onDismiss={jest.fn()} show={false} />);
-      const spy = jest.spyOn(wrapper.instance(), 'handleAlert');
-
-      // Act
-      wrapper.instance().componentDidMount();
-
-      // Assert
-      expect(spy).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('#componentDidUpdate', () => {
-    it('does not call #handleAlert when show changes from TRUE to FALSE', () => {
-      // Arrange
-      const wrapper = shallow(<Alert onDismiss={jest.fn()} show />, {
-        lifecycleExperimental: true
-      });
-      const spy = jest.spyOn(wrapper.instance(), 'handleAlert');
-
-      // Act
-      wrapper.setProps({ show: true });
-
-      // Assert
-      expect(spy).not.toHaveBeenCalled();
+    it('shows alert when start is clicked and time is zero', () => {
+      expect(wrapper.find('Alert').props().show).toBe(true);
     });
 
-    it('calls #handleAlert when show changes from FALSE to TRUE', () => {
-      // Arrange
-      const wrapper = shallow(<Alert onDismiss={jest.fn()} show={false} />, {
-        lifecycleExperimental: true
-      });
-      const spy = jest.spyOn(wrapper.instance(), 'handleAlert');
-
-      // Act
-      wrapper.setProps({ show: true });
-
-      // Assert
-      expect(spy).toHaveBeenCalled();
-    });
-
-    it('does not call #handleAlert when show changes from TRUE to TRUE', () => {
-      // Arrange
-      const wrapper = shallow(<Alert onDismiss={jest.fn()} show />, {
-        lifecycleExperimental: true
-      });
-      const spy = jest.spyOn(wrapper.instance(), 'handleAlert');
-
-      // Act
-      wrapper.setProps({ show: true });
-
-      // Assert
-      expect(spy).not.toHaveBeenCalled();
+    it('does not show alert when start is not clicked and time is zero', () => {
+      wrapper = shallow(<Alert onDismiss={jest.fn()} show={false} />);
+      expect(wrapper.find('Alert').props().show).toBe(false);
     });
   });
 });
