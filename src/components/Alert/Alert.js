@@ -1,31 +1,20 @@
 import React from 'react';
-import { func, string, bool } from 'prop-types';
+import { func, bool } from 'prop-types';
 import CloudyAlert from '../../assets/alert_cloud.svg';
 
 const Alert = props => {
+  if (!props.show) {
+    return null;
+  }
   return (
-    props.show && (
-      <div
-        onClick={props.onDismiss}
-        style={{
-          textAlign: 'center',
-          marginTop: '20px',
-          backgroundColor: 'white',
-          width: '100%',
-          height: '100%',
-          zIndex: 10000000,
-          position: 'absolute'
-        }}
-      >
-        <img src={CloudyAlert} alt="cloud-shaped button to timer" />
-      </div>
-    )
+    <button onClick={props.onDismiss} className="alert">
+      <img src={CloudyAlert} alt="Time is up, click this to close alert" />
+    </button>
   );
 };
 
 Alert.propTypes = {
   onDismiss: func.isRequired,
-  msg: string,
   show: bool
 };
 

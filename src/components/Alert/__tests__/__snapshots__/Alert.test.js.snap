@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert does not render an Alert when :show is false 1`] = `""`;
+
+exports[`Alert renders an Alert when :show is true 1`] = `
+<button
+  className="alert"
+  onClick={[Function]}
+>
+  <img
+    alt="Time is up, click this to close alert"
+    src="alert_cloud.svg"
+  />
+</button>
+`;
