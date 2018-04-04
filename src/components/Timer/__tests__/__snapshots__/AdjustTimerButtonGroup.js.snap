@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Adjudst Timer Button Group renders correctly 1`] = `
+<tr>
+  <td>
+    <div
+      className="hours-set"
+    >
+      <Button
+        className="plus-btn blue"
+        id="hours-increase"
+        node="button"
+        onClick={[Function]}
+      >
+        +
+      </Button>
+      <Button
+        className="minus-btn blue"
+        id="hours-decrease"
+        node="button"
+        onClick={[Function]}
+      >
+        -
+      </Button>
+    </div>
+  </td>
+  <td>
+    <div
+      className="minutes-set"
+    >
+      <Button
+        className="plus-btn blue"
+        id="minutes-increase"
+        node="button"
+        onClick={[Function]}
+      >
+        +
+      </Button>
+      <Button
+        className="minus-btn blue"
+        id="minutes-decrease"
+        node="button"
+        onClick={[Function]}
+      >
+        -
+      </Button>
+    </div>
+  </td>
+  <td>
+    <div
+      className="seconds-set"
+    >
+      <Button
+        className="plus-btn blue"
+        id="seconds-increase"
+        node="button"
+        onClick={[Function]}
+        waves="light"
+      >
+        +
+      </Button>
+      <Button
+        className="minus-btn blue"
+        id="seconds-decrease"
+        node="button"
+        onClick={[Function]}
+      >
+        -
+      </Button>
+    </div>
+  </td>
+</tr>
+`;
