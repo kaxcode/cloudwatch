@@ -1,33 +1,21 @@
 import React from 'react';
-import { func, string, bool } from 'prop-types';
+import { func, bool } from 'prop-types';
+import CloudyAlert from '../../assets/alert_cloud.svg';
 
-export default class Alert extends React.Component {
-  componentDidMount = () => {
-    if (!this.props.show) {
-      return;
-    }
-
-    this.handleAlert();
-  };
-
-  componentDidUpdate = prevProps => {
-    if (this.props.show && this.props.show !== prevProps.show) {
-      this.handleAlert();
-    }
-  };
-
-  handleAlert = () => {
-    alert(this.props.msg);
-    this.props.onDismiss();
-  };
-
-  render() {
+const Alert = props => {
+  if (!props.show) {
     return null;
   }
-}
+  return (
+    <button onClick={props.onDismiss} className="alert">
+      <img src={CloudyAlert} alt="Time is up, click this to close alert" />
+    </button>
+  );
+};
 
 Alert.propTypes = {
   onDismiss: func.isRequired,
-  msg: string,
   show: bool
 };
+
+export default Alert;

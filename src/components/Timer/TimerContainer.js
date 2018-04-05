@@ -79,7 +79,6 @@ class TimerContainer extends React.Component {
 
   handleClear = () => {
     this.setState({
-      startClicked: false,
       timeRemaining: 0
     });
   };

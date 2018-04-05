@@ -3,7 +3,6 @@
 exports[`Timer renders correctly 1`] = `
 <Row>
   <Alert
-    msg="Time is up!"
     onDismiss={[Function]}
     show={true}
   />

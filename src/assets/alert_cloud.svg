@@ -1,0 +1,15 @@
+<svg width="466" height="280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="64.722%" y1="97.149%" x2="28.197%" y2="-17.931%" id="a">
+      <stop stop-color="#41A8B9" offset="0%"/>
+      <stop stop-color="#41BEB9" offset="51.829%"/>
+      <stop stop-color="#41D2B9" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M71.26 100.84l-2.14 5.913-6.257.633C27.315 110.983 0 141.022 0 177.026v12.975C0 228.66 31.34 260 70.009 260H375.99C414.657 260 446 228.662 446 190v-12.974c0-30.064-19.127-56.48-47.08-66.162l-6.292-2.18-.416-6.645C388.652 45.067 337.362 0 274.842 0c-42.378 0-80.737 20.832-101.646 53.892l-4.005 6.333-7.203-2.066c-6.96-1.996-14.25-3.024-21.703-3.024-31.655 0-59.26 18.727-69.025 45.706z" transform="translate(10 10)" stroke="url(#a)" stroke-width="20"/>
+    <text font-family="Helvetica" font-size="36">
+      <tspan x="76" y="189" fill="#000"> </tspan> <tspan x="146.014" y="189" font-family="Helvetica-Bold, Helvetica" font-weight="bold" fill="#41A8B9">Time’s Up!</tspan>
+    </text>
+  </g>
+</svg>

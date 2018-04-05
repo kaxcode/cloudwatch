@@ -13,7 +13,6 @@ const Timer = props => {
   return (
     <Row>
       <Alert
-        msg="Time is up!"
         onDismiss={props.handleDismiss}
         show={props.startClicked && props.timeRemaining <= 0}
       />
