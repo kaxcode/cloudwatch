@@ -24,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:lint:js": "eslint --fix --ignore-path .gitignore --ext=js --ext=jsx .",
-    "test:unit": "react-scripts test  --coverage --env=jsdom",
+    "test:unit": "react-scripts test --coverage --env=jsdom",
     "test": "run-s test:**",
     "eject": "react-scripts eject"
   },
