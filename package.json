@@ -12,6 +12,7 @@
   ],
   "private": true,
   "dependencies": {
+    "jest-localstorage-mock": "^2.2.0",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -24,7 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:lint:js": "eslint --fix --ignore-path .gitignore --ext=js --ext=jsx .",
-    "test:unit": "react-scripts test  --coverage --env=jsdom",
+    "test:unit": "react-scripts test --coverage --env=jsdom",
     "test": "run-s test:**",
     "eject": "react-scripts eject"
   },

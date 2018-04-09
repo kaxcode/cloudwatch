@@ -4,6 +4,7 @@ import TimerContainer from '../TimerContainer';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
+import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 jest.useFakeTimers();
@@ -37,10 +38,7 @@ describe('Timer', () => {
         handleClear={handleClearMock}
       />
     );
-  });
-
-  afterEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
   });
 
   it('renders correctly', () => {
@@ -115,6 +113,7 @@ describe('Timer', () => {
     describe('clicking the + minutes button', () => {
       it('increases the minutes in the time remaining', () => {
         // Arrange
+        wrapper.setState({ timeRemaining: 0 });
         const spy = jest.spyOn(wrapper.instance(), 'increaseMinutes');
 
         // Act
@@ -395,6 +394,57 @@ describe('Timer', () => {
 
       // Assert
       expect(wrapper.state().startClicked).toBe(false);
+    });
+  });
+
+  describe('#componentDidMount', () => {
+    it('sets an initial timeRemaining value from localstorage when available', () => {
+      // Arrange
+      const initialTime = Math.round(Math.random() * 10000);
+      localStorage.setItem('timeRemaining', initialTime);
+
+      // Act
+      const subject = shallow(<TimerContainer />);
+
+      // Assert
+      expect(subject.state().timeRemaining).toEqual(initialTime);
+    });
+    it('sets a sane default timeRemaining value', () => {
+      // Arrange
+      localStorage.setItem('timeRemaining', null);
+
+      // Act
+      const subject = shallow(<TimerContainer />);
+
+      // Assert
+      expect(subject.state().timeRemaining).toEqual(0);
+    });
+  });
+
+  describe('#componentDidUpdate', () => {
+    it('sets state to localStorage value ', () => {
+      // Arrange
+      localStorage.setItem('timeRemaining', 999);
+      wrapper.setState({ timeRemaining: 1214 });
+
+      // Act
+      wrapper.update();
+
+      // Assert
+      expect(localStorage.getItem('timeRemaining')).toEqual('1214');
+    });
+  });
+
+  describe('#componentWillUnmount', () => {
+    it('resets the stored state in localstorage', () => {
+      // Arrange
+      localStorage.setItem('timeRemaining', 999);
+
+      // Act
+      wrapper.instance().componentWillUnmount();
+
+      // Assert
+      expect(localStorage.getItem('timeRemaining')).toEqual('0');
     });
   });
 });
