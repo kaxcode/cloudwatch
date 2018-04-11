@@ -8,7 +8,7 @@ import {
 import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
-import './Timer.css';
+import MessageBoard from '../MessageBoard/MessageBoard.js';
 
 const Timer = props => {
   return (
@@ -90,6 +90,7 @@ const Timer = props => {
           </Table>
         </Card>
       </Col>
+      <MessageBoard />
     </Row>
   );
 };

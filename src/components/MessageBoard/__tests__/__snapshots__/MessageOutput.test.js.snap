@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageOutput does not render a message when :showMessage is false 1`] = `""`;
+
+exports[`MessageOutput renders a message when :showMessage is true 1`] = `
+<div
+  className="message-output"
+>
+  <h1 />
+  <div
+    className="message-output--cursor"
+  >
+    X
+  </div>
+</div>
+`;
