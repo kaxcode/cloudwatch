@@ -25,39 +25,37 @@ describe('MessageBoard', () => {
   });
   it('calls onChange upon changing the input value', () => {
     //Arrange
-    const subject = shallow(<MessageBoard onChange={onChange} value="test" />);
+    const event = { target: { value: 'test' } };
+    const subject = shallow(<MessageBoard onChange={onChange(event)} />);
     const value = 'test value';
     const result = subject.find('#message-input');
     //Act
     result.simulate('change', { target: { value } });
+    subject.instance().onChange(event);
+
     //Assert
     expect(onChange).toHaveBeenCalled();
   });
 
   it('renders a message when you click submit', () => {
-    const subject = shallow(
-      <MessageBoard showMessage={false} onSubmit={onSubmit} />
-    );
     //Arrange
-    const spy = jest.spyOn(subject.instance(), 'onSubmit');
     const event = { preventDefault: () => console.log('preventDefault') };
+    const subject = shallow(
+      <MessageBoard showMessage={false} onSubmit={() => onSubmit(event)} />
+    );
+    const spy = jest.spyOn(subject.instance(), 'onSubmit');
     //Act
     subject.instance().onSubmit(event);
     //Assert
     expect(subject.state().showMessage).toBe(true);
     expect(spy).toHaveBeenCalled();
   });
-  it('renders a message when you showMessage is true', () => {
-    const subject = shallow(
-      <MessageBoard showMessage={false} onSubmit={onSubmit} />
-    );
+  it('renders a message when showMessage is true', () => {
     //Arrange
-    const spy = jest.spyOn(subject.instance(), 'onSubmit');
+    const subject = shallow(<MessageBoard showMessage={false} />);
     //Act
-    subject.instance().onSubmit();
-
+    subject.setState({ showMessage: true });
     //Assert
     expect(subject.state().showMessage).toBe(true);
-    expect(spy).toHaveBeenCalled();
   });
 });
