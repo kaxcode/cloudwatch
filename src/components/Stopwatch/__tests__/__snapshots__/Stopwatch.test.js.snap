@@ -1,27 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stopwatch renders correctly 1`] = `
-<Row>
+<Row
+  className="Stopwatch"
+>
   <Col
     m={3}
     offset="m2 l4"
     s={12}
   >
     <Card
-      className="white parent-container"
+      className="Stopwatch__Card"
       textClassName="black-text"
     >
-      <h3>
+      <h3
+        className="Stopwatch__Heading"
+      >
         CloudWatch
       </h3>
-      <h3>
+      <h3
+        className="Stopwatch__Count"
+      >
         00:00:00:00
       </h3>
       <div
-        className="parent-container"
+        className="Stopwatch__ButtonsContainer"
       >
         <Button
-          className="green timer-btn"
+          className="Stopwatch__StartBtn green"
           id="stopwatch-start"
           node="button"
           onClick={[Function]}
@@ -30,7 +36,7 @@ exports[`Stopwatch renders correctly 1`] = `
           Start
         </Button>
         <Button
-          className="red timer-btn"
+          className="Stopwatch__StopBtn red"
           id="stopwatch-pause"
           node="button"
           onClick={[Function]}
@@ -39,7 +45,7 @@ exports[`Stopwatch renders correctly 1`] = `
           Pause
         </Button>
         <Button
-          className="yellow darken-3 timer-btn timer-clear"
+          className="Stopwatch__ClearBtn yellow darken-3"
           id="stopwatch-clear"
           node="button"
           onClick={[Function]}

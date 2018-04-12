@@ -1,0 +1,18 @@
+.Stopwatch__Heading,
+.Stopwatch__Count,
+.Stopwatch__ButtonsContainer {
+  text-align: center;
+}
+
+.Stopwatch__Card {
+  min-width: 450px;
+}
+
+.Stopwatch__ButtonsContainer {
+  min-width: auto;
+}
+
+.Stopwatch__StopBtn,
+.Stopwatch__ClearBtn {
+  margin-left: 20px;
+}

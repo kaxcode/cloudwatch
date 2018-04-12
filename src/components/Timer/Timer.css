@@ -1,0 +1,25 @@
+.Timer__Heading,
+.Timer__Hours,
+.Timer__Minutes,
+.Timer__Seconds,
+.Timer__HoursCount,
+.Timer__MinutesCount,
+.Timer__SecondsCount {
+  text-align: center;
+}
+
+.Timer__Card {
+  min-width: 450px;
+}
+
+.Timer__HoursCount,
+.Timer__MinutesCount,
+.Timer__SecondsCount {
+  margin: 0;
+}
+
+.Timer__StartBtn,
+.Timer__PauseBtn,
+.Timer__CleartBtn {
+  margin-left: 8px;
+}

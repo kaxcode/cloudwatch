@@ -2,18 +2,21 @@ import React from 'react';
 import { Row, Button, Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number } from 'prop-types';
+import './Stopwatch.css';
 
 const Stopwatch = props => {
   return (
-    <Row>
+    <Row className="Stopwatch">
       <Col s={12} m={3} offset="m2 l4">
-        <Card className="white parent-container" textClassName="black-text">
-          <h3>CloudWatch</h3>
-          <h3>{millisecondsToHuman(props.counter)}</h3>
-          <div className="parent-container">
+        <Card className="Stopwatch__Card" textClassName="black-text">
+          <h3 className="Stopwatch__Heading">CloudWatch</h3>
+          <h3 className="Stopwatch__Count">
+            {millisecondsToHuman(props.counter)}
+          </h3>
+          <div className="Stopwatch__ButtonsContainer">
             <Button
               waves="light"
-              className="green timer-btn"
+              className="Stopwatch__StartBtn green"
               id="stopwatch-start"
               onClick={props.onStart}
             >
@@ -21,7 +24,7 @@ const Stopwatch = props => {
             </Button>
             <Button
               waves="light"
-              className="red timer-btn"
+              className="Stopwatch__StopBtn red"
               id="stopwatch-pause"
               onClick={props.onPause}
             >
@@ -29,7 +32,7 @@ const Stopwatch = props => {
             </Button>
             <Button
               waves="light"
-              className="yellow darken-3 timer-btn timer-clear"
+              className="Stopwatch__ClearBtn yellow darken-3"
               id="stopwatch-clear"
               onClick={props.onClear}
             >

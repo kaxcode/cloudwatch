@@ -4,7 +4,7 @@ exports[`Alert does not render an Alert when :show is false 1`] = `""`;
 
 exports[`Alert renders an Alert when :show is true 1`] = `
 <button
-  className="alert"
+  className="Alert"
   onClick={[Function]}
 >
   <img
