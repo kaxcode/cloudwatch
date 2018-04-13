@@ -113,5 +113,6 @@ exports[`Timer renders correctly 1`] = `
       </Table>
     </Card>
   </Col>
+  <MessageBoard />
 </Row>
 `;

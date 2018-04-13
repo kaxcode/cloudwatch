@@ -56,5 +56,6 @@ exports[`Stopwatch renders correctly 1`] = `
       </div>
     </Card>
   </Col>
+  <MessageBoard />
 </Row>
 `;
