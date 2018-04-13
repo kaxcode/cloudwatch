@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Timer renders correctly 1`] = `
-<Row>
+<Row
+  className="Timer"
+>
   <Alert
     onDismiss={[Function]}
     show={true}
@@ -12,29 +14,29 @@ exports[`Timer renders correctly 1`] = `
     s={12}
   >
     <Card
-      className="white parent-container"
+      className="Timer__Card"
       textClassName="black-text"
     >
-      <h3>
+      <h3
+        className="Timer__Heading"
+      >
         Timer
       </h3>
-      <Table
-        className="setters"
-      >
+      <Table>
         <thead>
           <tr>
             <th
-              className="timer-heading"
+              className="Timer__Hours"
             >
               Hours
             </th>
             <th
-              className="timer-heading"
+              className="Timer__Minutes"
             >
               Minutes
             </th>
             <th
-              className="timer-heading"
+              className="Timer__Seconds"
             >
               Seconds
             </th>
@@ -52,21 +54,21 @@ exports[`Timer renders correctly 1`] = `
           <tr>
             <td>
               <h1
-                className="timer-count"
+                className="Timer__HoursCount"
               >
                 0
               </h1>
             </td>
             <td>
               <h1
-                className="timer-count"
+                className="Timer__MinutesCount"
               >
                 0
               </h1>
             </td>
             <td>
               <h1
-                className="timer-count"
+                className="Timer__SecondsCount"
               >
                 0
               </h1>
@@ -75,7 +77,7 @@ exports[`Timer renders correctly 1`] = `
           <tr>
             <td>
               <Button
-                className="green start-btn"
+                className="Timer__StartBtn green"
                 id="timer-start"
                 node="button"
                 onClick={[Function]}
@@ -86,7 +88,7 @@ exports[`Timer renders correctly 1`] = `
             </td>
             <td>
               <Button
-                className="red pause-btn"
+                className="Timer__PauseBtn red"
                 id="timer-pause"
                 node="button"
                 onClick={[Function]}
@@ -97,7 +99,7 @@ exports[`Timer renders correctly 1`] = `
             </td>
             <td>
               <Button
-                className="yellow darken-3 clear-btn"
+                className="Timer__ClearBtn yellow darken-3"
                 id="timer-clear"
                 node="button"
                 onClick={[Function]}

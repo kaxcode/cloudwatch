@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Adjudst Timer Button Group renders correctly 1`] = `
-<tr>
+<tr
+  className="AdjustTimerButtonGroup"
+>
   <td>
-    <div
-      className="hours-set"
-    >
+    <div>
       <Button
-        className="plus-btn blue"
+        className="AdjustTimerButtonGroup__PlusBtn blue"
         id="hours-increase"
         node="button"
         onClick={[Function]}
@@ -15,7 +15,7 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
         +
       </Button>
       <Button
-        className="minus-btn blue"
+        className="AdjustTimerButtonGroup__MinusBtn blue"
         id="hours-decrease"
         node="button"
         onClick={[Function]}
@@ -25,11 +25,9 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
     </div>
   </td>
   <td>
-    <div
-      className="minutes-set"
-    >
+    <div>
       <Button
-        className="plus-btn blue"
+        className="AdjustTimerButtonGroup__PlusBtn blue"
         id="minutes-increase"
         node="button"
         onClick={[Function]}
@@ -37,7 +35,7 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
         +
       </Button>
       <Button
-        className="minus-btn blue"
+        className="AdjustTimerButtonGroup__MinusBtn blue"
         id="minutes-decrease"
         node="button"
         onClick={[Function]}
@@ -47,11 +45,9 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
     </div>
   </td>
   <td>
-    <div
-      className="seconds-set"
-    >
+    <div>
       <Button
-        className="plus-btn blue"
+        className="AdjustTimerButtonGroup__PlusBtn blue"
         id="seconds-increase"
         node="button"
         onClick={[Function]}
@@ -60,7 +56,7 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
         +
       </Button>
       <Button
-        className="minus-btn blue"
+        className="AdjustTimerButtonGroup__MinusBtn blue"
         id="seconds-decrease"
         node="button"
         onClick={[Function]}

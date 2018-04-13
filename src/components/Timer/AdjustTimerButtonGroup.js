@@ -1,22 +1,23 @@
 import React from 'react';
 import { Button } from 'react-materialize';
 import { func } from 'prop-types';
+import './AdjustTimerButtonGroup.css';
 
 const AdjustTimerButtonGroup = props => {
   return (
-    <tr>
+    <tr className="AdjustTimerButtonGroup">
       <td>
-        <div className="hours-set">
+        <div>
           <Button
             id="hours-increase"
-            className="plus-btn blue"
+            className="AdjustTimerButtonGroup__PlusBtn blue"
             onClick={props.increaseHours}
           >
             +
           </Button>
           <Button
             id="hours-decrease"
-            className="minus-btn blue"
+            className="AdjustTimerButtonGroup__MinusBtn blue"
             onClick={props.decreaseHours}
           >
             -
@@ -24,17 +25,17 @@ const AdjustTimerButtonGroup = props => {
         </div>
       </td>
       <td>
-        <div className="minutes-set">
+        <div>
           <Button
             id="minutes-increase"
-            className="plus-btn blue"
+            className="AdjustTimerButtonGroup__PlusBtn blue"
             onClick={props.increaseMinutes}
           >
             +
           </Button>
           <Button
             id="minutes-decrease"
-            className="minus-btn blue"
+            className="AdjustTimerButtonGroup__MinusBtn blue"
             onClick={props.decreaseMinutes}
           >
             -
@@ -42,18 +43,18 @@ const AdjustTimerButtonGroup = props => {
         </div>
       </td>
       <td>
-        <div className="seconds-set">
+        <div>
           <Button
             waves="light"
             id="seconds-increase"
-            className="plus-btn blue"
+            className="AdjustTimerButtonGroup__PlusBtn blue"
             onClick={props.increaseSeconds}
           >
             +
           </Button>
           <Button
             id="seconds-decrease"
-            className="minus-btn blue"
+            className="AdjustTimerButtonGroup__MinusBtn blue"
             onClick={props.decreaseSeconds}
           >
             -

@@ -8,23 +8,24 @@ import {
 import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
+import './Timer.css';
 
 const Timer = props => {
   return (
-    <Row>
+    <Row className="Timer">
       <Alert
         onDismiss={props.handleDismiss}
         show={props.startClicked && props.timeRemaining <= 0}
       />
       <Col s={12} m={3} offset="m2 l4">
-        <Card className="white parent-container" textClassName="black-text">
-          <h3>Timer</h3>
-          <Table className="setters">
+        <Card className="Timer__Card" textClassName="black-text">
+          <h3 className="Timer__Heading">Timer</h3>
+          <Table>
             <thead>
               <tr>
-                <th className="timer-heading">Hours</th>
-                <th className="timer-heading">Minutes</th>
-                <th className="timer-heading">Seconds</th>
+                <th className="Timer__Hours">Hours</th>
+                <th className="Timer__Minutes">Minutes</th>
+                <th className="Timer__Seconds">Seconds</th>
               </tr>
             </thead>
             <tbody>
@@ -38,17 +39,17 @@ const Timer = props => {
               />
               <tr>
                 <td>
-                  <h1 className="timer-count">
+                  <h1 className="Timer__HoursCount">
                     {secondsToHour(props.timeRemaining)}
                   </h1>
                 </td>
                 <td>
-                  <h1 className="timer-count">
+                  <h1 className="Timer__MinutesCount">
                     {secondsToMinutes(props.timeRemaining)}
                   </h1>
                 </td>
                 <td>
-                  <h1 className="timer-count">
+                  <h1 className="Timer__SecondsCount">
                     {seconds(props.timeRemaining)}
                   </h1>
                 </td>
@@ -57,7 +58,7 @@ const Timer = props => {
                 <td>
                   <Button
                     waves="light"
-                    className="green start-btn"
+                    className="Timer__StartBtn green"
                     id="timer-start"
                     onClick={props.onStart}
                   >
@@ -67,7 +68,7 @@ const Timer = props => {
                 <td>
                   <Button
                     waves="light"
-                    className="red pause-btn"
+                    className="Timer__PauseBtn red"
                     id="timer-pause"
                     onClick={props.onPause}
                   >
@@ -77,7 +78,7 @@ const Timer = props => {
                 <td>
                   <Button
                     waves="light"
-                    className="yellow darken-3 clear-btn"
+                    className="Timer__ClearBtn yellow darken-3"
                     id="timer-clear"
                     onClick={props.onClear}
                   >
