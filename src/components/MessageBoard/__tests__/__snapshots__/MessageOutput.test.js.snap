@@ -9,11 +9,11 @@ exports[`MessageOutput renders a message when :showMessage is true 1`] = `
   <h1>
     string
   </h1>
-  <div
+  <button
     className="message-output--cursor"
     onClick={[Function]}
   >
     X
-  </div>
+  </button>
 </div>
 `;

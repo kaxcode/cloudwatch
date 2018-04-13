@@ -11,11 +11,11 @@ class MessageBoard extends React.Component {
     this.setState({ showMessage: false });
   };
 
-  onChange = e => {
+  handleChange = e => {
     this.setState({ message: e.target.value });
   };
 
-  onSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({ showMessage: true });
   };
@@ -28,9 +28,9 @@ class MessageBoard extends React.Component {
           showMessage={this.state.showMessage}
           handleDismiss={this.handleDismiss}
         />
-        <form onSubmit={this.onSubmit}>
-          <input id="message-input" onChange={this.onChange} />
-          <button id="message-submit-button">submit</button>
+        <form id="message-submit-form" onSubmit={this.handleSubmmit}>
+          <input id="message-input" onChange={this.handleChange} />
+          <button id="message-submit-button">Submit</button>
         </form>
       </div>
     );

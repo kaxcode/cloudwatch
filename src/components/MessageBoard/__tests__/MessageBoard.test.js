@@ -8,54 +8,63 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('MessageBoard', () => {
   const handleDismiss = jest.fn();
-  const onSubmit = jest.fn();
-  const onChange = jest.fn();
+  const handleSubmit = jest.fn();
+  const handleChange = jest.fn();
 
-  it('does not render a message when handleDismiss is called', () => {
-    const subject = shallow(
-      <MessageBoard showMessage handleDismiss={handleDismiss} />
-    );
-    //Arrange
-    const spy = jest.spyOn(subject.instance(), 'handleDismiss');
-    //Act
-    subject.instance().handleDismiss();
-    //Assert
-    expect(subject.state().showMessage).toBe(false);
-    expect(spy).toHaveBeenCalled();
-  });
-  it('calls onChange upon changing the input value', () => {
-    //Arrange
-    const event = { target: { value: 'test' } };
-    const subject = shallow(<MessageBoard onChange={onChange(event)} />);
-    const value = 'test value';
-    const result = subject.find('#message-input');
-    //Act
-    result.simulate('change', { target: { value } });
-    subject.instance().onChange(event);
-
-    //Assert
-    expect(onChange).toHaveBeenCalled();
+  describe('#handleDismiss', () => {
+    it('does not render a message when #handleDismiss is called', () => {
+      //Arrange
+      const subject = shallow(
+        <MessageBoard showMessage handleDismiss={handleDismiss} />
+      );
+      //Act
+      subject.instance().handleDismiss();
+      //Assert
+      expect(subject.state().showMessage).toBe(false);
+    });
   });
 
-  it('renders a message when you click submit', () => {
-    //Arrange
-    const event = { preventDefault: () => console.log('preventDefault') };
-    const subject = shallow(
-      <MessageBoard showMessage={false} onSubmit={() => onSubmit(event)} />
-    );
-    const spy = jest.spyOn(subject.instance(), 'onSubmit');
-    //Act
-    subject.instance().onSubmit(event);
-    //Assert
-    expect(subject.state().showMessage).toBe(true);
-    expect(spy).toHaveBeenCalled();
+  describe('#handleChange', () => {
+    it('updates :message state', () => {
+      //Arrange
+      const event = { target: { value: 'test' } };
+      const subject = shallow(
+        <MessageBoard handleChange={handleChange(event)} />
+      );
+      const value = 'test value';
+      const result = subject.find('#message-input');
+      //Act
+      result.simulate('change', { target: { value } });
+
+      //Assert
+      expect(handleChange).toHaveBeenCalled();
+    });
   });
-  it('renders a message when showMessage is true', () => {
-    //Arrange
-    const subject = shallow(<MessageBoard showMessage={false} />);
-    //Act
-    subject.setState({ showMessage: true });
-    //Assert
-    expect(subject.state().showMessage).toBe(true);
+  describe('submit button', () => {
+    it('renders a message when you click submit', () => {
+      const event = { preventDefault: () => console.log('preventDefault') };
+      const subject = shallow(
+        <MessageBoard
+          showMessage={false}
+          handleSubmit={() => handleSubmit(event)}
+        />
+      );
+      const spy = jest.spyOn(subject.instance(), 'handleSubmit');
+      //Act
+      subject.instance().handleSubmit(event);
+      //Assert
+      expect(subject.state().showMessage).toBe(true);
+      expect(spy).toHaveBeenCalled();
+    });
+  });
+  describe('#hanndleSubmit', () => {
+    it('renders a message when showMessage is TRUE', () => {
+      //Arrange
+      const subject = shallow(<MessageBoard showMessage={false} />);
+      //Act
+      subject.setState({ showMessage: true });
+      //Assert
+      expect(subject.state().showMessage).toBe(true);
+    });
   });
 });

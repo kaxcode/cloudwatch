@@ -8,9 +8,9 @@ const MessageOutput = props => {
   return (
     <div className="message-output">
       <h1>{props.message}</h1>
-      <div onClick={props.handleDismiss} className="message-output--cursor">
+      <button onClick={props.handleDismiss} className="message-output--cursor">
         X
-      </div>
+      </button>
     </div>
   );
 };
