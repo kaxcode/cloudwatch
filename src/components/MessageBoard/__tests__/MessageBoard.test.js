@@ -49,7 +49,7 @@ describe('MessageBoard', () => {
       expect(subject.state().showMessage).toBe(true);
     });
   });
-  describe('#hanndleSubmit', () => {
+  describe('#handleSubmit', () => {
     it('renders a message when showMessage is TRUE', () => {
       //Arrange
       const subject = shallow(<MessageBoard />);
