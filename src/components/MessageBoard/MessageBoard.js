@@ -28,7 +28,7 @@ class MessageBoard extends React.Component {
           showMessage={this.state.showMessage}
           handleDismiss={this.handleDismiss}
         />
-        <form id="message-submit-form" onSubmit={this.handleSubmmit}>
+        <form id="message-submit-form" onSubmit={this.handleSubmit}>
           <input id="message-input" onChange={this.handleChange} />
           <button id="message-submit-button">Submit</button>
         </form>

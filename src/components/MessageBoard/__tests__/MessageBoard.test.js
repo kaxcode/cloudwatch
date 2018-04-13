@@ -7,16 +7,12 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('MessageBoard', () => {
-  const handleDismiss = jest.fn();
-  const handleSubmit = jest.fn();
   const handleChange = jest.fn();
 
   describe('#handleDismiss', () => {
     it('does not render a message when #handleDismiss is called', () => {
       //Arrange
-      const subject = shallow(
-        <MessageBoard showMessage handleDismiss={handleDismiss} />
-      );
+      const subject = shallow(<MessageBoard />);
       //Act
       subject.instance().handleDismiss();
       //Assert
@@ -41,26 +37,22 @@ describe('MessageBoard', () => {
     });
   });
   describe('submit button', () => {
-    it('renders a message when you click submit', () => {
-      const event = { preventDefault: () => console.log('preventDefault') };
-      const subject = shallow(
-        <MessageBoard
-          showMessage={false}
-          handleSubmit={() => handleSubmit(event)}
-        />
-      );
-      const spy = jest.spyOn(subject.instance(), 'handleSubmit');
-      //Act
-      subject.instance().handleSubmit(event);
-      //Assert
+    it('updates :showMessage state', () => {
+      // Arrange
+      const preventDefault = jest.fn();
+      const subject = shallow(<MessageBoard />);
+      // Act
+      const frm = subject.find('#message-submit-form');
+      frm.simulate('submit', { preventDefault });
+      // Assert
+      expect(preventDefault).toHaveBeenCalled();
       expect(subject.state().showMessage).toBe(true);
-      expect(spy).toHaveBeenCalled();
     });
   });
   describe('#hanndleSubmit', () => {
     it('renders a message when showMessage is TRUE', () => {
       //Arrange
-      const subject = shallow(<MessageBoard showMessage={false} />);
+      const subject = shallow(<MessageBoard />);
       //Act
       subject.setState({ showMessage: true });
       //Assert
