@@ -8,6 +8,24 @@
   min-width: 450px;
 }
 
+.Stopwatch__Count {
+  margin-top: 50px;
+  font-size: 4em;
+}
+
+@media screen and (min-width: 800px) {
+  .Stopwatch__Count {
+    font-size: 7em;
+  }
+}
+
 .Stopwatch__ButtonsContainer {
   min-width: auto;
 }
+<<<<<<< HEAD
+=======
+
+.Stopwatch__ClearBtn {
+  margin-left: 20px;
+}
+>>>>>>> c08730b... Enlarge UI, add Nav
