@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stopwatch renders correctly 1`] = `
+<Link
+  replace={false}
+  to="/"
+>
+  <img
+    alt="Click to return home"
+    className="nav"
+    src="blank_cloud.svg"
+  />
+</Link>
+`;

@@ -9,6 +9,7 @@ import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
+import Nav from '../Nav/Nav.js';
 import './Timer.css';
 
 const Timer = props => {
@@ -18,6 +19,9 @@ const Timer = props => {
         onDismiss={props.handleDismiss}
         show={props.startClicked && props.timeRemaining <= 0}
       />
+      <Col>
+        <Nav />
+      </Col>
       <Col s={12} m={3} offset="m2 l4">
         <Card className="Timer__Card" textClassName="black-text">
           <h3 className="Timer__Heading">Timer</h3>

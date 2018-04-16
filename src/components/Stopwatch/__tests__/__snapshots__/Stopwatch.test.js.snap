@@ -4,6 +4,9 @@ exports[`Stopwatch renders correctly 1`] = `
 <Row
   className="Stopwatch"
 >
+  <Col>
+    <Nav />
+  </Col>
   <Col
     m={3}
     offset="m2 l4"
