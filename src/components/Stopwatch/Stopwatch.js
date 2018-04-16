@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
-import { func, number } from 'prop-types';
+import { func, number, bool } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import './Stopwatch.css';
 import Nav from '../Nav/Nav.js';
@@ -26,6 +26,31 @@ const Stopwatch = props => {
           />
         </Card>
       </Col>
+            <Button
+              waves="light"
+              className="Stopwatch__StopBtn red"
+              id="stopwatch-pause"
+              onClick={props.onPause}
+            >
+              Pause
+            </Button>
+            <Button
+              waves="light"
+              className="Stopwatch__StartBtn green"
+              id="stopwatch-start"
+              onClick={props.onStart}
+            >
+              Start
+            </Button>
+          <Button
+            waves="light"
+            className="Stopwatch__ClearBtn yellow darken-3"
+            id="stopwatch-clear"
+            onClick={props.onClear}
+          >
+            Clear
+          </Button>
+      </Card>
       <MessageBoard />
     </main>
   );
@@ -35,7 +60,8 @@ Stopwatch.propTypes = {
   onStart: func.isRequired,
   onPause: func.isRequired,
   onClear: func.isRequired,
-  counter: number
+  counter: number,
+  clicked: bool
 };
 
 Stopwatch.defaultProps = {
