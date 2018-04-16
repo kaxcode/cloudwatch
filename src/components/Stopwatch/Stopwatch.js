@@ -3,6 +3,7 @@ import { Row, Button, Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
+import './Stopwatch.css';
 
 const Stopwatch = props => {
   return (

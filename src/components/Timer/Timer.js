@@ -9,6 +9,7 @@ import Alert from '../Alert/Alert';
 import { func, number, bool } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
+import './Timer.css';
 
 const Timer = props => {
   return (
