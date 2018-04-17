@@ -1,75 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Adjudst Timer Button Group renders correctly 1`] = `
-<tr
+<div
   className="AdjustTimerButtonGroup"
 >
-  <td>
-    <div
-      className="AdjustTimerButtonGroup__Container"
-    >
-      <Button
-        className="AdjustTimerButtonGroup__PlusBtn blue"
-        id="hours-increase"
-        node="button"
-        onClick={[Function]}
-      >
-        +
-      </Button>
-      <Button
-        className="AdjustTimerButtonGroup__MinusBtn blue"
-        id="hours-decrease"
-        node="button"
-        onClick={[Function]}
-      >
-        -
-      </Button>
-    </div>
-  </td>
-  <td>
-    <div
-      className="AdjustTimerButtonGroup__Container"
-    >
-      <Button
-        className="AdjustTimerButtonGroup__PlusBtn blue"
-        id="minutes-increase"
-        node="button"
-        onClick={[Function]}
-      >
-        +
-      </Button>
-      <Button
-        className="AdjustTimerButtonGroup__MinusBtn blue"
-        id="minutes-decrease"
-        node="button"
-        onClick={[Function]}
-      >
-        -
-      </Button>
-    </div>
-  </td>
-  <td>
-    <div
-      className="AdjustTimerButtonGroup__Container"
-    >
-      <Button
-        className="AdjustTimerButtonGroup__PlusBtn blue"
-        id="seconds-increase"
-        node="button"
-        onClick={[Function]}
-        waves="light"
-      >
-        +
-      </Button>
-      <Button
-        className="AdjustTimerButtonGroup__MinusBtn blue"
-        id="seconds-decrease"
-        node="button"
-        onClick={[Function]}
-      >
-        -
-      </Button>
-    </div>
-  </td>
-</tr>
+  <div
+    className="Timer__HoursAdjustBtn__Container"
+  >
+    <i
+      className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+      id="hours-increase"
+      onClick={[Function]}
+    />
+    <i
+      className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+      id="hours-decrease"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="Timer__MinutesAdjustBtn__Container"
+  >
+    <i
+      className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+      id="minutes-increase"
+      onClick={[Function]}
+    />
+    <i
+      className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+      id="minutes-decrease"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="Timer__SecondsAdjustBtn__Container"
+  >
+    <i
+      className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+      id="seconds-increase"
+      onClick={[Function]}
+    />
+    <i
+      className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+      id="seconds-decrease"
+      onClick={[Function]}
+    />
+  </div>
+</div>
 `;

@@ -1,6 +1,36 @@
-.AdjustTimerButtonGroup__PlusBtn {
-  margin-right: 20px;
-  margin-left: 20px;
+.AdjustTimerButtonGroup__PlusBtn,
+.AdjustTimerButtonGroup__MinusBtn {
+  font-size: 12em;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.fa-angle-down,
+.fa-angle-up {
+  background: linear-gradient(to right top, #ffaa5a, #c779d0, #41a8b9);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: Gradient 3s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.Timer__HoursAdjustBtn__Container,
+.Timer__MinutesAdjustBtn__Container,
+.Timer__SecondsAdjustBtn__Container {
+  text-align: center;
 }
 
 .AdjustTimerButtonGroup {

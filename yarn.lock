@@ -5936,7 +5936,7 @@ react-dev-utils@^5.0.0:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.0.0, react-dom@^16.2.0:
+react-dom@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
   dependencies:
@@ -5949,13 +5949,13 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
-react-materialize@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-1.1.2.tgz#f6a4872c224ac9c9718ff49c77786382484cc1cb"
+react-materialize@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-2.2.0.tgz#c0298fd638ceb26d0dfc6e78fc3d86654e3f6fab"
   dependencies:
     classnames "^2.2.5"
-    react "^16.0.0"
-    react-dom "^16.0.0"
+    react "^16.2.0"
+    react-dom "^16.2.0"
 
 react-reconciler@^0.7.0:
   version "0.7.0"
@@ -6041,7 +6041,7 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react@^16.0.0, react@^16.2.0:
+react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
