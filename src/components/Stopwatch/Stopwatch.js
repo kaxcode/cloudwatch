@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number, bool } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
@@ -10,12 +9,9 @@ import ControllerButtons from '../ControllerButtons/ControllerButtons';
 const Stopwatch = props => {
   return (
     <main className="Stopwatch">
-      <Col>
-        <Nav />
-      </Col>
-      <Col s={12} m={3} offset="m2 l4">
-        <Card className="Stopwatch__Card" textClassName="black-text">
-          <h3 className="Stopwatch__Heading">CloudWatch</h3>
+      <Nav />
+      <div s={12} m={3} offset="m2 l4">
+        <div className="Stopwatch__Card" textClassName="black-text">
           <h3 className="Stopwatch__Count">
             {millisecondsToHuman(props.counter)}
           </h3>
@@ -24,33 +20,8 @@ const Stopwatch = props => {
             onStart={props.onStart}
             onClear={props.onClear}
           />
-        </Card>
-      </Col>
-            <Button
-              waves="light"
-              className="Stopwatch__StopBtn red"
-              id="stopwatch-pause"
-              onClick={props.onPause}
-            >
-              Pause
-            </Button>
-            <Button
-              waves="light"
-              className="Stopwatch__StartBtn green"
-              id="stopwatch-start"
-              onClick={props.onStart}
-            >
-              Start
-            </Button>
-          <Button
-            waves="light"
-            className="Stopwatch__ClearBtn yellow darken-3"
-            id="stopwatch-clear"
-            onClick={props.onClear}
-          >
-            Clear
-          </Button>
-      </Card>
+        </div>
+      </div>
       <MessageBoard />
     </main>
   );

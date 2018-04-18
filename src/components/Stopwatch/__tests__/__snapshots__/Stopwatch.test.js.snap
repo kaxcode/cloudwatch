@@ -4,23 +4,16 @@ exports[`Stopwatch renders correctly 1`] = `
 <main
   className="Stopwatch"
 >
-  <Col>
-    <Nav />
-  </Col>
-  <Col
+  <Nav />
+  <div
     m={3}
     offset="m2 l4"
     s={12}
   >
-    <Card
+    <div
       className="Stopwatch__Card"
       textClassName="black-text"
     >
-      <h3
-        className="Stopwatch__Heading"
-      >
-        CloudWatch
-      </h3>
       <h3
         className="Stopwatch__Count"
       >
@@ -31,8 +24,8 @@ exports[`Stopwatch renders correctly 1`] = `
         onPause={[Function]}
         onStart={[Function]}
       />
-    </Card>
-  </Col>
+    </div>
+  </div>
   <MessageBoard />
 </main>
 `;

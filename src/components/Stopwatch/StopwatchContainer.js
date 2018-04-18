@@ -1,6 +1,5 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
-import { Row, Col } from 'react-materialize';
 
 export default class StopwatchContainer extends React.Component {
   state = {
@@ -53,15 +52,13 @@ export default class StopwatchContainer extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Stopwatch
-          onStart={this.handleStart}
-          onPause={this.handlePause}
-          onClear={this.handleClear}
-          counter={this.state.counter}
-          clicked={this.state.clicked}
-        />
-      </Row>
+      <Stopwatch
+        onStart={this.handleStart}
+        onPause={this.handlePause}
+        onClear={this.handleClear}
+        counter={this.state.counter}
+        clicked={this.state.clicked}
+      />
     );
   }
 }
