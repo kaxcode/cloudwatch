@@ -8,6 +8,9 @@ exports[`Timer renders correctly 1`] = `
     onDismiss={[Function]}
     show={true}
   />
+  <Col>
+    <Nav />
+  </Col>
   <Col
     m={3}
     offset="m2 l4"

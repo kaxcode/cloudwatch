@@ -4,10 +4,14 @@ import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import './Stopwatch.css';
+import Nav from '../Nav/Nav.js';
 
 const Stopwatch = props => {
   return (
     <Row className="Stopwatch">
+      <Col>
+        <Nav />
+      </Col>
       <Col s={12} m={3} offset="m2 l4">
         <Card className="Stopwatch__Card" textClassName="black-text">
           <h3 className="Stopwatch__Heading">CloudWatch</h3>
