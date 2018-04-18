@@ -23,24 +23,22 @@ describe('Timer', () => {
   const decreaseSecondsMock = jest.fn();
 
   const props = {
-          startClicked: true,
-          timeRemaining: 0,
-          onStart: onStartMock,
-          onPause: onPauseMock,
-          onClear: onClearMock,
-          handleDismiss: handleDismissMock,
-          increaseHours: increaseHoursMock,
-          decreaseHours: decreaseHoursMock,
-          increaseMinutes: increaseMinutesMock,
-          decreaseMinutes: decreaseMinutesMock,
-          increaseSeconds: increaseSecondsMock,
-          decreaseSeconds: decreaseSecondsMock
-        };
+    startClicked: true,
+    timeRemaining: 0,
+    onStart: onStartMock,
+    onPause: onPauseMock,
+    onClear: onClearMock,
+    handleDismiss: handleDismissMock,
+    increaseHours: increaseHoursMock,
+    decreaseHours: decreaseHoursMock,
+    increaseMinutes: increaseMinutesMock,
+    decreaseMinutes: decreaseMinutesMock,
+    increaseSeconds: increaseSecondsMock,
+    decreaseSeconds: decreaseSecondsMock
+  };
 
   beforeEach(() => {
-    wrapper = shallow(
-      <Timer {...props} />
-    );
+    wrapper = shallow(<Timer {...props} />);
   });
 
   it('renders correctly', () => {
@@ -49,13 +47,16 @@ describe('Timer', () => {
 
   it('shows alert when start is clicked and time is zero', () => {
     expect(wrapper.find('Alert').props().show).toBe(true);
-  });  it('does not show alert when start is not clicked and time is zero', () => {
+  });
+  it('does not show alert when start is not clicked and time is zero', () => {
     wrapper = shallow(<Timer {...props} startClicked={false} />);
     expect(wrapper.find('Alert').props().show).toBe(false);
   });
 
   it('does not show alert when start is clicked and time is not zero', () => {
-    wrapper = shallow(<Timer {...props} startClicked={false} timeRemaining={10} />);
+    wrapper = shallow(
+      <Timer {...props} startClicked={false} timeRemaining={10} />
+    );
     expect(wrapper.find('Alert').props().show).toBe(false);
   });
 
@@ -65,7 +66,9 @@ describe('Timer', () => {
   });
 
   it('does not show alert when start is clicked and time is not zero', () => {
-    wrapper = shallow(<Timer {...props} startClicked={false} timeRemaining={10} />);
+    wrapper = shallow(
+      <Timer {...props} startClicked={false} timeRemaining={10} />
+    );
     expect(wrapper.find('Alert').props().show).toBe(false);
   });
 
