@@ -69,8 +69,3 @@ body {
 .message-output--cursor {
   cursor: pointer;
 }
-
-.nav {
-  width: 100px;
-  margin-top: 20px;
-}

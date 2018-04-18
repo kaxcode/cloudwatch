@@ -7,7 +7,7 @@ exports[`Stopwatch renders correctly 1`] = `
 >
   <img
     alt="Click to return home"
-    className="nav"
+    className="Nav__Img"
     src="blank_cloud.svg"
   />
 </Link>

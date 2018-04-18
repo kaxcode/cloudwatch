@@ -1,24 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="466px" height="280px" viewBox="0 0 466 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Stopwatch Cloud</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="93.3196165%" y1="97.148637%" x2="-14.1555103%" y2="-17.9305982%" id="linearGradient-1">
-            <stop stop-color="#41A8B9" offset="0%"></stop>
-            <stop stop-color="#41BEB9" offset="51.8289379%"></stop>
-            <stop stop-color="#41D2B9" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Timer/Stopwatch-Cloudy-Buttons" transform="translate(-378.000000, -366.000000)" stroke="url(#linearGradient-1)" stroke-width="20">
-            <g id="Timer/Stopwatch" transform="translate(378.000000, 365.000000)">
-                <g id="Stopwatch">
-                    <g transform="translate(0.000000, 1.000000)" id="Stopwatch-Cloud">
-                        <path d="M81.2596633,110.840589 L79.1195291,116.753368 L72.8632964,117.386366 C37.3152368,120.983073 10,151.022145 10,187.026114 L10,200.000913 C10,238.661764 41.3408129,270 80.008881,270 L385.991119,270 C424.657302,270 456,238.661934 456,200.000913 L456,187.026114 C456,156.962257 436.872645,130.545731 408.9201,120.864072 L402.627878,118.684694 L402.212431,112.038706 C398.651063,55.0667266 347.361123,10 284.8425,10 C242.464067,10 204.105052,30.8319036 183.196358,63.8917088 L179.190791,70.2251159 L171.987511,68.1588691 C165.028751,66.1627624 157.737896,65.1351351 150.285,65.1351351 C118.629987,65.1351351 91.0247282,83.8615927 81.2596633,110.840589 Z"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="466" height="280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="93.32%" y1="97.149%" x2="-14.156%" y2="-17.931%" id="a">
+      <stop stop-color="#41A8B9" offset="0%"/>
+      <stop stop-color="#41BEB9" offset="51.829%"/>
+      <stop stop-color="#41D2B9" offset="100%"/>
+    </linearGradient>
+  </defs>
+  <path d="M81.26 110.84l-2.14 5.913-6.257.633C37.315 120.983 10 151.022 10 187.026v12.975C10 238.66 41.34 270 80.009 270H385.99C424.657 270 456 238.662 456 200v-12.974c0-30.064-19.127-56.48-47.08-66.162l-6.292-2.18-.416-6.645C398.652 55.067 347.362 10 284.842 10c-42.378 0-80.737 20.832-101.646 53.892l-4.005 6.333-7.203-2.066c-6.96-1.996-14.25-3.024-21.703-3.024-31.655 0-59.26 18.727-69.025 45.706z" stroke="url(#a)" stroke-width="20" fill="none" fill-rule="evenodd"/>
 </svg>
