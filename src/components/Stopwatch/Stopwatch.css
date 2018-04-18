@@ -11,8 +11,3 @@
 .Stopwatch__ButtonsContainer {
   min-width: auto;
 }
-
-.Stopwatch__StopBtn,
-.Stopwatch__ClearBtn {
-  margin-left: 20px;
-}

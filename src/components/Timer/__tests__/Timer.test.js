@@ -71,37 +71,4 @@ describe('Timer', () => {
     );
     expect(wrapper.find('Alert').props().show).toBe(false);
   });
-
-  describe('the start button', () => {
-    it('calls the :onStart prop when clicked', () => {
-      //Arrange
-      const startButton = wrapper.find('#timer-start').first();
-      //Act
-      startButton.simulate('click');
-      //Assert
-      expect(onStartMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('the pause button', () => {
-    it('calls the :onPause prop when clicked', () => {
-      //Arrange
-      const pauseButton = wrapper.find('#timer-pause').first();
-      //Act
-      pauseButton.simulate('click');
-      //Assert
-      expect(onPauseMock).toHaveBeenCalled();
-    });
-  });
-
-  describe('the clear button', () => {
-    it('calls the :onClear prop when clicked', () => {
-      //Arrange
-      const clearButton = wrapper.find('#timer-clear').first();
-      //Act
-      clearButton.simulate('click');
-      //Assert
-      expect(onClearMock).toHaveBeenCalled();
-    });
-  });
 });

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Row, Button, Card, Col } from 'react-materialize';
+import { Card, Col } from 'react-materialize';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import './Stopwatch.css';
 import Nav from '../Nav/Nav.js';
+import ControllerButtons from '../ControllerButtons/ControllerButtons';
 
 const Stopwatch = props => {
   return (
-    <Row className="Stopwatch">
+    <main className="Stopwatch">
       <Col>
         <Nav />
       </Col>
@@ -18,36 +19,15 @@ const Stopwatch = props => {
           <h3 className="Stopwatch__Count">
             {millisecondsToHuman(props.counter)}
           </h3>
-          <div className="Stopwatch__ButtonsContainer">
-            <Button
-              waves="light"
-              className="Stopwatch__StartBtn green"
-              id="stopwatch-start"
-              onClick={props.onStart}
-            >
-              Start
-            </Button>
-            <Button
-              waves="light"
-              className="Stopwatch__StopBtn red"
-              id="stopwatch-pause"
-              onClick={props.onPause}
-            >
-              Pause
-            </Button>
-            <Button
-              waves="light"
-              className="Stopwatch__ClearBtn yellow darken-3"
-              id="stopwatch-clear"
-              onClick={props.onClear}
-            >
-              Clear
-            </Button>
-          </div>
+          <ControllerButtons
+            onPause={props.onPause}
+            onStart={props.onStart}
+            onClear={props.onClear}
+          />
         </Card>
       </Col>
       <MessageBoard />
-    </Row>
+    </main>
   );
 };
 

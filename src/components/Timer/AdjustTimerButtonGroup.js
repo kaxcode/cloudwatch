@@ -7,7 +7,7 @@ const AdjustTimerButtonGroup = props => {
   return (
     <tr className="AdjustTimerButtonGroup">
       <td>
-        <div>
+        <div className="AdjustTimerButtonGroup__Container">
           <Button
             id="hours-increase"
             className="AdjustTimerButtonGroup__PlusBtn blue"
@@ -25,7 +25,7 @@ const AdjustTimerButtonGroup = props => {
         </div>
       </td>
       <td>
-        <div>
+        <div className="AdjustTimerButtonGroup__Container">
           <Button
             id="minutes-increase"
             className="AdjustTimerButtonGroup__PlusBtn blue"
@@ -43,7 +43,7 @@ const AdjustTimerButtonGroup = props => {
         </div>
       </td>
       <td>
-        <div>
+        <div className="AdjustTimerButtonGroup__Container">
           <Button
             waves="light"
             id="seconds-increase"

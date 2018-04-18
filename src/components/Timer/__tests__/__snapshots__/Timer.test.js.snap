@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Timer renders correctly 1`] = `
-<Row
+<main
   className="Timer"
 >
   <Alert
@@ -11,111 +11,42 @@ exports[`Timer renders correctly 1`] = `
   <Col>
     <Nav />
   </Col>
-  <Col
-    m={3}
-    offset="m2 l4"
-    s={12}
+  <div
+    className="Timer__Container"
   >
-    <Card
-      className="Timer__Card"
-      textClassName="black-text"
+    <AdjustTimerButtonGroup
+      decreaseHours={[Function]}
+      decreaseMinutes={[Function]}
+      decreaseSeconds={[Function]}
+      increaseHours={[Function]}
+      increaseMinutes={[Function]}
+      increaseSeconds={[Function]}
+    />
+    <div
+      className="Timer__Counter"
     >
-      <h3
-        className="Timer__Heading"
+      <div
+        className="Timer__HoursCount"
       >
-        Timer
-      </h3>
-      <Table>
-        <thead>
-          <tr>
-            <th
-              className="Timer__Hours"
-            >
-              Hours
-            </th>
-            <th
-              className="Timer__Minutes"
-            >
-              Minutes
-            </th>
-            <th
-              className="Timer__Seconds"
-            >
-              Seconds
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <AdjustTimerButtonGroup
-            decreaseHours={[Function]}
-            decreaseMinutes={[Function]}
-            decreaseSeconds={[Function]}
-            increaseHours={[Function]}
-            increaseMinutes={[Function]}
-            increaseSeconds={[Function]}
-          />
-          <tr>
-            <td>
-              <h1
-                className="Timer__HoursCount"
-              >
-                0
-              </h1>
-            </td>
-            <td>
-              <h1
-                className="Timer__MinutesCount"
-              >
-                0
-              </h1>
-            </td>
-            <td>
-              <h1
-                className="Timer__SecondsCount"
-              >
-                0
-              </h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button
-                className="Timer__StartBtn green"
-                id="timer-start"
-                node="button"
-                onClick={[Function]}
-                waves="light"
-              >
-                Start
-              </Button>
-            </td>
-            <td>
-              <Button
-                className="Timer__PauseBtn red"
-                id="timer-pause"
-                node="button"
-                onClick={[Function]}
-                waves="light"
-              >
-                Pause
-              </Button>
-            </td>
-            <td>
-              <Button
-                className="Timer__ClearBtn yellow darken-3"
-                id="timer-clear"
-                node="button"
-                onClick={[Function]}
-                waves="light"
-              >
-                Clear
-              </Button>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
-    </Card>
-  </Col>
+        0
+      </div>
+      <div
+        className="Timer__MinutesCount"
+      >
+        0
+      </div>
+      <div
+        className="Timer__SecondsCount"
+      >
+        0
+      </div>
+    </div>
+    <ControllerButtons
+      onClear={[Function]}
+      onPause={[Function]}
+      onStart={[Function]}
+    />
+  </div>
   <MessageBoard />
-</Row>
+</main>
 `;

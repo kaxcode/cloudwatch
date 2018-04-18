@@ -1,15 +1,8 @@
-.Timer__Heading,
-.Timer__Hours,
-.Timer__Minutes,
-.Timer__Seconds,
 .Timer__HoursCount,
 .Timer__MinutesCount,
 .Timer__SecondsCount {
   text-align: center;
-}
-
-.Timer__Card {
-  min-width: 450px;
+  font-size: 4em;
 }
 
 .Timer__HoursCount,
@@ -22,4 +15,20 @@
 .Timer__PauseBtn,
 .Timer__CleartBtn {
   margin-left: 8px;
+}
+
+.Timer__Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr 1fr;
+  grid-template-areas:
+    ".adjustBtns."
+    ".main."
+    ".controllerBtns.";
+}
+
+.Timer__Counter {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

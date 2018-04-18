@@ -5,7 +5,9 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
   className="AdjustTimerButtonGroup"
 >
   <td>
-    <div>
+    <div
+      className="AdjustTimerButtonGroup__Container"
+    >
       <Button
         className="AdjustTimerButtonGroup__PlusBtn blue"
         id="hours-increase"
@@ -25,7 +27,9 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
     </div>
   </td>
   <td>
-    <div>
+    <div
+      className="AdjustTimerButtonGroup__Container"
+    >
       <Button
         className="AdjustTimerButtonGroup__PlusBtn blue"
         id="minutes-increase"
@@ -45,7 +49,9 @@ exports[`Adjudst Timer Button Group renders correctly 1`] = `
     </div>
   </td>
   <td>
-    <div>
+    <div
+      className="AdjustTimerButtonGroup__Container"
+    >
       <Button
         className="AdjustTimerButtonGroup__PlusBtn blue"
         id="seconds-increase"
