@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageOutput from './MessageOutput';
+import './MessageBoard.css';
 
 class MessageBoard extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class MessageBoard extends React.Component {
 
   render() {
     return (
-      <div className="message-input">
+      <div className="MessageBoard__Input">
         <MessageOutput
           message={this.state.message}
           showMessage={this.state.showMessage}
