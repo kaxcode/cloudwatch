@@ -5,9 +5,24 @@
 }
 
 .Stopwatch__Card {
-  min-width: 450px;
+  text-align: center;
+}
+
+.Stopwatch__Count {
+  margin-top: 50px;
+  font-size: 5em;
+}
+
+@media screen and (min-width: 700px) {
+  .Stopwatch__Count {
+    font-size: 9em;
+  }
 }
 
 .Stopwatch__ButtonsContainer {
   min-width: auto;
+}
+
+.Stopwatch__ClearBtn {
+  margin-left: 20px;
 }

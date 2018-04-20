@@ -57,6 +57,7 @@ export default class StopwatchContainer extends React.Component {
         onPause={this.handlePause}
         onClear={this.handleClear}
         counter={this.state.counter}
+        clicked={this.state.clicked}
       />
     );
   }
