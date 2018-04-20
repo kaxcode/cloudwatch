@@ -5,16 +5,15 @@ body {
 }
 
 .message-input {
-  width: 30%;
-  margin: 0 auto;
+  grid-area: message;
+  padding: 30px 30px 0 30px;
 }
 
 .message-output {
-  position: absolute;
-  z-index: 1000;
   margin: 0 auto;
   text-align: center;
-  background-color: grey;
+  background-color: gray;
+  font-family: "Baloo Bhai", cursive;
 }
 
 .message-output--cursor {

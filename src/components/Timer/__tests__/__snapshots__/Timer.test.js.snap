@@ -8,9 +8,7 @@ exports[`Timer renders correctly 1`] = `
     onDismiss={[Function]}
     show={true}
   />
-  <Col>
-    <Nav />
-  </Col>
+  <Nav />
   <div
     className="Timer__Container"
   >
@@ -31,9 +29,19 @@ exports[`Timer renders correctly 1`] = `
         0
       </div>
       <div
+        className="Timer__Delimiter"
+      >
+        :
+      </div>
+      <div
         className="Timer__MinutesCount"
       >
         0
+      </div>
+      <div
+        className="Timer__Delimiter"
+      >
+        :
       </div>
       <div
         className="Timer__SecondsCount"
@@ -46,7 +54,7 @@ exports[`Timer renders correctly 1`] = `
       onPause={[Function]}
       onStart={[Function]}
     />
+    <MessageBoard />
   </div>
-  <MessageBoard />
 </main>
 `;

@@ -1,67 +1,47 @@
 import React from 'react';
-import { Button } from 'react-materialize';
 import { func } from 'prop-types';
 import './AdjustTimerButtonGroup.css';
 
 const AdjustTimerButtonGroup = props => {
   return (
-    <tr className="AdjustTimerButtonGroup">
-      <td>
-        <div className="AdjustTimerButtonGroup__Container">
-          <Button
-            id="hours-increase"
-            className="AdjustTimerButtonGroup__PlusBtn blue"
-            onClick={props.increaseHours}
-          >
-            +
-          </Button>
-          <Button
-            id="hours-decrease"
-            className="AdjustTimerButtonGroup__MinusBtn blue"
-            onClick={props.decreaseHours}
-          >
-            -
-          </Button>
-        </div>
-      </td>
-      <td>
-        <div className="AdjustTimerButtonGroup__Container">
-          <Button
-            id="minutes-increase"
-            className="AdjustTimerButtonGroup__PlusBtn blue"
-            onClick={props.increaseMinutes}
-          >
-            +
-          </Button>
-          <Button
-            id="minutes-decrease"
-            className="AdjustTimerButtonGroup__MinusBtn blue"
-            onClick={props.decreaseMinutes}
-          >
-            -
-          </Button>
-        </div>
-      </td>
-      <td>
-        <div className="AdjustTimerButtonGroup__Container">
-          <Button
-            waves="light"
-            id="seconds-increase"
-            className="AdjustTimerButtonGroup__PlusBtn blue"
-            onClick={props.increaseSeconds}
-          >
-            +
-          </Button>
-          <Button
-            id="seconds-decrease"
-            className="AdjustTimerButtonGroup__MinusBtn blue"
-            onClick={props.decreaseSeconds}
-          >
-            -
-          </Button>
-        </div>
-      </td>
-    </tr>
+    <div className="AdjustTimerButtonGroup">
+      <div className="Timer__HoursAdjustBtn__Container">
+        <i
+          className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+          id="hours-increase"
+          onClick={props.increaseHours}
+        />
+        <i
+          className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+          id="hours-decrease"
+          onClick={props.decreaseHours}
+        />
+      </div>
+      <div className="Timer__MinutesAdjustBtn__Container">
+        <i
+          className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+          id="minutes-increase"
+          onClick={props.increaseMinutes}
+        />
+        <i
+          className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+          id="minutes-decrease"
+          onClick={props.decreaseMinutes}
+        />
+      </div>
+      <div className="Timer__SecondsAdjustBtn__Container">
+        <i
+          className="fas fa-angle-up AdjustTimerButtonGroup__PlusBtn"
+          id="seconds-increase"
+          onClick={props.increaseSeconds}
+        />
+        <i
+          className="fas fa-angle-down AdjustTimerButtonGroup__MinusBtn"
+          id="seconds-decrease"
+          onClick={props.decreaseSeconds}
+        />
+      </div>
+    </div>
   );
 };
 

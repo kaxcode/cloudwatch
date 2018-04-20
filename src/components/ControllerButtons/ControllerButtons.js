@@ -1,37 +1,36 @@
 import React from 'react';
 import './ControllerButtons.css';
-import { Button } from 'react-materialize';
 import { func, bool } from 'prop-types';
 
 const ControllerButtons = props => {
   return (
     <div className="ControllerButtons">
-      <Button
+      <button
         waves="light"
-        className="ControllerBtn__Start green"
+        className="ControllerBtn__Start"
         id="timer-start"
         onClick={props.onStart}
       >
         Start
-      </Button>
+      </button>
 
-      <Button
+      <button
         waves="light"
-        className="ControllerBtn__Pause red"
+        className="ControllerBtn__Pause"
         id="timer-pause"
         onClick={props.onPause}
       >
         Pause
-      </Button>
+      </button>
 
-      <Button
+      <button
         waves="light"
-        className="ControllerBtn__Clear yellow darken-3"
+        className="ControllerBtn__Clear"
         id="timer-clear"
         onClick={props.onClear}
       >
         Clear
-      </Button>
+      </button>
     </div>
   );
 };

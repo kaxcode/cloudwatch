@@ -2,4 +2,35 @@
   grid-area: controllerBtns;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  font-family: "Baloo Bhai", cursive;
+}
+
+.ControllerBtn__Start,
+.ControllerBtn__Pause,
+.ControllerBtn__Clear {
+  margin-left: 30px;
+  font-size: 3em;
+  width: 290px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  display: table-cell;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.ControllerBtn__Start {
+  border-style: solid;
+  border-color: #41d2b9;
+}
+
+.ControllerBtn__Pause {
+  border-style: solid;
+  border-color: #f45b69;
+}
+
+.ControllerBtn__Clear {
+  border-style: solid;
+  border-color: #ffaa5a;
 }

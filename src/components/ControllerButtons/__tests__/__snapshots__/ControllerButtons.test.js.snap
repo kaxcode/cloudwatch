@@ -4,32 +4,29 @@ exports[`ControllerButtons renders correctly 1`] = `
 <div
   className="ControllerButtons"
 >
-  <Button
-    className="ControllerBtn__Start green"
+  <button
+    className="ControllerBtn__Start"
     id="timer-start"
-    node="button"
     onClick={[Function]}
     waves="light"
   >
     Start
-  </Button>
-  <Button
-    className="ControllerBtn__Pause red"
+  </button>
+  <button
+    className="ControllerBtn__Pause"
     id="timer-pause"
-    node="button"
     onClick={[Function]}
     waves="light"
   >
     Pause
-  </Button>
-  <Button
-    className="ControllerBtn__Clear yellow darken-3"
+  </button>
+  <button
+    className="ControllerBtn__Clear"
     id="timer-clear"
-    node="button"
     onClick={[Function]}
     waves="light"
   >
     Clear
-  </Button>
+  </button>
 </div>
 `;

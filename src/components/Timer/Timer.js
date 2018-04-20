@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col } from 'react-materialize';
 import {
   secondsToHour,
   secondsToMinutes,
@@ -20,9 +19,7 @@ const Timer = props => {
         onDismiss={props.handleDismiss}
         show={props.startClicked && props.timeRemaining <= 0}
       />
-      <Col>
-        <Nav />
-      </Col>
+      <Nav />
       <div className="Timer__Container">
         <AdjustTimerButtonGroup
           increaseHours={props.increaseHours}
@@ -36,9 +33,11 @@ const Timer = props => {
           <div className="Timer__HoursCount">
             {secondsToHour(props.timeRemaining)}
           </div>
+          <div className="Timer__Delimiter">:</div>
           <div className="Timer__MinutesCount">
             {secondsToMinutes(props.timeRemaining)}
           </div>
+          <div className="Timer__Delimiter">:</div>
           <div className="Timer__SecondsCount">
             {seconds(props.timeRemaining)}
           </div>
@@ -48,8 +47,8 @@ const Timer = props => {
           onStart={props.onStart}
           onClear={props.onClear}
         />
+        <MessageBoard />
       </div>
-      <MessageBoard />
     </main>
   );
 };

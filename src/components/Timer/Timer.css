@@ -1,34 +1,32 @@
 .Timer__HoursCount,
 .Timer__MinutesCount,
 .Timer__SecondsCount {
-  text-align: center;
-  font-size: 4em;
+  width: 300px;
 }
 
 .Timer__HoursCount,
 .Timer__MinutesCount,
-.Timer__SecondsCount {
+.Timer__SecondsCount,
+.Timer__Delimiter {
+  font-family: "Baloo Bhai", cursive;
+  text-align: center;
+  font-size: 13em;
   margin: 0;
-}
-
-.Timer__StartBtn,
-.Timer__PauseBtn,
-.Timer__CleartBtn {
-  margin-left: 8px;
 }
 
 .Timer__Container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows:  1fr 1fr 1fr;
+  grid-template-rows: 180px 1fr 120px 200px;
   grid-template-areas:
     ".adjustBtns."
     ".main."
-    ".controllerBtns.";
+    ".controllerBtns."
+    ".message.";
 }
 
 .Timer__Counter {
   grid-area: main;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
