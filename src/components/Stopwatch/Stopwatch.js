@@ -10,19 +10,17 @@ const Stopwatch = props => {
   return (
     <main className="Stopwatch">
       <Nav />
-      <div s={12} m={3} offset="m2 l4">
-        <div className="Stopwatch__Card" textClassName="black-text">
-          <h3 className="Stopwatch__Count">
-            {millisecondsToHuman(props.counter)}
-          </h3>
-          <ControllerButtons
-            onPause={props.onPause}
-            onStart={props.onStart}
-            onClear={props.onClear}
-          />
-        </div>
+      <div className="Stopwatch__Container">
+        <h3 className="Stopwatch__Count">
+          {millisecondsToHuman(props.counter)}
+        </h3>
+        <ControllerButtons
+          onPause={props.onPause}
+          onStart={props.onStart}
+          onClear={props.onClear}
+        />
+        <MessageBoard />
       </div>
-      <MessageBoard />
     </main>
   );
 };

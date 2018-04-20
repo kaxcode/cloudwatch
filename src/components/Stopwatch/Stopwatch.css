@@ -1,28 +1,23 @@
-.Stopwatch__Heading,
-.Stopwatch__Count,
-.Stopwatch__ButtonsContainer {
-  text-align: center;
-}
-
-.Stopwatch__Card {
-  text-align: center;
+.Stopwatch__Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 120px 200px;
+  grid-template-areas:
+    ".main."
+    ".controllerBtns."
+    ".message.";
 }
 
 .Stopwatch__Count {
-  margin-top: 50px;
-  font-size: 5em;
+  font-family: "Baloo Bhai", cursive;
+  grid-area: main;
+  text-align: center;
+  font-size: 13em;
+  margin: 100px 0 50px 0;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 700px) {
   .Stopwatch__Count {
     font-size: 9em;
   }
-}
-
-.Stopwatch__ButtonsContainer {
-  min-width: auto;
-}
-
-.Stopwatch__ClearBtn {
-  margin-left: 20px;
 }
