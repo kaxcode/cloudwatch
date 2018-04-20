@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stopwatch renders correctly 1`] = `
-<Row
+<main
   className="Stopwatch"
 >
   <Col>
@@ -26,39 +26,13 @@ exports[`Stopwatch renders correctly 1`] = `
       >
         00:00:00:00
       </h3>
-      <div
-        className="Stopwatch__ButtonsContainer"
-      >
-        <Button
-          className="Stopwatch__StartBtn green"
-          id="stopwatch-start"
-          node="button"
-          onClick={[Function]}
-          waves="light"
-        >
-          Start
-        </Button>
-        <Button
-          className="Stopwatch__StopBtn red"
-          id="stopwatch-pause"
-          node="button"
-          onClick={[Function]}
-          waves="light"
-        >
-          Pause
-        </Button>
-        <Button
-          className="Stopwatch__ClearBtn yellow darken-3"
-          id="stopwatch-clear"
-          node="button"
-          onClick={[Function]}
-          waves="light"
-        >
-          Clear
-        </Button>
-      </div>
+      <ControllerButtons
+        onClear={[Function]}
+        onPause={[Function]}
+        onStart={[Function]}
+      />
     </Card>
   </Col>
   <MessageBoard />
-</Row>
+</main>
 `;

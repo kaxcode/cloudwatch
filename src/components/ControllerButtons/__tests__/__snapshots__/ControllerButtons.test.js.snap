@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControllerButtons renders correctly 1`] = `
+<div
+  className="ControllerButtons"
+>
+  <Button
+    className="ControllerBtn__Start green"
+    id="timer-start"
+    node="button"
+    onClick={[Function]}
+    waves="light"
+  >
+    Start
+  </Button>
+  <Button
+    className="ControllerBtn__Pause red"
+    id="timer-pause"
+    node="button"
+    onClick={[Function]}
+    waves="light"
+  >
+    Pause
+  </Button>
+  <Button
+    className="ControllerBtn__Clear yellow darken-3"
+    id="timer-clear"
+    node="button"
+    onClick={[Function]}
+    waves="light"
+  >
+    Clear
+  </Button>
+</div>
+`;

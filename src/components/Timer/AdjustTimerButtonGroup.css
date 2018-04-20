@@ -1,10 +1,10 @@
-.AdjustTimerButtonGroup__MinusBtn,
 .AdjustTimerButtonGroup__PlusBtn {
-  width: 35px;
-  padding: 0;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
-.AdjustTimerButtonGroup__PlusBtn {
-  margin-left: 17px;
-  margin-right: 15px;
+.AdjustTimerButtonGroup {
+  grid-area: adjustBtns;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
