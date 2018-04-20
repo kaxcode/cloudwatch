@@ -1,16 +1,15 @@
 import React from 'react';
 import { func, string, bool } from 'prop-types';
+import './MessageBoard.css';
 
 const MessageOutput = props => {
   if (!props.showMessage) {
     return null;
   }
   return (
-    <div className="message-output">
+    <div className="MessageBoard__Output">
       <h1>{props.message}</h1>
-      <button onClick={props.handleDismiss} className="message-output--cursor">
-        X
-      </button>
+      <button onClick={props.handleDismiss}>X</button>
     </div>
   );
 };

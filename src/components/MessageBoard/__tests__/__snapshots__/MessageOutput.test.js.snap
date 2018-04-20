@@ -4,13 +4,12 @@ exports[`MessageOutput does not render a message when :showMessage is false 1`] 
 
 exports[`MessageOutput renders a message when :showMessage is true 1`] = `
 <div
-  className="message-output"
+  className="MessageBoard__Output"
 >
   <h1>
     string
   </h1>
   <button
-    className="message-output--cursor"
     onClick={[Function]}
   >
     X

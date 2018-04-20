@@ -3,19 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.message-input {
-  grid-area: message;
-  padding: 30px 30px 0 30px;
-}
-
-.message-output {
-  margin: 0 auto;
-  text-align: center;
-  background-color: gray;
-  font-family: "Baloo Bhai", cursive;
-}
-
-.message-output--cursor {
-  cursor: pointer;
-}

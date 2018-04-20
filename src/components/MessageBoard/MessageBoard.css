@@ -1,0 +1,13 @@
+.MessageBoard__Input {
+  grid-area: message;
+  padding: 30px 30px 0 30px;
+}
+
+.MessageBoard__Output {
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Baloo Bhai", cursive;
+  background-color: grey;
+}
