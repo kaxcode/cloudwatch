@@ -3,20 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.message-input {
-  width: 30%;
-  margin: 0 auto;
-}
-
-.message-output {
-  position: absolute;
-  z-index: 1000;
-  margin: 0 auto;
-  text-align: center;
-  background-color: grey;
-}
-
-.message-output--cursor {
-  cursor: pointer;
-}

@@ -1,0 +1,12 @@
+.MessageBoard__Input {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.MessageBoard__Output {
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  text-align: center;
+  background-color: grey;
+}
