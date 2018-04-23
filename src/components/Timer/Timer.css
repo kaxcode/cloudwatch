@@ -10,14 +10,15 @@
 .Timer__Delimiter {
   font-family: "Baloo Bhai", cursive;
   text-align: center;
-  font-size: 13em;
+  font-size: 12em;
   margin: 0;
+  height: 240px;
 }
 
 .Timer__Container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 180px 1fr 120px 200px;
+  grid-template-rows: 85px 1fr 120px 200px;
   grid-template-areas:
     ".adjustBtns."
     ".main."
