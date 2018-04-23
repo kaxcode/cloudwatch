@@ -4,6 +4,8 @@
   margin-left: 10px;
   margin-right: 10px;
   cursor: pointer;
+  line-height: 80px;
+  height: 85px;
 }
 
 .fa-angle-down,
@@ -31,6 +33,7 @@
 .Timer__MinutesAdjustBtn__Container,
 .Timer__SecondsAdjustBtn__Container {
   text-align: center;
+  height: 85px;
 }
 
 .AdjustTimerButtonGroup {
