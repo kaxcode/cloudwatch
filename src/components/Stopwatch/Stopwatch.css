@@ -12,8 +12,8 @@
   font-family: "Baloo Bhai", cursive;
   grid-area: main;
   text-align: center;
-  font-size: 13em;
-  margin: 100px 0 50px 0;
+  font-size: 12em;
+  margin: 80px 0 50px 0;
 }
 
 @media screen and (max-width: 700px) {
