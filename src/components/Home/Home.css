@@ -1,0 +1,13 @@
+.Home {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 230px 300px 1fr;
+}
+
+.Home__TimerBtn {
+  grid-area: 2/2/3/3;
+}
+
+.Home__StopwatchBtn {
+  grid-area: 2/3/3/4;
+}
