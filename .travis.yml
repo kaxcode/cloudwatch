@@ -1,6 +1,5 @@
 language: node_js
-node_js:
-  - "stable"
+node_js: 9 # PENDING [upath] Return to "stable" when https://github.com/anodynos/upath/pull/15 merged
 cache:
   directories:
   - node_modules
