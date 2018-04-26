@@ -8,7 +8,7 @@
 .Timer__MinutesCount,
 .Timer__SecondsCount,
 .Timer__Delimiter {
-  font-family: "Baloo Bhai", cursive;
+  font-family: 'Inconsolata', cursive;
   text-align: center;
   font-size: 12em;
   margin: 0;
@@ -20,10 +20,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 85px 1fr 120px 200px;
   grid-template-areas:
-    ".adjustBtns."
-    ".main."
-    ".controllerBtns."
-    ".message.";
+    '.adjustBtns.'
+    '.main.'
+    '.controllerBtns.'
+    '.message.';
 }
 
 .Timer__Counter {
