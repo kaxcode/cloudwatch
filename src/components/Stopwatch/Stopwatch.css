@@ -3,16 +3,16 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 120px 200px;
   grid-template-areas:
-    ".main."
-    ".controllerBtns."
-    ".message.";
+    '.main.'
+    '.controllerBtns.'
+    '.message.';
 }
 
 .Stopwatch__Count {
-  font-family: "Baloo Bhai", cursive;
+  font-family: 'Inconsolata', cursive;
   grid-area: main;
   text-align: center;
-  font-size: 12em;
+  font-size: 15em;
   margin: 80px 0 50px 0;
 }
 
