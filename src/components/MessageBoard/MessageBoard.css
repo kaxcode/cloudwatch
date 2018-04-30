@@ -5,9 +5,19 @@
 
 .MessageBoard__Output {
   position: absolute;
-  z-index: 1000;
+  z-index: 100000;
   margin: 0 auto;
+  padding: 0px 20px 0px 20px;
+  top: 50px;
   text-align: center;
-  font-family: "Baloo Bhai", cursive;
-  background-color: grey;
+  background-color: #41a8b9;
+  font-family: 'Baloo Bhai', cursive;
+}
+
+.Message__Output--cursor {
+  cursor: pointer;
+}
+
+.MessageBoard__Output__Submit {
+  margin-bottom: 10px;
 }
