@@ -18,7 +18,9 @@ exports[`Stopwatch renders correctly 1`] = `
       onPause={[Function]}
       onStart={[Function]}
     />
-    <MessageBoard />
+    <MessageBoard
+      counter={0}
+    />
   </div>
 </main>
 `;

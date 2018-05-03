@@ -424,7 +424,7 @@ describe('Timer', () => {
   describe('#componentDidUpdate', () => {
     it('sets state to localStorage value ', () => {
       // Arrange
-      localStorage.setItem('timeRemaining', 999);
+      localStorage.setItem('timeRemaining', 1214);
       wrapper.setState({ timeRemaining: 1214 });
 
       // Act
@@ -432,6 +432,23 @@ describe('Timer', () => {
 
       // Assert
       expect(localStorage.getItem('timeRemaining')).toEqual('1214');
+    });
+    it('does NOT call #handleStart if not in presenter view and already started', () => {
+      //Arrange
+      const spy = jest.spyOn(wrapper.instance(), 'handleStart');
+      wrapper.setState({ timeRemaining: 1214 });
+
+      //Act
+      wrapper.update();
+      //Assert
+      expect(spy).not.toHaveBeenCalled();
+    });
+    it('checks the window and state to call #handleStart if started in parent view', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'handleStart');
+      global.window.name = 'presenter';
+      wrapper.setState({ timeRemaining: 100 });
+      wrapper.instance().componentDidUpdate();
+      expect(spy).toHaveBeenCalled();
     });
   });
 

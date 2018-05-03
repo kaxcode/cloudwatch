@@ -1,6 +1,6 @@
 import React from 'react';
 import { millisecondsToHuman } from '../../utils/humanizeTimer';
-import { func, number, bool } from 'prop-types';
+import { func, number, bool, object } from 'prop-types';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import './Stopwatch.css';
 import Nav from '../Nav/Nav.js';
@@ -19,7 +19,7 @@ const Stopwatch = props => {
           onStart={props.onStart}
           onClear={props.onClear}
         />
-        <MessageBoard />
+        <MessageBoard location={props.location} counter={props.counter} />
       </div>
     </main>
   );
@@ -30,7 +30,8 @@ Stopwatch.propTypes = {
   onPause: func.isRequired,
   onClear: func.isRequired,
   counter: number,
-  clicked: bool
+  clicked: bool,
+  location: object
 };
 
 Stopwatch.defaultProps = {

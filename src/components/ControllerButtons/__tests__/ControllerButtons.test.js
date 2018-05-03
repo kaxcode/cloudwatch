@@ -53,4 +53,11 @@ describe('ControllerButtons', () => {
       expect(onMock).toHaveBeenCalled();
     });
   });
+  it('does not render a message when #window.name is an empty string', () => {
+    global.window.name = 'presenter';
+    wrapper = shallow(
+      <ControllerButtons onPause={onMock} onStart={onMock} onClear={onMock} />
+    );
+    expect(wrapper.type()).toEqual(null);
+  });
 });

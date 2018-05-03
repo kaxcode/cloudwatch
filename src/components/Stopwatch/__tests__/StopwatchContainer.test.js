@@ -19,43 +19,34 @@ describe('StopwatchContainer', () => {
   it('runs after start click', () => {
     //Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleStart');
-
     //Act
     wrapper.instance().handleStart();
-
     //Assert
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
     expect(spy).toHaveBeenCalled();
   });
-
   it('does not run if start has been clicked', () => {
     //Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleStart');
-
     //Act
     wrapper.setState({ clicked: true });
     wrapper.instance().handleStart();
-
     //Assert
     expect(wrapper.state().clicked).toBe(true);
     expect(wrapper.state().counter).not.toBe(1);
     expect(spy).toHaveBeenCalled();
   });
-
   it('pauses the tick function from chaning the counter state ', () => {
     // Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handlePause');
     wrapper.instance().handleStart();
-
     // Act
     wrapper.instance().handlePause();
-
     // Assert
     expect(setInterval).toHaveBeenCalledTimes(2);
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
     expect(spy).toHaveBeenCalled();
   });
-
   it('clears the the Hours, Minutes, Seconds state', () => {
     // Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleClear');
@@ -74,23 +65,18 @@ describe('StopwatchContainer', () => {
     it('decreases the time remaining by 1 second', () => {
       // Arrange
       wrapper.setState({ counter: 0 });
-
       // Act
       wrapper.instance().tick();
-
       // Assert
       expect(wrapper.state().counter).toEqual(1);
       expect(wrapper.state().counter).not.toBe(0);
       expect(wrapper.state().counter).not.toBe(-1);
     });
-
     it('stops ticking if counter is 0', () => {
       // Arrange
       wrapper.setState({ counter: 0 });
-
       // Act
       wrapper.instance().tick();
-
       // Assert
       expect(wrapper.state().counter).toEqual(1);
       expect(wrapper.state().counter).not.toBe(-1);
@@ -103,20 +89,16 @@ describe('StopwatchContainer', () => {
       // Arrange
       const initialCounter = Math.round(Math.random() * 10000);
       localStorage.setItem('counter', initialCounter);
-
       // Act
       const subject = shallow(<StopwatchContainer />);
-
       // Assert
       expect(subject.state().counter).toEqual(initialCounter);
     });
     it('sets a sane default counter value', () => {
       // Arrange
       localStorage.setItem('counter', null);
-
       // Act
       const subject = shallow(<StopwatchContainer />);
-
       // Assert
       expect(subject.state().counter).toEqual(0);
     });
@@ -126,24 +108,26 @@ describe('StopwatchContainer', () => {
     it('sets state to localStorage value ', () => {
       // Arrange
       localStorage.setItem('counter', 999);
-      wrapper.setState({ counter: 1214 });
-
       // Act
       wrapper.update();
-
       // Assert
-      expect(localStorage.getItem('counter')).toEqual('1214');
+      expect(localStorage.getItem('counter')).toEqual('999');
+    });
+    it('checks the window and state to call #handleStart if started in parent view', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'handleStart');
+      global.window.name = 'presenter';
+      wrapper.setState({ counter: 100 });
+      wrapper.instance().componentDidUpdate();
+      expect(spy).toHaveBeenCalled();
     });
   });
 
   describe('#componentWillUnmount', () => {
-    it('resets the stored state in localstorage', () => {
+    it('resets the stored state in localStorage', () => {
       // Arrange
       localStorage.setItem('counter', 999);
-
       // Act
       wrapper.instance().componentWillUnmount();
-
       // Assert
       expect(localStorage.getItem('counter')).toEqual('0');
     });

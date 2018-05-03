@@ -20,15 +20,31 @@ describe('Adjudst Timer Button Group', () => {
   beforeEach(() => {
     wrapper = shallow(
       <AdjustTimerButtonGroup
-      increaseHours={increaseHoursMock}
-      decreaseHours={decreaseHoursMock}
-      increaseMinutes={increaseMinutesMock}
-      decreaseMinutes={decreaseMinutesMock}
-      increaseSeconds={increaseSecondsMock}
-      decreaseSeconds={decreaseSecondsMock}/>
+        increaseHours={increaseHoursMock}
+        decreaseHours={decreaseHoursMock}
+        increaseMinutes={increaseMinutesMock}
+        decreaseMinutes={decreaseMinutesMock}
+        increaseSeconds={increaseSecondsMock}
+        decreaseSeconds={decreaseSecondsMock}
+      />
     );
   });
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
+  });
+  it('does not render if in presenter window', () => {
+    global.window.name = 'presenter';
+    wrapper = shallow(
+      <AdjustTimerButtonGroup
+        increaseHours={increaseHoursMock}
+        decreaseHours={decreaseHoursMock}
+        increaseMinutes={increaseMinutesMock}
+        decreaseMinutes={decreaseMinutesMock}
+        increaseSeconds={increaseSecondsMock}
+        decreaseSeconds={decreaseSecondsMock}
+      />
+    );
+    wrapper.update();
+    expect(wrapper.type()).toEqual(null);
   });
 });

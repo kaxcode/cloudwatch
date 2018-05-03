@@ -1,5 +1,6 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
+import { object } from 'prop-types';
 
 export default class StopwatchContainer extends React.Component {
   state = {
@@ -17,7 +18,9 @@ export default class StopwatchContainer extends React.Component {
 
   componentDidUpdate() {
     // Sets the locastorage
-    localStorage.setItem('counter', this.state.counter);
+    if (window.name === 'presenter' && localStorage.counter > 0) {
+      this.handleStart();
+    }
   }
 
   componentWillUnmount() {
@@ -42,6 +45,7 @@ export default class StopwatchContainer extends React.Component {
     clearInterval(this.timer);
     this.setState({ counter: 0 });
     this.setState({ clicked: false });
+    localStorage.clear();
   };
 
   tick = () => {
@@ -58,7 +62,12 @@ export default class StopwatchContainer extends React.Component {
         onClear={this.handleClear}
         counter={this.state.counter}
         clicked={this.state.clicked}
+        location={this.props.location}
       />
     );
   }
 }
+
+StopwatchContainer.propTypes = {
+  location: object
+};

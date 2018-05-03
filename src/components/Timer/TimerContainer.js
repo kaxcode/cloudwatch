@@ -1,5 +1,6 @@
 import React from 'react';
 import Timer from './Timer.js';
+import { object } from 'prop-types';
 
 const HOURS = 3600;
 const MINUTES = 60;
@@ -22,8 +23,11 @@ class TimerContainer extends React.Component {
   };
 
   componentDidUpdate() {
-    // Sets the locastorage
+    // Sets the localstorage
     localStorage.setItem('timeRemaining', this.state.timeRemaining);
+    if (window.name === 'presenter' && this.state.timeRemaining > 0) {
+      this.handleStart();
+    }
   }
 
   componentWillUnmount() {
@@ -97,6 +101,7 @@ class TimerContainer extends React.Component {
     this.setState({
       timeRemaining: 0
     });
+    localStorage.setItem('timeRemaining', 0);
   };
 
   tick = () => {
@@ -131,9 +136,14 @@ class TimerContainer extends React.Component {
         onClear={this.handleClear}
         startClicked={this.state.startClicked}
         timeRemaining={this.state.timeRemaining}
+        location={this.props.location}
       />
     );
   }
 }
+
+TimerContainer.propTypes = {
+  location: object
+};
 
 export default TimerContainer;

@@ -5,7 +5,7 @@ import {
   seconds
 } from '../../utils/humanizeTimer';
 import Alert from '../Alert/Alert';
-import { func, number, bool } from 'prop-types';
+import { func, number, bool, object } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import Nav from '../Nav/Nav.js';
@@ -47,7 +47,10 @@ const Timer = props => {
           onStart={props.onStart}
           onClear={props.onClear}
         />
-        <MessageBoard />
+        <MessageBoard
+          location={props.location}
+          timeRemaining={props.timeRemaining}
+        />
       </div>
     </main>
   );
@@ -65,7 +68,8 @@ Timer.propTypes = {
   increaseSeconds: func.isRequired,
   decreaseSeconds: func.isRequired,
   timeRemaining: number,
-  startClicked: bool
+  startClicked: bool,
+  location: object
 };
 
 export default Timer;

@@ -1,6 +1,8 @@
 import React from 'react';
 import MessageOutput from './MessageOutput';
 import './MessageBoard.css';
+import { object, number } from 'prop-types';
+import MessageBoardForm from './MessageBoardForm';
 
 class MessageBoard extends React.Component {
   state = {
@@ -8,8 +10,16 @@ class MessageBoard extends React.Component {
     message: ''
   };
 
+  componentDidMount = () => {
+    // check if window is parent or presenter
+    if (window.name === 'presenter') {
+      this.setState({ message: localStorage.message });
+    }
+  };
+
   handleDismiss = () => {
     this.setState({ showMessage: false });
+    localStorage.setItem('message', '');
   };
 
   handleChange = e => {
@@ -19,6 +29,17 @@ class MessageBoard extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.setState({ showMessage: true });
+    localStorage.setItem('message', this.state.message);
+  };
+
+  handlePresent = () => {
+    localStorage.setItem('message', this.state.message);
+    const location =
+      this.props.location.pathname === '/timer' ? '/timer' : '/stopwatch';
+    location === '/timer'
+      ? localStorage.setItem('timeRemaining', this.props.timeRemaining)
+      : localStorage.setItem('counter', this.props.counter);
+    window.open(location, 'presenter');
   };
 
   render() {
@@ -29,13 +50,25 @@ class MessageBoard extends React.Component {
           showMessage={this.state.showMessage}
           handleDismiss={this.handleDismiss}
         />
-        <form id="message-submit-form" onSubmit={this.handleSubmit}>
-          <input id="message-input" onChange={this.handleChange} />
-          <button id="message-submit-button">Submit</button>
-        </form>
+        <MessageBoardForm
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          onPresent={this.handlePresent}
+        />
+        <MessageOutput
+          message={localStorage.message || ''}
+          showMessage
+          handleDismiss={this.handleDismiss}
+        />
       </div>
     );
   }
 }
+
+MessageBoard.propTypes = {
+  location: object,
+  timeRemaining: number,
+  counter: number
+};
 
 export default MessageBoard;

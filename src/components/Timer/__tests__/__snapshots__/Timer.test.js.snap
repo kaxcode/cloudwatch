@@ -54,7 +54,9 @@ exports[`Timer renders correctly 1`] = `
       onPause={[Function]}
       onStart={[Function]}
     />
-    <MessageBoard />
+    <MessageBoard
+      timeRemaining={0}
+    />
   </div>
 </main>
 `;

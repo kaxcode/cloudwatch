@@ -1,9 +1,13 @@
 import React from 'react';
-import { func, string, bool } from 'prop-types';
+import { func, bool } from 'prop-types';
 import './MessageBoard.css';
+import PropTypes from 'prop-types';
 
 const MessageOutput = props => {
   if (!props.showMessage) {
+    return null;
+  }
+  if (localStorage.message === '') {
     return null;
   }
   return (
@@ -17,7 +21,7 @@ const MessageOutput = props => {
 MessageOutput.propTypes = {
   showMessage: bool.isRequired,
   handleDismiss: func.isRequired,
-  message: string.isRequired
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 export default MessageOutput;
