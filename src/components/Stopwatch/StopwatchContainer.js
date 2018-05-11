@@ -1,5 +1,6 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
+import PresentStopwatch from './PresentStopwatch';
 import { object } from 'prop-types';
 
 export default class StopwatchContainer extends React.Component {
@@ -21,6 +22,7 @@ export default class StopwatchContainer extends React.Component {
     if (window.name === 'presenter' && localStorage.counter > 0) {
       this.handleStart();
     }
+    localStorage.setItem('timeRemaining', this.state.counter);
   }
 
   componentWillUnmount() {
@@ -33,34 +35,46 @@ export default class StopwatchContainer extends React.Component {
       clearInterval(this.timer);
       this.timer = setInterval(this.tick, 10);
       this.setState({ clicked: true });
+      localStorage.setItem('clicked', true);
     }
   };
 
   handlePause = () => {
     clearInterval(this.timer);
     this.setState({ clicked: false });
+    localStorage.setItem('clicked', false);
   };
 
   handleClear = () => {
     clearInterval(this.timer);
     this.setState({ counter: 0 });
     this.setState({ clicked: false });
-    localStorage.clear();
+    localStorage.setItem('counter', 0);
   };
 
   tick = () => {
     this.setState({
       counter: this.state.counter + 1
     });
+    localStorage.setItem('counter', this.state.counter);
   };
 
   render() {
-    return (
+    return window.name !== 'presenter' ? (
       <Stopwatch
         onStart={this.handleStart}
         onPause={this.handlePause}
         onClear={this.handleClear}
         counter={this.state.counter}
+        clicked={this.state.clicked}
+        location={this.props.location}
+      />
+    ) : (
+      <PresentStopwatch
+        onStart={this.handleStart}
+        onPause={this.handlePause}
+        onClear={this.handleClear}
+        counter={localStorage.counter}
         clicked={this.state.clicked}
         location={this.props.location}
       />

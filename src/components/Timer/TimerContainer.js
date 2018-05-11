@@ -1,5 +1,6 @@
 import React from 'react';
 import Timer from './Timer.js';
+import PresentTimer from './PresentTimer.js';
 import { object } from 'prop-types';
 
 const HOURS = 3600;
@@ -20,14 +21,14 @@ class TimerContainer extends React.Component {
     // Uses localStorage / 0 to set state
     const localStorageRef = localStorage.getItem('timeRemaining');
     this.setState({ timeRemaining: parseInt(localStorageRef, 0) || 0 });
+    if (window.name === 'presenter') {
+      this.setState({ timeRemaining: localStorage.timeRemaining });
+    }
   };
 
   componentDidUpdate() {
     // Sets the localstorage
     localStorage.setItem('timeRemaining', this.state.timeRemaining);
-    if (window.name === 'presenter' && this.state.timeRemaining > 0) {
-      this.handleStart();
-    }
   }
 
   componentWillUnmount() {
@@ -90,11 +91,13 @@ class TimerContainer extends React.Component {
     clearInterval(this.timer);
     this.setState({ startClicked: true });
     this.timer = setInterval(this.tick, 1000);
+    localStorage.setItem('startClicked', true);
   };
 
   handlePause = () => {
     clearInterval(this.timer);
     this.setState({ startClicked: false });
+    localStorage.setItem('startClicked', false);
   };
 
   handleClear = () => {
@@ -122,7 +125,7 @@ class TimerContainer extends React.Component {
   };
 
   render() {
-    return (
+    return window.name !== 'presenter' ? (
       <Timer
         handleDismiss={this.handleDismiss}
         increaseHours={this.increaseHours}
@@ -136,6 +139,13 @@ class TimerContainer extends React.Component {
         onClear={this.handleClear}
         startClicked={this.state.startClicked}
         timeRemaining={this.state.timeRemaining}
+        location={this.props.location}
+      />
+    ) : (
+      <PresentTimer
+        handleDismiss={this.handleDismiss}
+        startClicked={localStorage.startClicked}
+        timeRemaining={localStorage.timeRemaining}
         location={this.props.location}
       />
     );
