@@ -34,12 +34,10 @@ class MessageBoard extends React.Component {
 
   handlePresent = () => {
     localStorage.setItem('message', this.state.message);
-    const location =
-      this.props.location.pathname === '/timer' ? '/timer' : '/stopwatch';
-    location === '/timer'
+      this.props.location.pathname === '/timer'
       ? localStorage.setItem('timeRemaining', this.props.timeRemaining)
       : localStorage.setItem('counter', this.props.counter);
-    window.open(location, 'presenter');
+    window.open('present', 'presenter');
   };
 
   render() {
