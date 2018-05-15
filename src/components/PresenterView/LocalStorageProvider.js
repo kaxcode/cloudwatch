@@ -19,12 +19,9 @@ class LocalStorageProvider extends React.Component {
   handleStorage = e => {
     const someState = this.props.keys.reduce((set, key) => {
       set[key] = localStorage.getItem(key);
-      console.log(set);
       return set;
     }, {});
     this.setState({ someState });
-    console.log(e);
-    console.log(someState);
   };
   render() {
     return (

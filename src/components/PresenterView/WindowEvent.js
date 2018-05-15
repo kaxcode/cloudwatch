@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class WindowEvent extends React.Component {
+class WindowEvent extends React.PureComponent {
   static displayName = 'WindowEvent';
 
   static propTypes = {

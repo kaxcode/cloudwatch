@@ -1,13 +1,23 @@
 import React from 'react';
 import LocalStorageProvider from './LocalStorageProvider.js';
-import Timer from '../Timer/Timer.js';
+import MessageBoard from '../MessageBoard/MessageBoard';
+import Nav from '../Nav/Nav.js';
+import TimeDisplay from '../TimeDisplay/TimeDisplay';
 
 class PresenterView extends React.Component {
   render() {
     return (
-      <LocalStorageProvider keys={['timeRemaining']}>
-        {({ timeRemaining }) => <Timer timeRemaining={timeRemaining} />}
-      </LocalStorageProvider>
+      <main>
+        <Nav />
+          <LocalStorageProvider keys={['timeRemaining']}>
+            {({ timeRemaining }) => (
+              <React.Fragment>
+                <TimeDisplay time={timeRemaining}/>
+                <MessageBoard/>
+              </React.Fragment>
+          )}
+          </LocalStorageProvider>
+      </main>
     );
   }
 }

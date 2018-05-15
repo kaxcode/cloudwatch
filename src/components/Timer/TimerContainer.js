@@ -2,14 +2,15 @@ import React from 'react';
 import Timer from './Timer.js';
 import { object } from 'prop-types';
 
-const HOURS = 3600;
-const MINUTES = 60;
-const SECONDS = 1;
-const MAX_TIME = 24 * 60 * 60;
+const HOURS = 3600 * 1000;
+const MINUTES = 60 * 1000;
+const SECONDS = 1 * 1000;
+const MAX_TIME = 24 * 60 * 60 * 1000;
 const MIN_TIME = 0;
 
 class TimerContainer extends React.Component {
   state = {
+    lastTick: 0,
     timeRemaining: 0,
     startClicked: false
   };
@@ -17,7 +18,6 @@ class TimerContainer extends React.Component {
   timer = null;
 
   componentDidMount = () => {
-    // Uses localStorage / 0 to set state
     const localStorageRef = localStorage.getItem('timeRemaining');
     this.setState({ timeRemaining: parseInt(localStorageRef, 0) || 0 });
     if (window.name === 'presenter') {
@@ -26,12 +26,10 @@ class TimerContainer extends React.Component {
   };
 
   componentDidUpdate() {
-    // Sets the localstorage
     localStorage.setItem('timeRemaining', this.state.timeRemaining);
   }
 
   componentWillUnmount() {
-    // Sets counter to 0 if component is unmounted
     localStorage.setItem('timeRemaining', 0);
   }
 
@@ -88,8 +86,11 @@ class TimerContainer extends React.Component {
       return;
     }
     clearInterval(this.timer);
-    this.setState({ startClicked: true });
-    this.timer = setInterval(this.tick, 1000);
+    this.setState({
+      lastTick: Date.now(),
+      startClicked: true
+    });
+    this.timer = setInterval(this.tick, 10);
     localStorage.setItem('startClicked', true);
   };
 
@@ -111,8 +112,11 @@ class TimerContainer extends React.Component {
       return this.handleClear();
     }
 
+    const lastTick = Date.now();
+    const elapsedTime = lastTick - this.state.lastTick;
     this.setState({
-      timeRemaining: this.state.timeRemaining - 1
+      timeRemaining: this.state.timeRemaining - elapsedTime,
+      lastTick
     });
   };
 

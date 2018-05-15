@@ -5,7 +5,8 @@ import { object } from 'prop-types';
 export default class StopwatchContainer extends React.Component {
   state = {
     counter: 0,
-    clicked: false
+    clicked: false,
+    lastTick: 0
   };
 
   timer = null;
@@ -30,7 +31,10 @@ export default class StopwatchContainer extends React.Component {
     if (this.state.clicked === false) {
       clearInterval(this.timer);
       this.timer = setInterval(this.tick, 10);
-      this.setState({ clicked: true });
+      this.setState({
+        clicked: true,
+        lastTick: Date.now()
+      });
       localStorage.setItem('clicked', true);
     }
   };
@@ -43,14 +47,19 @@ export default class StopwatchContainer extends React.Component {
 
   handleClear = () => {
     clearInterval(this.timer);
-    this.setState({ counter: 0 });
-    this.setState({ clicked: false });
+    this.setState({
+      clicked: false,
+      counter: 0
+    });
     localStorage.setItem('counter', 0);
   };
 
   tick = () => {
+    const lastTick = Date.now();
+    const elapsedTime = lastTick - this.state.lastTick;
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + elapsedTime,
+      lastTick
     });
     localStorage.setItem('counter', this.state.counter);
   };

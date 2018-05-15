@@ -1,25 +1,23 @@
 import React from 'react';
-import { millisecondsToHuman } from '../../utils/humanizeTimer';
 import { func, number, bool, object } from 'prop-types';
-import MessageBoard from '../MessageBoard/MessageBoard.js';
+import MessageBoard from '../MessageBoard/MessageBoard';
 import './Stopwatch.css';
 import Nav from '../Nav/Nav.js';
 import ControllerButtons from '../ControllerButtons/ControllerButtons';
+import TimeDisplay from '../TimeDisplay/TimeDisplay';
 
 const Stopwatch = props => {
   return (
     <main className="Stopwatch">
       <Nav />
       <div className="Stopwatch__Container">
-        <h3 className="Stopwatch__Count">
-          {millisecondsToHuman(props.counter)}
-        </h3>
+        <TimeDisplay time={props.counter}/>
         <ControllerButtons
           onPause={props.onPause}
           onStart={props.onStart}
           onClear={props.onClear}
         />
-        <MessageBoard location={props.location} counter={props.counter} />
+        <MessageBoard/>
       </div>
     </main>
   );
