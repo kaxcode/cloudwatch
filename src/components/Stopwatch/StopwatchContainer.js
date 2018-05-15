@@ -1,6 +1,5 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
-import PresentStopwatch from './PresentStopwatch';
 import { object } from 'prop-types';
 
 export default class StopwatchContainer extends React.Component {
@@ -18,10 +17,7 @@ export default class StopwatchContainer extends React.Component {
   };
 
   componentDidUpdate() {
-    // Sets the locastorage
-    if (window.name === 'presenter' && localStorage.counter > 0) {
-      this.handleStart();
-    }
+    // Sets the localstorage
     localStorage.setItem('timeRemaining', this.state.counter);
   }
 
@@ -60,21 +56,12 @@ export default class StopwatchContainer extends React.Component {
   };
 
   render() {
-    return window.name !== 'presenter' ? (
+    return (
       <Stopwatch
         onStart={this.handleStart}
         onPause={this.handlePause}
         onClear={this.handleClear}
         counter={this.state.counter}
-        clicked={this.state.clicked}
-        location={this.props.location}
-      />
-    ) : (
-      <PresentStopwatch
-        onStart={this.handleStart}
-        onPause={this.handlePause}
-        onClear={this.handleClear}
-        counter={localStorage.counter}
         clicked={this.state.clicked}
         location={this.props.location}
       />

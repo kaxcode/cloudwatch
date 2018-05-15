@@ -1,6 +1,5 @@
 import React from 'react';
 import Timer from './Timer.js';
-import PresentTimer from './PresentTimer.js';
 import { object } from 'prop-types';
 
 const HOURS = 3600;
@@ -125,7 +124,7 @@ class TimerContainer extends React.Component {
   };
 
   render() {
-    return window.name !== 'presenter' ? (
+    return (
       <Timer
         handleDismiss={this.handleDismiss}
         increaseHours={this.increaseHours}
@@ -139,13 +138,6 @@ class TimerContainer extends React.Component {
         onClear={this.handleClear}
         startClicked={this.state.startClicked}
         timeRemaining={this.state.timeRemaining}
-        location={this.props.location}
-      />
-    ) : (
-      <PresentTimer
-        handleDismiss={this.handleDismiss}
-        startClicked={localStorage.startClicked}
-        timeRemaining={localStorage.timeRemaining}
         location={this.props.location}
       />
     );

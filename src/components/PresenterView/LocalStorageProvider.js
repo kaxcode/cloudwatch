@@ -12,6 +12,10 @@ class LocalStorageProvider extends React.Component {
       timeRemaining: 0
     }
   };
+
+  componentDidMount = () => {
+    this.setState({ timeRemaining: localStorage.timeRemaining });
+  };
   handleStorage = e => {
     const someState = this.props.keys.reduce((set, key) => {
       set[key] = localStorage.getItem(key);
