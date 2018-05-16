@@ -3,7 +3,6 @@ import Enzyme from 'enzyme';
 import MessageBoard from '../MessageBoard.js';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import toJson from 'enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -30,7 +29,6 @@ class LocalStorageMock {
 }
 
 global.localStorage = new LocalStorageMock();
-const handleChange = jest.fn();
 
 describe('MessageBoard', () => {
   describe('#handleDismiss', () => {
@@ -40,7 +38,7 @@ describe('MessageBoard', () => {
       //Act
       subject.instance().handleDismiss();
       //Assert
-      expect(subject.state().showMessage).toBe(false);
+      expect(subject.state().message).toEqual('');
     });
   });
 
@@ -61,25 +59,6 @@ describe('MessageBoard', () => {
       subject.instance().componentDidMount();
       // Assert
       expect(subject.state().message).toEqual(testMessage);
-    });
-  });
-
-  describe('#handleChange', () => {
-    it('updates :message state', () => {
-      //Arrange
-      const event = { target: { value: 'test' } };
-      const subject = shallow(
-        <MessageBoard
-          handleChange={handleChange(event)}
-          location={{ pathname: '/timer' }}
-          timeRemaining={5}
-          counter={5}
-        />
-      );
-      //Act
-      subject.instance().handleChange(event);
-      //Assert
-      expect(subject.state().message).toEqual('test');
     });
   });
 
@@ -107,7 +86,7 @@ describe('MessageBoard', () => {
           counter={5}
         />
       );
-      subject.instance().handleSubmit(e);
+      subject.instance().handleSubmit(e, 'test');
       expect(e.preventDefault).toHaveBeenCalled();
     });
   });
@@ -130,51 +109,6 @@ describe('MessageBoard', () => {
       // Assert
       expect(localStorage.getItem('message')).toEqual('test message');
     });
-  });
-  it('checks whether the user is coming from /timer or /stopwatch', () => {
-    const subject = shallow(
-      <MessageBoard
-        location={{ pathname: '/timer' }}
-        timeRemaining={5}
-        counter={5}
-      />
-    );
-    subject.instance().handlePresent();
-    expect(toJson(subject)).toMatchSnapshot();
-  });
-  it('checks whether the user is coming from /timer or /stopwatch', () => {
-    const subject = shallow(
-      <MessageBoard
-        location={{ pathname: '/stopwatch' }}
-        timeRemaining={5}
-        counter={5}
-      />
-    );
-    subject.instance().handlePresent();
-    expect(toJson(subject)).toMatchSnapshot();
-  });
-  it('if user is coming from /timer sets timeRemaining to localStorage', () => {
-    const subject = shallow(
-      <MessageBoard
-        location={{ pathname: './timer' }}
-        timeRemaining={5}
-        counter={5}
-      />
-    );
-    subject.instance().handlePresent();
-    expect(localStorage.timeRemaining).toEqual('5');
-  });
-  it('if user is coming from /stopwatch sets counter to localStorage', () => {
-    const subject = shallow(
-      <MessageBoard
-        location={{ pathname: '/stopwatch' }}
-        timeRemaining={5}
-        counter={5}
-      />
-    );
-    subject.instance().handlePresent();
-
-    expect(localStorage.counter).toEqual('5');
   });
 
   it('opens secondary window with location and assigns the name presenter to it', () => {

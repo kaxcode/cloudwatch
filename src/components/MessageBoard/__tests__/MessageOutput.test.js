@@ -76,6 +76,6 @@ describe('MessageOutput', () => {
     );
     localStorage.setItem('message', 'testing');
     subject.update();
-    expect(subject.type()).toEqual(null);
+    expect(subject.type()).toEqual('div');
   });
 });

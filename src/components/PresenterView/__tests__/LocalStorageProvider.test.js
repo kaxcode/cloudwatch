@@ -8,7 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 jest.useFakeTimers();
 
-describe('Stopwatch', () => {
+describe('LocalStorageProvider', () => {
   let wrapper;
 
   beforeEach(() => {

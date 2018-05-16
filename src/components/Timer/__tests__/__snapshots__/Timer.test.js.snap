@@ -23,31 +23,9 @@ exports[`Timer renders correctly 1`] = `
     <div
       className="Timer__Counter"
     >
-      <div
-        className="Timer__HoursCount"
-      >
-        0
-      </div>
-      <div
-        className="Timer__Delimiter"
-      >
-        :
-      </div>
-      <div
-        className="Timer__MinutesCount"
-      >
-        0
-      </div>
-      <div
-        className="Timer__Delimiter"
-      >
-        :
-      </div>
-      <div
-        className="Timer__SecondsCount"
-      >
-        0
-      </div>
+      <TimeDisplay
+        time={0}
+      />
     </div>
     <ControllerButtons
       onClear={[Function]}

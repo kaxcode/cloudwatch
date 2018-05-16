@@ -62,25 +62,25 @@ describe('StopwatchContainer', () => {
   });
 
   describe('#tick', () => {
-    it('decreases the time remaining by 1 second', () => {
+    it('increases the time remaining by 1 second', () => {
       // Arrange
-      wrapper.setState({ counter: 0 });
+      const lastTick = Date.now();
+      wrapper.setState({ counter: 0, lastTick: lastTick });
       // Act
-      wrapper.instance().tick();
+      setInterval(wrapper.instance().tick(), 10);
+
       // Assert
       expect(wrapper.state().counter).toEqual(1);
-      expect(wrapper.state().counter).not.toBe(0);
-      expect(wrapper.state().counter).not.toBe(-1);
     });
     it('stops ticking if counter is 0', () => {
+      Date.now = jest.fn(() => new Date(Date.UTC(2017, 7, 9, 8)).valueOf());
       // Arrange
-      wrapper.setState({ counter: 0 });
+      const lastTick = Date.now();
+      wrapper.setState({ counter: 0, lastTick: lastTick });
       // Act
-      wrapper.instance().tick();
+      setInterval(wrapper.instance().tick(), 10);
       // Assert
-      expect(wrapper.state().counter).toEqual(1);
-      expect(wrapper.state().counter).not.toBe(-1);
-      expect(wrapper.state().counter).not.toBe(0);
+      expect(wrapper.state().counter).toEqual(0);
     });
   });
 
@@ -112,13 +112,6 @@ describe('StopwatchContainer', () => {
       wrapper.update();
       // Assert
       expect(localStorage.getItem('counter')).toEqual('999');
-    });
-    it('checks the window and state to call #handleStart if started in parent view', () => {
-      const spy = jest.spyOn(wrapper.instance(), 'handleStart');
-      global.window.name = 'presenter';
-      wrapper.setState({ counter: 100 });
-      wrapper.instance().componentDidUpdate();
-      expect(spy).toHaveBeenCalled();
     });
   });
 

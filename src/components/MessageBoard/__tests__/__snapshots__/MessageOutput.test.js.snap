@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MessageOutput does not render a message when :showMessage is false 1`] = `""`;
+exports[`MessageOutput does not render a message when :showMessage is false 1`] = `
+<div
+  className="MessageBoard__Output"
+>
+  <h1>
+    string
+  </h1>
+  <button>
+    X
+  </button>
+</div>
+`;
 
 exports[`MessageOutput does not render if localStorage.message is an empty string 1`] = `""`;
 
@@ -11,9 +22,7 @@ exports[`MessageOutput renders a message when :showMessage is true 1`] = `
   <h1>
     string
   </h1>
-  <button
-    onClick={[Function]}
-  >
+  <button>
     X
   </button>
 </div>
