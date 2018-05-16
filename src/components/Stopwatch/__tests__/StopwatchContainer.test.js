@@ -7,10 +7,11 @@ import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('StopwatchContainer', () => {
+describe.only('StopwatchContainer', () => {
   let wrapper;
 
   beforeEach(() => {
+    localStorage.clear();
     wrapper = shallow(<StopwatchContainer />);
   });
 
@@ -62,25 +63,23 @@ describe('StopwatchContainer', () => {
   });
 
   describe('#tick', () => {
-    it('increases the time remaining by 1 second', () => {
+    it('increases the counter by the time elapsed', () => {
       // Arrange
-      const lastTick = Date.now();
-      wrapper.setState({ counter: 0, lastTick: lastTick });
+      const now = jest.fn().mockReturnValue(1);
+      const subject = shallow(<StopwatchContainer now={now} />);
       // Act
-      setInterval(wrapper.instance().tick(), 10);
-
+      subject.instance().tick();
       // Assert
-      expect(wrapper.state().counter).toEqual(1);
+      expect(subject.state().counter).toEqual(1);
     });
-    it('stops ticking if counter is 0', () => {
-      Date.now = jest.fn(() => new Date(Date.UTC(2017, 7, 9, 8)).valueOf());
+    it('stores the value of counter in localStorage', () => {
       // Arrange
-      const lastTick = Date.now();
-      wrapper.setState({ counter: 0, lastTick: lastTick });
+      const now = jest.fn().mockReturnValue(1);
+      const subject = shallow(<StopwatchContainer now={now} />);
       // Act
-      setInterval(wrapper.instance().tick(), 10);
+      subject.instance().tick();
       // Assert
-      expect(wrapper.state().counter).toEqual(0);
+      expect(localStorage.counter).toEqual('1');
     });
   });
 

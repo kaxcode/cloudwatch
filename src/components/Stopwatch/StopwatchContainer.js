@@ -1,8 +1,17 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
-import { object } from 'prop-types';
+import { func, object } from 'prop-types';
 
 export default class StopwatchContainer extends React.Component {
+  static defaultProps = {
+    now: Date.now
+  }
+
+  static propTypes = {
+    location: object,
+    now: func.isRequired
+  };
+
   state = {
     counter: 0,
     clicked: false,
@@ -33,7 +42,7 @@ export default class StopwatchContainer extends React.Component {
       this.timer = setInterval(this.tick, 10);
       this.setState({
         clicked: true,
-        lastTick: Date.now()
+        lastTick: this.props.now()
       });
       localStorage.setItem('clicked', true);
     }
@@ -55,7 +64,7 @@ export default class StopwatchContainer extends React.Component {
   };
 
   tick = () => {
-    const lastTick = Date.now();
+    const lastTick = this.props.now();
     const elapsedTime = lastTick - this.state.lastTick;
     this.setState({
       counter: this.state.counter + elapsedTime,
@@ -77,7 +86,3 @@ export default class StopwatchContainer extends React.Component {
     );
   }
 }
-
-StopwatchContainer.propTypes = {
-  location: object
-};
