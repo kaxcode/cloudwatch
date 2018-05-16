@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<h3
+  className="Stopwatch__Count"
+>
+  NaN:NaN:NaN:NaN
+</h3>
+`;

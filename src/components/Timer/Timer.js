@@ -1,6 +1,6 @@
 import React from 'react';
 import Alert from '../Alert/Alert';
-import { func, number, bool, object } from 'prop-types';
+import { oneOfType, string, func, number, bool, object } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import Nav from '../Nav/Nav.js';
@@ -26,7 +26,7 @@ const Timer = props => {
           decreaseSeconds={props.decreaseSeconds}
         />
         <div className="Timer__Counter">
-          <TimeDisplay time={props.timeRemaining}/>
+          <TimeDisplay time={props.timeRemaining} />
         </div>
         <ControllerButtons
           onPause={props.onPause}
@@ -53,7 +53,7 @@ Timer.propTypes = {
   decreaseMinutes: func.isRequired,
   increaseSeconds: func.isRequired,
   decreaseSeconds: func.isRequired,
-  timeRemaining: number,
+  timeRemaining: oneOfType([number, string]),
   startClicked: bool,
   location: object
 };
