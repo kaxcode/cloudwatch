@@ -1,6 +1,6 @@
 import React from 'react';
 import Timer from './Timer.js';
-import { object } from 'prop-types';
+import { func, object } from 'prop-types';
 
 const HOURS = 3600 * 1000;
 const MINUTES = 60 * 1000;
@@ -9,6 +9,15 @@ const MAX_TIME = 24 * 60 * 60 * 1000;
 const MIN_TIME = 0;
 
 class TimerContainer extends React.Component {
+  static defaultProps = {
+    now: Date.now
+  };
+
+  static propTypes = {
+    location: object,
+    now: func.isRequired
+  };
+
   state = {
     lastTick: 0,
     timeRemaining: 0,
@@ -87,7 +96,7 @@ class TimerContainer extends React.Component {
     }
     clearInterval(this.timer);
     this.setState({
-      lastTick: Date.now(),
+      lastTick: this.props.now(),
       startClicked: true
     });
     this.timer = setInterval(this.tick, 10);
@@ -112,7 +121,7 @@ class TimerContainer extends React.Component {
       return this.handleClear();
     }
 
-    const lastTick = Date.now();
+    const lastTick = this.props.now();
     const elapsedTime = lastTick - this.state.lastTick;
     this.setState({
       timeRemaining: this.state.timeRemaining - elapsedTime,
