@@ -73,7 +73,6 @@ describe.only('StopwatchContainer', () => {
       expect(subject.state().counter).toEqual(1);
     });
     it('stores the value of counter in localStorage', () => {
-      // Arrange
       const now = jest.fn().mockReturnValue(1);
       const subject = shallow(<StopwatchContainer now={now} />);
       // Act

@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LocalStorageProvider renders correctly 1`] = `undefined`;
+exports[`LocalStorageProvider renders correctly 1`] = `
+<React.Fragment>
+  <WindowEvent
+    event="storage"
+    handler={[Function]}
+  />
+  <React.Fragment>
+    <TimeDisplay
+      time={0}
+    />
+    <MessageBoard />
+  </React.Fragment>
+</React.Fragment>
+`;
