@@ -260,6 +260,7 @@ describe('Timer', () => {
         // Assert
         expect(wrapper.state().timeRemaining).toEqual(0);
         expect(wrapper.state().timeRemaining).not.toBe(-1 * 1000);
+
         expect(spy).toHaveBeenCalled();
       });
 

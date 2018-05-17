@@ -38,7 +38,7 @@ describe('MessageOutput', () => {
     const subject = shallow(
       <MessageOutput
         showMessage={false}
-        handleDismiss={handleDismiss}
+        onDismiss={handleDismiss}
         message="string"
         onChange={onChange}
       />
@@ -47,32 +47,20 @@ describe('MessageOutput', () => {
   });
   it('renders a message when :showMessage is true', () => {
     const subject = shallow(
-      <MessageOutput
-        showMessage
-        handleDismiss={handleDismiss}
-        message="string"
-      />
+      <MessageOutput showMessage onDismiss={handleDismiss} message="string" />
     );
     expect(toJson(subject)).toMatchSnapshot();
   });
   it('does not render if localStorage.message is an empty string', () => {
     localStorage.setItem('message', '');
     const subject = shallow(
-      <MessageOutput
-        showMessage={false}
-        handleDismiss={handleDismiss}
-        message=""
-      />
+      <MessageOutput showMessage={false} onDismiss={handleDismiss} message="" />
     );
     expect(toJson(subject)).toMatchSnapshot();
   });
   it('renders if localStorage.message is NOT an empty string', () => {
     const subject = shallow(
-      <MessageOutput
-        showMessage
-        handleDismiss={handleDismiss}
-        message="testing"
-      />
+      <MessageOutput showMessage onDismiss={handleDismiss} message="testing" />
     );
     localStorage.setItem('message', 'testing');
     subject.update();

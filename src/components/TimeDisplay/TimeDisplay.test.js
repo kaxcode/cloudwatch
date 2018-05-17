@@ -9,5 +9,5 @@ import TimeDisplay from './TimeDisplay';
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders correctly', () => {
-  expect(toJson(shallow(<TimeDisplay />))).toMatchSnapshot();
+  expect(toJson(shallow(<TimeDisplay time={'20000'} />))).toMatchSnapshot();
 });

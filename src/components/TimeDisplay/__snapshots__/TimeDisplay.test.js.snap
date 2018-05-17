@@ -4,6 +4,6 @@ exports[`renders correctly 1`] = `
 <h3
   className="Stopwatch__Count"
 >
-  NaN:NaN:NaN:NaN
+  00:00:20:000
 </h3>
 `;

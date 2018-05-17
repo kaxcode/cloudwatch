@@ -8,15 +8,16 @@ class PresenterView extends React.Component {
   render() {
     return (
       <main>
+        /* istanbul ignore next */
         <Nav />
-          <LocalStorageProvider keys={['timeRemaining']}>
-            {({ timeRemaining }) => (
-              <React.Fragment>
-                <TimeDisplay time={timeRemaining}/>
-                <MessageBoard/>
-              </React.Fragment>
+        <LocalStorageProvider keys={['timeRemaining']}>
+          {({ timeRemaining }) => (
+            <React.Fragment>
+              <TimeDisplay time={timeRemaining} />
+              <MessageBoard />
+            </React.Fragment>
           )}
-          </LocalStorageProvider>
+        </LocalStorageProvider>
       </main>
     );
   }

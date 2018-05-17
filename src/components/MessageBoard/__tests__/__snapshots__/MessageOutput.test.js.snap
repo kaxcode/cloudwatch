@@ -7,7 +7,9 @@ exports[`MessageOutput does not render a message when :showMessage is false 1`] 
   <h1>
     string
   </h1>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     X
   </button>
 </div>
@@ -22,7 +24,9 @@ exports[`MessageOutput renders a message when :showMessage is true 1`] = `
   <h1>
     string
   </h1>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     X
   </button>
 </div>
