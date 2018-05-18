@@ -7,7 +7,7 @@ import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe.only('StopwatchContainer', () => {
+describe('StopwatchContainer', () => {
   let wrapper;
 
   beforeEach(() => {
