@@ -67,7 +67,7 @@ exports[`PresenterView renders correctly 1`] = `
             handler={[Function]}
           />
           <TimeDisplay
-            time={0}
+            time={null}
           >
             <h3
               className="Stopwatch__Count"

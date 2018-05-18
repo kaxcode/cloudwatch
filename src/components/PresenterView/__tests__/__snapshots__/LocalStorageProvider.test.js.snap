@@ -6,11 +6,8 @@ exports[`LocalStorageProvider renders correctly 1`] = `
     event="storage"
     handler={[Function]}
   />
-  <React.Fragment>
-    <TimeDisplay
-      time={0}
-    />
-    <MessageBoard />
-  </React.Fragment>
+  <div>
+    456
+  </div>
 </React.Fragment>
 `;

@@ -4,74 +4,54 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import LocalStorageProvider from '../LocalStorageProvider';
-import MessageBoard from '../../MessageBoard/MessageBoard';
-import TimeDisplay from '../../TimeDisplay/TimeDisplay';
 import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('LocalStorageProvider', () => {
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(
-      <LocalStorageProvider keys={['timeRemaining']}>
-        {({ timeRemaining }) => (
-          <React.Fragment>
-            <TimeDisplay time={timeRemaining} />
-            <MessageBoard />
-          </React.Fragment>
-        )}
-      </LocalStorageProvider>
-    );
-  });
-
   afterEach(() => {
     localStorage.clear();
   });
 
   it('renders correctly', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
+    localStorage.setItem('foo', 456);
+    const subject = shallow(
+      <LocalStorageProvider keys={['foo']}>
+        {({foo}) => <div>{foo}</div>}
+      </LocalStorageProvider>
+    );
+    expect(toJson(subject)).toMatchSnapshot();
   });
-});
 
-describe('#componentDidMount', () => {
-  it('sets the state of timeRemaining to that in localStorage', () => {
-    // Arrange
-    const wrapper = shallow(
-      <LocalStorageProvider keys={['timeRemaining']}>
-        {({ timeRemaining }) => (
-          <React.Fragment>
-            <TimeDisplay time={timeRemaining} />
-            <MessageBoard />
-          </React.Fragment>
-        )}
-      </LocalStorageProvider>
-    );
-    localStorage.setItem('timeRemaining', 10);
-    // Act
-    wrapper.instance().componentDidMount();
-    // Assert
-    expect(wrapper.state().timeRemaining).toEqual('10');
+  describe('#componentWillMount', () => {
+    it('calls #deriveStateFromStore', () => {
+      const component = shallow(<LocalStorageProvider keys={['foo']}/>);
+      const subject = component.instance();
+      const spy = jest.spyOn(subject, 'deriveStateFromStore');
+      localStorage.setItem('foo', 123);
+      subject.componentWillMount();
+      expect(spy).toHaveBeenCalled();
+    });
   });
-});
-describe('#handleStorage', () => {
-  it('formats and sets the state to that in localStorage', () => {
-    // Arrange
-    const wrapper = shallow(
-      <LocalStorageProvider keys={['timeRemaining']}>
-        {({ timeRemaining }) => (
-          <React.Fragment>
-            <TimeDisplay time={timeRemaining} />
-            <MessageBoard />
-          </React.Fragment>
-        )}
-      </LocalStorageProvider>
-    );
-    localStorage.setItem('timeRemaining', 10);
-    // Act
-    wrapper.instance().handleStorage();
-    // Assert
-    expect(wrapper.state().someState.timeRemaining).toEqual('10');
+
+  describe('#deriveStateFromStore', () => {
+    it('derives local state from localstorage', () => {
+      const subject = shallow(<LocalStorageProvider keys={['foo']}/>);
+      expect(subject.state()).toEqual({ foo: null });
+      localStorage.setItem('foo', 123);
+      subject.instance().deriveStateFromStore();
+      expect(subject.state()).toEqual({ foo: '123' });
+    });
+  });
+
+  describe('#handleStorage', () => {
+    it('calls #deriveStateFromStore', () => {
+      const component = shallow(<LocalStorageProvider keys={['foo']}/>);
+      const subject = component.instance();
+      const spy = jest.spyOn(subject, 'deriveStateFromStore');
+      localStorage.setItem('foo', 123);
+      subject.handleStorage();
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
