@@ -6,31 +6,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import LocalStorageProvider from '../LocalStorageProvider';
 import MessageBoard from '../../MessageBoard/MessageBoard';
 import TimeDisplay from '../../TimeDisplay/TimeDisplay';
+import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
-class LocalStorageMock {
-  constructor() {
-    this.message = {};
-  }
-
-  clear() {
-    this.message = {};
-  }
-
-  getItem(key) {
-    return this[key] || null;
-  }
-
-  setItem(key, value) {
-    this[key] = value.toString();
-  }
-
-  removeItem(key) {
-    delete this[key];
-  }
-}
-
-global.localStorage = new LocalStorageMock();
 
 describe('LocalStorageProvider', () => {
   let wrapper;
@@ -46,6 +24,10 @@ describe('LocalStorageProvider', () => {
         )}
       </LocalStorageProvider>
     );
+  });
+
+  afterEach(() => {
+    localStorage.clear();
   });
 
   it('renders correctly', () => {

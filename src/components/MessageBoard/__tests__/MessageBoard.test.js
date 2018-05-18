@@ -3,34 +3,15 @@ import Enzyme from 'enzyme';
 import MessageBoard from '../MessageBoard.js';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-class LocalStorageMock {
-  constructor() {
-    this.message = {};
-  }
-
-  clear() {
-    this.message = {};
-  }
-
-  getItem(key) {
-    return this[key] || null;
-  }
-
-  setItem(key, value) {
-    this[key] = value.toString();
-  }
-
-  removeItem(key) {
-    delete this[key];
-  }
-}
-
-global.localStorage = new LocalStorageMock();
-
 describe('MessageBoard', () => {
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   describe('#handleDismiss', () => {
     it('does not render a message when #handleDismiss is called', () => {
       //Arrange
@@ -107,7 +88,8 @@ describe('MessageBoard', () => {
       // Act
       subject.update();
       // Assert
-      expect(localStorage.getItem('message')).toEqual('test message');
+      // eslint-disable-next-line no-underscore-dangle
+      expect(localStorage.__STORE__.message).toEqual('test message');
     });
   });
 

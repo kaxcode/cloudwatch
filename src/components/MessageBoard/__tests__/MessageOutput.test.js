@@ -4,36 +4,17 @@ import MessageOutput from '../MessageOutput.js';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
+import 'jest-localstorage-mock';
 
 Enzyme.configure({ adapter: new Adapter() });
 const handleDismiss = jest.fn();
 const onChange = jest.fn();
 
-class LocalStorageMock {
-  constructor() {
-    this.message = {};
-  }
-
-  clear() {
-    this.message = {};
-  }
-
-  getItem(key) {
-    return this[key] || null;
-  }
-
-  setItem(key, value) {
-    this[key] = value.toString();
-  }
-
-  removeItem(key) {
-    delete this[key];
-  }
-}
-
-global.localStorage = new LocalStorageMock();
-
 describe('MessageOutput', () => {
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   it('does not render a message when :showMessage is false', () => {
     const subject = shallow(
       <MessageOutput
