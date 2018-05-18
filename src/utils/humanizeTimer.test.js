@@ -2,9 +2,9 @@ import { millisecondsToHuman } from './humanizeTimer';
 
 describe('humanizeTimer', () => {
   describe('#millisecondsToHuman', () => {
-    it('converts time to be displayed in hours, seconds, minutes, and miliseconds', () => {
+    it('converts milliseconds into a readable time value', () => {
       // Arrange & Act
-      const actual = millisecondsToHuman(7200000);
+      const actual = millisecondsToHuman(null);
 
       // Assert
       expect(actual).toEqual('02:00:00:000');
