@@ -11,8 +11,11 @@ describe.only('StopwatchContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    localStorage.clear();
     wrapper = shallow(<StopwatchContainer />);
+  });
+
+  afterEach(() => {
+    localStorage.clear();
   });
 
   jest.useFakeTimers();

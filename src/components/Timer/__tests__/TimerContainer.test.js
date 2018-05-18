@@ -38,6 +38,10 @@ describe('Timer', () => {
         handleClear={handleClearMock}
       />
     );
+    localStorage.clear();
+  });
+
+  afterEach(() => {
     jest.clearAllMocks();
     localStorage.clear();
   });
