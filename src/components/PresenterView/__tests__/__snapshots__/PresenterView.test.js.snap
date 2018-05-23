@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PresenterView renders correctly 1`] = `
+<MemoryRouter
+  keyLength={0}
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <PresenterView>
+      <main>
+        <Nav>
+          <Link
+            replace={false}
+            to="/"
+          >
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              <img
+                alt="Click to return home"
+                className="Nav__Img"
+                src="blank_cloud.svg"
+              />
+            </a>
+          </Link>
+        </Nav>
+        <LocalStorageProvider
+          keys={
+            Array [
+              "timeRemaining",
+            ]
+          }
+        >
+          <WindowEvent
+            event="storage"
+            handler={[Function]}
+          />
+          <TimeDisplay
+            time={null}
+          >
+            <h3
+              className="Stopwatch__Count"
+            >
+              00:00:00:000
+            </h3>
+          </TimeDisplay>
+          <MessageBoard
+            showInput={true}
+            windowOpener={[Function]}
+          >
+            <div
+              className="MessageBoard__Input"
+            >
+              <MessageOutput
+                onPresent={[Function]}
+                onSubmit={[Function]}
+              >
+                <form
+                  id="message-submit-form"
+                  onSubmit={[Function]}
+                >
+                  <input
+                    id="message-input"
+                  />
+                  <button
+                    id="message-submit-button"
+                  >
+                    Post Message
+                  </button>
+                  <button
+                    onClick={[Function]}
+                  >
+                    Open Presentation Window
+                  </button>
+                </form>
+              </MessageOutput>
+              <MessageOutput
+                onDismiss={[Function]}
+              />
+            </div>
+          </MessageBoard>
+        </LocalStorageProvider>
+      </main>
+    </PresenterView>
+  </Router>
+</MemoryRouter>
+`;

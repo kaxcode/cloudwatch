@@ -1,16 +1,12 @@
 import React from 'react';
-import {
-  secondsToHour,
-  secondsToMinutes,
-  seconds
-} from '../../utils/humanizeTimer';
 import Alert from '../Alert/Alert';
-import { func, number, bool } from 'prop-types';
+import { oneOfType, string, func, number, bool, object } from 'prop-types';
 import AdjustTimerButtonGroup from './AdjustTimerButtonGroup';
 import MessageBoard from '../MessageBoard/MessageBoard.js';
 import Nav from '../Nav/Nav.js';
 import './Timer.css';
 import ControllerButtons from '../ControllerButtons/ControllerButtons';
+import TimeDisplay from '../TimeDisplay/TimeDisplay';
 
 const Timer = props => {
   return (
@@ -30,24 +26,17 @@ const Timer = props => {
           decreaseSeconds={props.decreaseSeconds}
         />
         <div className="Timer__Counter">
-          <div className="Timer__HoursCount">
-            {secondsToHour(props.timeRemaining)}
-          </div>
-          <div className="Timer__Delimiter">:</div>
-          <div className="Timer__MinutesCount">
-            {secondsToMinutes(props.timeRemaining)}
-          </div>
-          <div className="Timer__Delimiter">:</div>
-          <div className="Timer__SecondsCount">
-            {seconds(props.timeRemaining)}
-          </div>
+          <TimeDisplay time={props.timeRemaining} />
         </div>
         <ControllerButtons
           onPause={props.onPause}
           onStart={props.onStart}
           onClear={props.onClear}
         />
-        <MessageBoard />
+        <MessageBoard
+          location={props.location}
+          timeRemaining={props.timeRemaining}
+        />
       </div>
     </main>
   );
@@ -64,8 +53,9 @@ Timer.propTypes = {
   decreaseMinutes: func.isRequired,
   increaseSeconds: func.isRequired,
   decreaseSeconds: func.isRequired,
-  timeRemaining: number,
-  startClicked: bool
+  timeRemaining: oneOfType([number, string]),
+  startClicked: bool,
+  location: object
 };
 
 export default Timer;

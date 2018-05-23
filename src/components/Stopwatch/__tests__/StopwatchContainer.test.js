@@ -14,48 +14,43 @@ describe('StopwatchContainer', () => {
     wrapper = shallow(<StopwatchContainer />);
   });
 
+  afterEach(() => {
+    localStorage.clear();
+  });
+
   jest.useFakeTimers();
 
   it('runs after start click', () => {
     //Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleStart');
-
     //Act
     wrapper.instance().handleStart();
-
     //Assert
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
     expect(spy).toHaveBeenCalled();
   });
-
   it('does not run if start has been clicked', () => {
     //Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleStart');
-
     //Act
     wrapper.setState({ clicked: true });
     wrapper.instance().handleStart();
-
     //Assert
     expect(wrapper.state().clicked).toBe(true);
     expect(wrapper.state().counter).not.toBe(1);
     expect(spy).toHaveBeenCalled();
   });
-
   it('pauses the tick function from chaning the counter state ', () => {
     // Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handlePause');
     wrapper.instance().handleStart();
-
     // Act
     wrapper.instance().handlePause();
-
     // Assert
     expect(setInterval).toHaveBeenCalledTimes(2);
     expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
     expect(spy).toHaveBeenCalled();
   });
-
   it('clears the the Hours, Minutes, Seconds state', () => {
     // Arrange
     const spy = jest.spyOn(wrapper.instance(), 'handleClear');
@@ -71,30 +66,22 @@ describe('StopwatchContainer', () => {
   });
 
   describe('#tick', () => {
-    it('decreases the time remaining by 1 second', () => {
+    it('increases the counter by the time elapsed', () => {
       // Arrange
-      wrapper.setState({ counter: 0 });
-
+      const now = jest.fn().mockReturnValue(1);
+      const subject = shallow(<StopwatchContainer now={now} />);
       // Act
-      wrapper.instance().tick();
-
+      subject.instance().tick();
       // Assert
-      expect(wrapper.state().counter).toEqual(1);
-      expect(wrapper.state().counter).not.toBe(0);
-      expect(wrapper.state().counter).not.toBe(-1);
+      expect(subject.state().counter).toEqual(1);
     });
-
-    it('stops ticking if counter is 0', () => {
-      // Arrange
-      wrapper.setState({ counter: 0 });
-
+    it('stores the value of counter in localStorage', () => {
+      const now = jest.fn().mockReturnValue(1);
+      const subject = shallow(<StopwatchContainer now={now} />);
       // Act
-      wrapper.instance().tick();
-
+      subject.instance().tick();
       // Assert
-      expect(wrapper.state().counter).toEqual(1);
-      expect(wrapper.state().counter).not.toBe(-1);
-      expect(wrapper.state().counter).not.toBe(0);
+      expect(localStorage.counter).toEqual('1');
     });
   });
 
@@ -103,20 +90,16 @@ describe('StopwatchContainer', () => {
       // Arrange
       const initialCounter = Math.round(Math.random() * 10000);
       localStorage.setItem('counter', initialCounter);
-
       // Act
       const subject = shallow(<StopwatchContainer />);
-
       // Assert
       expect(subject.state().counter).toEqual(initialCounter);
     });
     it('sets a sane default counter value', () => {
       // Arrange
       localStorage.setItem('counter', null);
-
       // Act
       const subject = shallow(<StopwatchContainer />);
-
       // Assert
       expect(subject.state().counter).toEqual(0);
     });
@@ -126,24 +109,19 @@ describe('StopwatchContainer', () => {
     it('sets state to localStorage value ', () => {
       // Arrange
       localStorage.setItem('counter', 999);
-      wrapper.setState({ counter: 1214 });
-
       // Act
       wrapper.update();
-
       // Assert
-      expect(localStorage.getItem('counter')).toEqual('1214');
+      expect(localStorage.getItem('counter')).toEqual('999');
     });
   });
 
   describe('#componentWillUnmount', () => {
-    it('resets the stored state in localstorage', () => {
+    it('resets the stored state in localStorage', () => {
       // Arrange
       localStorage.setItem('counter', 999);
-
       // Act
       wrapper.instance().componentWillUnmount();
-
       // Assert
       expect(localStorage.getItem('counter')).toEqual('0');
     });

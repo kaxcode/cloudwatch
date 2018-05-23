@@ -1,10 +1,21 @@
 import React from 'react';
 import Stopwatch from './Stopwatch';
+import { func, object } from 'prop-types';
 
 export default class StopwatchContainer extends React.Component {
+  static defaultProps = {
+    now: Date.now
+  }
+
+  static propTypes = {
+    location: object,
+    now: func.isRequired
+  };
+
   state = {
     counter: 0,
-    clicked: false
+    clicked: false,
+    lastTick: 0
   };
 
   timer = null;
@@ -16,8 +27,8 @@ export default class StopwatchContainer extends React.Component {
   };
 
   componentDidUpdate() {
-    // Sets the locastorage
-    localStorage.setItem('counter', this.state.counter);
+    // Sets the localstorage
+    localStorage.setItem('timeRemaining', this.state.counter);
   }
 
   componentWillUnmount() {
@@ -29,25 +40,37 @@ export default class StopwatchContainer extends React.Component {
     if (this.state.clicked === false) {
       clearInterval(this.timer);
       this.timer = setInterval(this.tick, 10);
-      this.setState({ clicked: true });
+      this.setState({
+        clicked: true,
+        lastTick: this.props.now()
+      });
+      localStorage.setItem('clicked', true);
     }
   };
 
   handlePause = () => {
     clearInterval(this.timer);
     this.setState({ clicked: false });
+    localStorage.setItem('clicked', false);
   };
 
   handleClear = () => {
     clearInterval(this.timer);
-    this.setState({ counter: 0 });
-    this.setState({ clicked: false });
+    this.setState({
+      clicked: false,
+      counter: 0
+    });
+    localStorage.setItem('counter', 0);
   };
 
   tick = () => {
+    const lastTick = this.props.now();
+    const elapsedTime = lastTick - this.state.lastTick;
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + elapsedTime,
+      lastTick
     });
+    localStorage.setItem('counter', this.state.counter);
   };
 
   render() {
@@ -58,6 +81,7 @@ export default class StopwatchContainer extends React.Component {
         onClear={this.handleClear}
         counter={this.state.counter}
         clicked={this.state.clicked}
+        location={this.props.location}
       />
     );
   }

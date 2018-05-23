@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocalStorageProvider renders correctly 1`] = `
+<React.Fragment>
+  <WindowEvent
+    event="storage"
+    handler={[Function]}
+  />
+  <div>
+    456
+  </div>
+</React.Fragment>
+`;

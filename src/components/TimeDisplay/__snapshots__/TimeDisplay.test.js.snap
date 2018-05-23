@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeDisplay renders correctly 1`] = `
+<h3
+  className="Stopwatch__Count"
+>
+  00:00:20:000
+</h3>
+`;

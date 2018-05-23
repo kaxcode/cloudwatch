@@ -8,17 +8,18 @@ exports[`Stopwatch renders correctly 1`] = `
   <div
     className="Stopwatch__Container"
   >
-    <h3
-      className="Stopwatch__Count"
-    >
-      00:00:00:00
-    </h3>
+    <TimeDisplay
+      time={0}
+    />
     <ControllerButtons
       onClear={[Function]}
       onPause={[Function]}
       onStart={[Function]}
     />
-    <MessageBoard />
+    <MessageBoard
+      showInput={true}
+      windowOpener={[Function]}
+    />
   </div>
 </main>
 `;

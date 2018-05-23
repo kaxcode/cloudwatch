@@ -1,41 +1,57 @@
+import { bool, func } from 'prop-types';
 import React from 'react';
 import MessageOutput from './MessageOutput';
 import './MessageBoard.css';
+import MessageBoardForm from './MessageBoardForm';
 
-class MessageBoard extends React.Component {
+export default class MessageBoard extends React.Component {
+  static defaultProps = {
+    showInput: true,
+    windowOpener: window.open.bind(window)
+  };
+
+  static propTypes = {
+    showInput: bool,
+    windowOpener: func.isRequired
+  };
+
   state = {
-    showMessage: false,
     message: ''
   };
 
+  componentDidMount = () => {
+    if (window.name === 'presenter') {
+      this.setState({ message: localStorage.message });
+    }
+  };
+
   handleDismiss = () => {
-    this.setState({ showMessage: false });
+    this.setState({ message: '' });
+    localStorage.setItem('message', '');
   };
 
-  handleChange = e => {
-    this.setState({ message: e.target.value });
-  };
-
-  handleSubmit = e => {
+  handleSubmit = (e, message) => {
     e.preventDefault();
-    this.setState({ showMessage: true });
+    this.setState({ message });
+    localStorage.setItem('message', message);
+  };
+
+  handlePresent = () => {
+    this.props.windowOpener('present', 'presenter');
   };
 
   render() {
     return (
       <div className="MessageBoard__Input">
-        <MessageOutput
-          message={this.state.message}
-          showMessage={this.state.showMessage}
-          handleDismiss={this.handleDismiss}
+        <MessageBoardForm
+          onSubmit={this.handleSubmit}
+          onPresent={this.handlePresent}
         />
-        <form id="message-submit-form" onSubmit={this.handleSubmit}>
-          <input id="message-input" onChange={this.handleChange} />
-          <button id="message-submit-button">Submit</button>
-        </form>
+        <MessageOutput
+          message={localStorage.message}
+          onDismiss={this.handleDismiss}
+        />
       </div>
     );
   }
 }
-
-export default MessageBoard;

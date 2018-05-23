@@ -11,8 +11,8 @@ jest.useFakeTimers();
 
 describe('Timer', () => {
   let wrapper;
-  const hours = 3600;
-  const minutes = 60;
+  const hours = 3600 * 1000;
+  const minutes = 60 * 1000;
 
   function increaseHoursMock() {}
   function decreaseHoursMock() {}
@@ -38,7 +38,12 @@ describe('Timer', () => {
         handleClear={handleClearMock}
       />
     );
+    localStorage.clear();
+  });
+
+  afterEach(() => {
     jest.clearAllMocks();
+    localStorage.clear();
   });
 
   it('renders correctly', () => {
@@ -144,13 +149,13 @@ describe('Timer', () => {
       it('does nothing when remaining time is at maximum', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'increaseMinutes');
-        wrapper.setState({ timeRemaining: 86400 });
+        wrapper.setState({ timeRemaining: 86400 * 1000 });
 
         // Act
         wrapper.instance().increaseMinutes();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(86400);
+        expect(wrapper.state().timeRemaining).toEqual(86400 * 1000);
         expect(spy).toHaveBeenCalled();
       });
     });
@@ -212,8 +217,8 @@ describe('Timer', () => {
         wrapper.instance().increaseSeconds();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(3);
-        expect(wrapper.state().timeRemainingg).not.toBe(1);
+        expect(wrapper.state().timeRemaining).toEqual(3 * 1000);
+        expect(wrapper.state().timeRemainingg).not.toBe(1 * 1000);
         expect(spy).toHaveBeenCalled();
       });
 
@@ -236,29 +241,30 @@ describe('Timer', () => {
       it('decreases the seconds in the time remaining', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'decreaseSeconds');
-        wrapper.setState({ timeRemaining: 32 });
+        wrapper.setState({ timeRemaining: 32 * 1000 });
 
         // Act
         wrapper.instance().decreaseSeconds();
         wrapper.instance().decreaseSeconds();
 
         // Assert
-        expect(wrapper.state().timeRemaining).toEqual(30);
-        expect(wrapper.state().timeRemaining).not.toBe(31);
+        expect(wrapper.state().timeRemaining).toEqual(30 * 1000);
+        expect(wrapper.state().timeRemaining).not.toBe(31 * 1000);
         expect(spy).toHaveBeenCalled();
       });
 
       it('cannot let seconds decrease below 0', () => {
         // Arrange
         const spy = jest.spyOn(wrapper.instance(), 'decreaseSeconds');
-        wrapper.setState({ timeRemaining: 1 });
+        wrapper.setState({ timeRemaining: 1 * 1000 });
 
         // Act
         wrapper.instance().decreaseSeconds();
 
         // Assert
         expect(wrapper.state().timeRemaining).toEqual(0);
-        expect(wrapper.state().timeRemaining).not.toBe(-1);
+        expect(wrapper.state().timeRemaining).not.toBe(-1 * 1000);
+
         expect(spy).toHaveBeenCalled();
       });
 
@@ -292,7 +298,7 @@ describe('Timer', () => {
       expect(setInterval).toHaveBeenCalledTimes(1);
       expect(clearInterval).toHaveBeenCalledTimes(1);
       expect(wrapper.state().startClicked).toBe(true);
-      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
       expect(spy).toHaveBeenCalled();
     });
 
@@ -307,7 +313,7 @@ describe('Timer', () => {
 
       // Assert
       expect(setInterval).toHaveBeenCalledTimes(1);
-      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+      expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
       expect(spy).toHaveBeenCalled();
       wrapper.setState({ startClicked: true });
 
@@ -359,15 +365,15 @@ describe('Timer', () => {
   describe('#tick', () => {
     it('decreases the time remaining by 1 second', () => {
       // Arrange
-      wrapper.setState({ timeRemaining: 20 });
+      const now = jest.fn().mockReturnValue(1526504121874);
+      const subject = shallow(<TimerContainer now={now} />);
+      subject.setState({ timeRemaining: 3 * hours });
 
       // Act
-      wrapper.instance().tick();
+      subject.instance().tick();
 
       // Assert
-      expect(wrapper.state().timeRemaining).toEqual(19);
-      expect(wrapper.state().timeRemaining).not.toBe(20);
-      expect(wrapper.state().timeRemaining).not.toBe(21);
+      expect(subject.state().timeRemaining).toEqual(-1526493321874);
     });
 
     it('stops ticking if timeRemaining is 0', () => {
@@ -424,7 +430,7 @@ describe('Timer', () => {
   describe('#componentDidUpdate', () => {
     it('sets state to localStorage value ', () => {
       // Arrange
-      localStorage.setItem('timeRemaining', 999);
+      localStorage.setItem('timeRemaining', 1214);
       wrapper.setState({ timeRemaining: 1214 });
 
       // Act
@@ -432,6 +438,16 @@ describe('Timer', () => {
 
       // Assert
       expect(localStorage.getItem('timeRemaining')).toEqual('1214');
+    });
+    it('does NOT call #handleStart if not in presenter view and already started', () => {
+      //Arrange
+      const spy = jest.spyOn(wrapper.instance(), 'handleStart');
+      wrapper.setState({ timeRemaining: 1214 });
+
+      //Act
+      wrapper.update();
+      //Assert
+      expect(spy).not.toHaveBeenCalled();
     });
   });
 
