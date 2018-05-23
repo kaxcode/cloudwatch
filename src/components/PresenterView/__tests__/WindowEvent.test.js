@@ -19,40 +19,40 @@ describe('WindowEvent', () => {
   it('renders correctly', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
-});
 
-describe('#componentWillUpdate', () => {
-  const wrapper = shallow(
-    <WindowEvent event="storage" handler={handleStorage} />
-  );
+  describe('#componentWillUpdate', () => {
+    const wrapper = shallow(
+      <WindowEvent event="storage" handler={handleStorage} />
+    );
 
-  it('calls removeEvent', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'removeEvent');
-    wrapper.instance().componentWillUpdate();
-    expect(spy).toHaveBeenCalled();
+    it('calls removeEvent', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'removeEvent');
+      wrapper.instance().componentWillUpdate();
+      expect(spy).toHaveBeenCalled();
+    });
   });
-});
 
-describe('#componentDidUpdate', () => {
-  const wrapper = shallow(
-    <WindowEvent event="storage" handler={handleStorage} />
-  );
+  describe('#componentDidUpdate', () => {
+    const wrapper = shallow(
+      <WindowEvent event="storage" handler={handleStorage} />
+    );
 
-  it('calls addEvent', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'addEvent');
-    wrapper.instance().componentDidUpdate();
-    expect(spy).toHaveBeenCalled();
+    it('calls addEvent', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'addEvent');
+      wrapper.instance().componentDidUpdate();
+      expect(spy).toHaveBeenCalled();
+    });
   });
-});
 
-describe('#componentWillUnmount', () => {
-  const wrapper = shallow(
-    <WindowEvent event="storage" handler={handleStorage} />
-  );
+  describe('#componentWillUnmount', () => {
+    const wrapper = shallow(
+      <WindowEvent event="storage" handler={handleStorage} />
+    );
 
-  it('calls removeEvent', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'removeEvent');
-    wrapper.instance().componentWillUnmount();
-    expect(spy).toHaveBeenCalled();
+    it('calls removeEvent', () => {
+      const spy = jest.spyOn(wrapper.instance(), 'removeEvent');
+      wrapper.instance().componentWillUnmount();
+      expect(spy).toHaveBeenCalled();
+    });
   });
 });
