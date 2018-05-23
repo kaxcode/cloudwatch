@@ -3,10 +3,6 @@ import './ControllerButtons.css';
 import { func, bool } from 'prop-types';
 
 const ControllerButtons = props => {
-  if (window.name === 'presenter') {
-    return null;
-  }
-
   return (
     <div className="ControllerButtons">
       <button
