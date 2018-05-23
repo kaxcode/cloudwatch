@@ -1,10 +1,20 @@
+import { bool, func } from 'prop-types';
 import React from 'react';
 import MessageOutput from './MessageOutput';
 import './MessageBoard.css';
-import { bool } from 'prop-types';
 import MessageBoardForm from './MessageBoardForm';
 
-class MessageBoard extends React.Component {
+export default class MessageBoard extends React.Component {
+  static defaultProps = {
+    showInput: true,
+    windowOpener: window.open.bind(window)
+  };
+
+  static propTypes = {
+    showInput: bool,
+    windowOpener: func.isRequired
+  };
+
   state = {
     message: ''
   };
@@ -27,7 +37,7 @@ class MessageBoard extends React.Component {
   };
 
   handlePresent = () => {
-    window.open('present', 'presenter');
+    this.props.windowOpener('present', 'presenter');
   };
 
   render() {
@@ -45,13 +55,3 @@ class MessageBoard extends React.Component {
     );
   }
 }
-
-MessageBoard.defaultProp = {
-  showInput: true
-};
-
-MessageBoard.propTypes = {
-  showInput: bool
-};
-
-export default MessageBoard;

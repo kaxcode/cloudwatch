@@ -91,20 +91,20 @@ describe('MessageBoard', () => {
       // eslint-disable-next-line no-underscore-dangle
       expect(localStorage.__STORE__.message).toEqual('test message');
     });
-  });
 
-  it('opens secondary window with location and assigns the name presenter to it', () => {
-    localStorage.setItem('message', 'test message');
-    const subject = shallow(
-      <MessageBoard
-        location={{ pathname: '/timer' }}
-        timeRemaining={5}
-        counter={5}
-      />
-    );
-    subject.setState({ message: 'test message' });
-    window.open = jest.fn();
-    subject.instance().handlePresent();
-    expect(window.open).toBeCalled();
+    it('opens the presenter view in another window', () => {
+      const opener = jest.fn();
+      const subject = shallow(
+        <MessageBoard
+          location={{ pathname: '/timer' }}
+          timeRemaining={5}
+          counter={5}
+          windowOpener={opener}
+        />
+      );
+      subject.setState({ message: 'test message' });
+      subject.instance().handlePresent();
+      expect(opener).toBeCalled();
+    });
   });
 });

@@ -75,7 +75,10 @@ exports[`PresenterView renders correctly 1`] = `
               00:00:00:000
             </h3>
           </TimeDisplay>
-          <MessageBoard>
+          <MessageBoard
+            showInput={true}
+            windowOpener={[Function]}
+          >
             <div
               className="MessageBoard__Input"
             >

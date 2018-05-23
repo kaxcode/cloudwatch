@@ -33,7 +33,9 @@ exports[`Timer renders correctly 1`] = `
       onStart={[Function]}
     />
     <MessageBoard
+      showInput={true}
       timeRemaining={0}
+      windowOpener={[Function]}
     />
   </div>
 </main>

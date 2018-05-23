@@ -16,7 +16,10 @@ exports[`Stopwatch renders correctly 1`] = `
       onPause={[Function]}
       onStart={[Function]}
     />
-    <MessageBoard />
+    <MessageBoard
+      showInput={true}
+      windowOpener={[Function]}
+    />
   </div>
 </main>
 `;
