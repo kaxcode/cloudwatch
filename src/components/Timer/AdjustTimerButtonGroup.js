@@ -3,10 +3,6 @@ import { func } from 'prop-types';
 import './AdjustTimerButtonGroup.css';
 
 const AdjustTimerButtonGroup = props => {
-if (window.name === 'presenter') {
-  return null;
-}
-
   return (
     <div className="AdjustTimerButtonGroup">
       <div className="Timer__HoursAdjustBtn__Container">
