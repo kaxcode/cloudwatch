@@ -425,20 +425,6 @@ describe('Timer', () => {
       // Assert
       expect(subject.state().timeRemaining).toEqual(0);
     });
-    it('sets timeRemaining value from localstorage for presenter window', () => {
-      // Arrange
-      const initialTime = Math.round(Math.random() * 10000);
-      localStorage.setItem('timeRemaining', initialTime);
-      global.window.name = 'presenter';
-
-      // Act
-      const subject = shallow(<TimerContainer />);
-
-      // Assert
-      expect(subject.state().timeRemaining).toEqual(
-        JSON.stringify(initialTime)
-      );
-    });
   });
 
   describe('#componentDidUpdate', () => {

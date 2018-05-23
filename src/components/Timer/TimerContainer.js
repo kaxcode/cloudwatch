@@ -29,9 +29,6 @@ class TimerContainer extends React.Component {
   componentDidMount = () => {
     const localStorageRef = localStorage.getItem('timeRemaining');
     this.setState({ timeRemaining: parseInt(localStorageRef, 0) || 0 });
-    if (window.name === 'presenter') {
-      this.setState({ timeRemaining: localStorage.timeRemaining });
-    }
   };
 
   componentDidUpdate() {
