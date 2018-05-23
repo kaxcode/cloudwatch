@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class WindowEvent extends React.PureComponent {
-  static displayName = 'WindowEvent';
-
   static propTypes = {
     event: PropTypes.string.isRequired,
     handler: PropTypes.func.isRequired
